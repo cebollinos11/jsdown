@@ -1,0 +1,8 @@
+body {
+   background: linear-gradient(to right, black , red, black); /* Standard syntax (must be last) */
+overflow:hidden;    
+}
+
+div{
+  margin: 0px auto;
+}
