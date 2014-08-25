@@ -12,6 +12,10 @@ var _ps = 6;//player speed
 var _points = 0; //current points
 var _pointsCounter = 0;
 
+var _nplayers = 2;
+var _AlivePlayers = 0;
+var _playercontrols = [["A","D"],["N","M"]];
+
 //functions
 
 function roll(max)
@@ -22,7 +26,9 @@ function roll(max)
 function Kill()
 {
   
-  Crafty.scene("title");
+  _AlivePlayers--;
+  if(_AlivePlayers<1)
+    Crafty.scene("title");
 }
 
 function CreateRandomPlatform(height)
@@ -108,11 +114,12 @@ Crafty.scene("title", function() {
     .textFont({ size: '30px', weight: 'bold' })
 });
 
-Crafty.scene("playgame", function() {
-  
+Crafty.scene("playgame", function() {  
   
   //reset points
   _points = 0;
+  //reset alive players;
+  _AlivePlayers = _nplayers;
   var _pointsCounter = Crafty.e("2D, DOM, Text").attr({ x: 100, y: 100 })
     .text(Math.floor(_points/10))
     .textColor('#FF0000')    
@@ -137,98 +144,53 @@ Crafty.scene("playgame", function() {
     {
       CreateRandomPlatform(_h*i/_np);
     }
-  
- 
-
-var Player = Crafty.e('2D, Color, Canvas, Fabri, Twoway, Gravity, Collision')
-  .attr({x: _w/2, y: 300, w: _pw, h: _ph})  
-   .color('red')
-  //.twoway(6,0)  
-  //.collision([0,0], [0,50])
-  .bind("EnterFrame", function (){    
-    //check keyboard input
-    if (this.isDown("Q")) {      
-      this.x-=_ps;    } 
-    if (this.isDown("E")) 
-      this.x+=_ps; 
-    //Apply gravity
-    this.y+=_g;
-  //prevent out of bounds
-    if(this.x<0){this.x=1;}
-    if(this.x>_w-_pw){
-      this.x=_w-_pw-1;
-    }
-  
-  
-  })
-
-  .onHit('DeathFloorBottom',function () { Kill();})
-  .onHit('DeathFloorTop',function () { Kill();})
-  .onHit('Platform',function(who){
-    var p = who[0].obj.y;
-    var x = this.y+this.h; 
-    
-    if(who[0].obj.y>this.y+this.h-10){       
-    this.y = this.y-_pspeed-_g;
-    }
-    if(who[0].obj.is_mover){ //apply mover left right 
-      this.x+=who[0].obj.is_mover;
-    }
-    
-    if(who[0].obj.glass){ //apply destruction in case
-      who[0].obj.y=0;
-      
-    }
-    
-  }) //end of player
-
-
-var Player2 = Crafty.e('2D, Color, Canvas, Fabri, Twoway, Gravity, Collision')
-  .attr({x: _w/2+10, y: 300, w: _pw, h: _ph})  
-   .color('blue')
-  //.twoway(6,0)  
-  //.collision([0,0], [0,50])
-  .bind("EnterFrame", function (){    
-    //check keyboard input
-    if (this.isDown("NUMPAD_4")) {      
-      this.x-=_ps;    } 
-    if (this.isDown("NUMPAD_6")) 
-      this.x+=_ps; 
-    //Apply gravity
-    this.y+=_g;
-  //prevent out of bounds
-    if(this.x<0){this.x=1;}
-    if(this.x>_w-_pw){
-      this.x=_w-_pw-1;
-    }
-  
-  
-  })
-
-  .onHit('DeathFloorBottom',function () { Kill();})
-  .onHit('DeathFloorTop',function () { Kill();})
-  .onHit('Platform',function(who){
-    var p = who[0].obj.y;
-    var x = this.y+this.h; 
-    
-    if(who[0].obj.y>this.y+this.h-10){       
-    this.y = this.y-_pspeed-_g;
-    }
-    if(who[0].obj.is_mover){ //apply mover left right 
-      this.x+=who[0].obj.is_mover;
-    }
-    
-    if(who[0].obj.glass){ //apply destruction in case
-      who[0].obj.y=0;
-      
-    }
-    
-  }) //end of player
-
-
+  for(i=0;i<_nplayers;i++)
+    {GenPlayer(_playercontrols[i],"blue");}
 });
 
+function GenPlayer(controls,color){
+  
+  var Player = Crafty.e('2D, Color, Canvas, Fabri, Twoway, Gravity, Collision')
+  .attr({x: _w/2, y: 300, w: _pw, h: _ph})  
+   .color(color)
+  //.twoway(6,0)  
+  //.collision([0,0], [0,50])
+  .bind("EnterFrame", function (){    
+    //check keyboard input
+    if (this.isDown(controls[0])) {      
+      this.x-=_ps;    } 
+    if (this.isDown(controls[1])) 
+      this.x+=_ps; 
+    //Apply gravity
+    this.y+=_g;
+  //prevent out of bounds
+    if(this.x<0){this.x=1;}
+    if(this.x>_w-_pw){
+      this.x=_w-_pw-1;
+    }  
+  })
 
+  .onHit('DeathFloorBottom',function () { Kill();this.destroy();})
+  .onHit('DeathFloorTop',function () { Kill();this.destroy();})
+  .onHit('Platform',function(who){
+    var p = who[0].obj.y;
+    var x = this.y+this.h; 
+    
+    if(who[0].obj.y>this.y+this.h-10){       
+    this.y = this.y-_pspeed-_g;
+    }
+    if(who[0].obj.is_mover){ //apply mover left right 
+      this.x+=who[0].obj.is_mover;
+    }
+    
+    if(who[0].obj.glass){ //apply destruction in case
+      who[0].obj.y=0;
+      
+    }
+    
+  }) //end of player
+
+}
 Crafty.scene("title"); //play title screen
 
 
