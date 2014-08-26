@@ -6,9 +6,8 @@ var _g = 4;//gravity
 //platforms
 var _size = _w/2.8; //platform size
 var _pspeed = 4; //platform speed
-var _np = 4;// number of platforms
+var _np = 4; //number of platforms
 var _frequency = 20; //frequency of platforms
-
 
 var _pw = 50;//player width
 var _ph = 50;//player height
@@ -17,6 +16,7 @@ var _points = 0; //current points
 var _pointsCounter = 0;
 
 var _nplayers = 2;
+var _maxplayers = 4;
 var _AlivePlayers = 0;
 var _playercontrols = [["A","D"],["N","M"]];
 
@@ -56,10 +56,7 @@ function CreateRandomPlatform(height)
   else if(platform_type>50)
     {newplat.color('red').attr({ is_mover:roll(10)-5})}
   else if(platform_type>0)
-  {newplat.color('green')}
-  
-  
-  
+  {newplat.color('green')} 
 }
 
 //create div
@@ -116,6 +113,23 @@ Crafty.scene("title", function() {
    .text("Highest Record: "+Math.floor(_points/10))
     .textColor('#FF0000')    
     .textFont({ size: '30px', weight: 'bold' })
+   
+   Crafty.e("2D, DOM, Text").attr({ x: 300, y: 300, w:200 })
+   .text("Number of Players:<br> - "+_nplayers+" +")
+    .textColor('#FF0000')    
+    .textFont({ size: '30px', weight: 'bold' })
+   .bind("KeyDown",function(e)
+         {
+             
+           if(e.key==107){ //check for +
+             _nplayers++;
+            (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}}
+           if(e.key==109){ //check for +
+             _nplayers--;
+             (_nplayers<1) ? _nplayers=1 : {}}             
+                              
+              this.text("Number of Players:<br> - "+_nplayers+" +")        
+         })
 });
 
 Crafty.scene("playgame", function() {  
@@ -177,7 +191,6 @@ function GenPlayer(controls,color){
       this.x=_w-_pw-1;
     }  
   })
-
   .onHit('DeathFloorBottom',function () { Kill();this.destroy();})
   .onHit('DeathFloorTop',function () { Kill();this.destroy();})
   .onHit('Platform',function(who){
