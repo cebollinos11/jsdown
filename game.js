@@ -1,10 +1,14 @@
 //gobals
 var _h = 600; //height
 var _w = 800; //width
+var _g = 4;//gravity
+
+//platforms
 var _size = _w/2.8; //platform size
 var _pspeed = 4; //platform speed
 var _np = 4;// number of platforms
-var _g = 4;//gravity
+var _frequency = 20; //frequency of platforms
+
 
 var _pw = 50;//player width
 var _ph = 50;//player height
@@ -18,12 +22,12 @@ var _playercontrols = [["A","D"],["N","M"]];
 
 //functions
 
-function roll(max)
+function roll(max) //dice roll to simplify randomized calculations
 {
   return Math.floor((Math.random() * max) + 1);
 }
 
-function Kill()
+function Kill() //destroy a player, if its the last one, go to title screen
 {
   
   _AlivePlayers--;
@@ -42,7 +46,7 @@ function CreateRandomPlatform(height)
        {
          this.y-=_pspeed;
          if(this.y<0){
-           CreateRandomPlatform(_h);
+           
          this.destroy();}
        });
   
@@ -50,7 +54,7 @@ function CreateRandomPlatform(height)
   if(platform_type>90)
     {newplat.color('blue').attr({glass:1})}
   else if(platform_type>50)
-    {newplat.color('red').attr({ is_mover:roll(20)-10})}
+    {newplat.color('red').attr({ is_mover:roll(10)-5})}
   else if(platform_type>0)
   {newplat.color('green')}
   
@@ -120,15 +124,19 @@ Crafty.scene("playgame", function() {
   _points = 0;
   //reset alive players;
   _AlivePlayers = _nplayers;
-  var _pointsCounter = Crafty.e("2D, DOM, Text").attr({ x: 100, y: 100 })
-    .text(Math.floor(_points/10))
-    .textColor('#FF0000')    
-    .textFont({ size: '30px', weight: 'bold' })
+  
+  var _pointsCounter = Crafty.e("2D, DOM, Text")
+    //.text(Math.floor(_points/10))
+    //.textColor('#FF0000')    
+    //.textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){
     _points++;
-    _pointsCounter.text(Math.floor(_points/10));
+    //_pointsCounter.text(Math.floor(_points/10));
+      (_points%20) ? {} : CreateRandomPlatform(_h);
+   
+     
     
-    });
+    });//.attr({ plat_frequency: _frequency });
   
     
   Crafty.e('DeathFloorBottom, 2D, Canvas, Color')
@@ -142,7 +150,7 @@ Crafty.scene("playgame", function() {
   //STARTing Platforms
   for(i=0;i<_np;i++)
     {
-      CreateRandomPlatform(_h*i/_np);
+      //CreateRandomPlatform(_h*i/_np);
     }
   for(i=0;i<_nplayers;i++)
     {GenPlayer(_playercontrols[i],"blue");}
@@ -151,7 +159,7 @@ Crafty.scene("playgame", function() {
 function GenPlayer(controls,color){
   
   var Player = Crafty.e('2D, Color, Canvas, Fabri, Twoway, Gravity, Collision')
-  .attr({x: _w/2, y: 300, w: _pw, h: _ph})  
+  .attr({x: _w/2, y: 100, w: _pw, h: _ph})  
    .color(color)
   //.twoway(6,0)  
   //.collision([0,0], [0,50])

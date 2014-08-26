@@ -1,0 +1,7 @@
+-choose number players in menu
+-persistent high scores
+-show winner in multiplayer games
+-improve graphics
+-improve main menu look
+-improve plataform spawn algorithm
+-sounds
