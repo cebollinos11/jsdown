@@ -6,3 +6,9 @@ overflow:hidden;
 div{
   margin: 0px auto;
 }
+
+p{
+  border-style: solid;
+  border-width: 1px;
+  font-size: 200%;
+}

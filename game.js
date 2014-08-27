@@ -1,26 +1,4 @@
-//gobals
-var _h = 600; //height
-var _w = 800; //width
-var _g = 4;//gravity
 
-//platforms
-var _size = _w/2.8; //platform size
-var _pspeed = 4; //platform speed
-var _np = 4; //number of platforms
-var _frequency = 20; //frequency of platforms
-
-var _pw = 50;//player width
-var _ph = 50;//player height
-var _ps = 6;//player speed
-var _points = 0; //current points
-var _pointsCounter = 0;
-
-var _nplayers = 2;
-var _maxplayers = 4;
-var _AlivePlayers = 0;
-var _playercontrols = [["A","D"],["N","M"]];
-
-//functions
 
 function roll(max) //dice roll to simplify randomized calculations
 {
@@ -31,8 +9,18 @@ function Kill() //destroy a player, if its the last one, go to title screen
 {
   
   _AlivePlayers--;
+  //console.log(Crafty("Player_element")[0].player_name);
+  
   if(_AlivePlayers<1)
     Crafty.scene("title");
+  
+  
+  if(_AlivePlayers==1)
+    {
+      alert(Crafty("Player_element").player_name+" wins!");
+    Crafty.scene("title");
+    }
+  
 }
 
 function CreateRandomPlatform(height)
@@ -83,9 +71,9 @@ Crafty.load(["sprites/platforms.png"]);
      SpikeUp: [0,3,4,4]
  });
 
-Crafty.load(["sprites/fabri.png"]);
- Crafty.sprite(266, "sprites/fabri.png", {
-    Fabri: [0,0,1,1]
+//Crafty.load(["sprites/pabloanim2.png"]);
+ Crafty.sprite(50, "sprites/pabloanim2.png", {
+    s_Pablo: [0,0]
     
  });
 
@@ -96,9 +84,9 @@ Crafty.scene("title", function() {
     Crafty.sprite("sprites/portada.jpg", {
         title: [0,0, 600, 400]
     })
-    Crafty.e("2D, DOM, title").attr({w:_w,h:_h,alpha:0.5});
-    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 100 })
-    .text("Press SPACE TO BEGIN")
+    //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
+    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 500, w:800 })
+    .text("Press SPACE to START!!")
     .textColor('#FF0000')
     
     .textFont({ size: '30px', weight: 'bold' })
@@ -114,7 +102,7 @@ Crafty.scene("title", function() {
     .textColor('#FF0000')    
     .textFont({ size: '30px', weight: 'bold' })
    
-   Crafty.e("2D, DOM, Text").attr({ x: 300, y: 300, w:200 })
+   Crafty.e("2D, DOM, Text").attr({ x: 450, y: 50, w:200 })
    .text("Number of Players:<br> - "+_nplayers+" +")
     .textColor('#FF0000')    
     .textFont({ size: '30px', weight: 'bold' })
@@ -123,13 +111,32 @@ Crafty.scene("title", function() {
              
            if(e.key==107){ //check for +
              _nplayers++;
-            (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}}
+            (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}
+           UpdatePlayerList();}
            if(e.key==109){ //check for +
              _nplayers--;
-             (_nplayers<1) ? _nplayers=1 : {}}             
+             (_nplayers<1) ? _nplayers=1 : {}
+           UpdatePlayerList();}         
                               
               this.text("Number of Players:<br> - "+_nplayers+" +")        
          })
+   
+   UpdatePlayerList();
+  
+   function UpdatePlayerList(){
+     var TextString = "";
+     if(playerlister != 0) {playerlister.destroy();}
+     for(i=0;i<_nplayers;i++)
+       {
+         TextString+="<p>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls+"</p>";
+       }
+     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 450,y: 200,w:300})
+   //.color("black")
+   //.textColor("#FF0000") 
+   //.color("white")
+   //.textFont({ size: '30px', weight: 'bold' })
+   .text(TextString);
+   }
 });
 
 Crafty.scene("playgame", function() {  
@@ -138,6 +145,8 @@ Crafty.scene("playgame", function() {
   _points = 0;
   //reset alive players;
   _AlivePlayers = _nplayers;
+  //put one plat
+  CreateRandomPlatform(_h);
   
   var _pointsCounter = Crafty.e("2D, DOM, Text")
     //.text(Math.floor(_points/10))
@@ -146,7 +155,7 @@ Crafty.scene("playgame", function() {
     .bind("EnterFrame", function (){
     _points++;
     //_pointsCounter.text(Math.floor(_points/10));
-      (_points%20) ? {} : CreateRandomPlatform(_h);
+      (_points%_frequency) ? {} : CreateRandomPlatform(_h);
    
      
     
@@ -167,51 +176,18 @@ Crafty.scene("playgame", function() {
       //CreateRandomPlatform(_h*i/_np);
     }
   for(i=0;i<_nplayers;i++)
-    {GenPlayer(_playercontrols[i],"blue");}
+    {_playerList[i].generate_player(i);}
+  
 });
 
-function GenPlayer(controls,color){
+function GenPlayer(controls,color,order){
   
-  var Player = Crafty.e('2D, Color, Canvas, Fabri, Twoway, Gravity, Collision')
-  .attr({x: _w/2, y: 100, w: _pw, h: _ph})  
-   .color(color)
-  //.twoway(6,0)  
-  //.collision([0,0], [0,50])
-  .bind("EnterFrame", function (){    
-    //check keyboard input
-    if (this.isDown(controls[0])) {      
-      this.x-=_ps;    } 
-    if (this.isDown(controls[1])) 
-      this.x+=_ps; 
-    //Apply gravity
-    this.y+=_g;
-  //prevent out of bounds
-    if(this.x<0){this.x=1;}
-    if(this.x>_w-_pw){
-      this.x=_w-_pw-1;
-    }  
-  })
-  .onHit('DeathFloorBottom',function () { Kill();this.destroy();})
-  .onHit('DeathFloorTop',function () { Kill();this.destroy();})
-  .onHit('Platform',function(who){
-    var p = who[0].obj.y;
-    var x = this.y+this.h; 
-    
-    if(who[0].obj.y>this.y+this.h-10){       
-    this.y = this.y-_pspeed-_g;
-    }
-    if(who[0].obj.is_mover){ //apply mover left right 
-      this.x+=who[0].obj.is_mover;
-    }
-    
-    if(who[0].obj.glass){ //apply destruction in case
-      who[0].obj.y=0;
-      
-    }
-    
-  }) //end of player
+  
 
 }
+//start music
+//Crafty.audio.add("bgmusic", "audio/music.mp3");
+//Crafty.audio.play("bgmusic", -1);
 Crafty.scene("title"); //play title screen
 
 
