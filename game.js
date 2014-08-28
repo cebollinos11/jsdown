@@ -27,7 +27,7 @@ function Kill() //destroy a player, if its the last one, go to title screen
 function CreateRandomPlatform(height)
 {
   
-  var newplat = Crafty.e('Platform, 2D, DOM, Text,platform,  Color')
+  var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
   .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30})
   
   
@@ -42,9 +42,11 @@ function CreateRandomPlatform(height)
   var platform_type = roll(100);
   //newplat.addComponent("pred");
 
-  if(platform_type>90)
-    {newplat.addComponent("pblue").attr({glass:1})}
-  else if(platform_type>50)
+  if(platform_type>95)
+    {newplat.addComponent("pgreen").attr({glass:1})}
+  else if(platform_type>90)
+    {newplat.addComponent("pfire").attr({fireKill:1})}
+  else if(platform_type>70)
     {newplat.addComponent("pred").attr({ is_mover:roll(10)-5})}
   else if(platform_type>0)
   {newplat.addComponent("pgreen")} 
@@ -81,66 +83,7 @@ Crafty.load(["sprites/platforms.png"]);
  });
 
 
-Crafty.scene("title", function() {
-  
-  
-    Crafty.sprite("sprites/portada.jpg", {
-        title: [0,0, 600, 400]
-    })
-    //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
-    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 500, w:800 })
-    .text("Press SPACE to START!!")
-    .textColor('#FF0000')
-    
-    .textFont({ size: '30px', weight: 'bold' })
-    .bind("KeyDown",function(e)
-         {
-           if(e.key==32){ //check for SPACE KEY
-             Crafty.scene("playgame");             
-           }           
-         });  
-  
-   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 300 })
-   .text("Highest Record: "+Math.floor(_points/10))
-    .textColor('#FF0000')    
-    .textFont({ size: '30px', weight: 'bold' })
-   
-   Crafty.e("2D, DOM, Text").attr({ x: 450, y: 50, w:200 })
-   .text("Number of Players:<br> - "+_nplayers+" +")
-    .textColor('#FF0000')    
-    .textFont({ size: '30px', weight: 'bold' })
-   .bind("KeyDown",function(e)
-         {
-             
-           if(e.key==107){ //check for +
-             _nplayers++;
-            (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}
-           UpdatePlayerList();}
-           if(e.key==109){ //check for +
-             _nplayers--;
-             (_nplayers<1) ? _nplayers=1 : {}
-           UpdatePlayerList();}         
-                              
-              this.text("Number of Players:<br> - "+_nplayers+" +")        
-         })
-   
-   UpdatePlayerList();
-  
-   function UpdatePlayerList(){
-     var TextString = "";
-     if(playerlister != 0) {playerlister.destroy();}
-     for(i=0;i<_nplayers;i++)
-       {
-         TextString+="<p>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls+"</p>";
-       }
-     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 450,y: 200,w:300})
-   //.color("black")
-   //.textColor("#FF0000") 
-   //.color("white")
-   //.textFont({ size: '30px', weight: 'bold' })
-   .text(TextString);
-   }
-});
+
 
 Crafty.scene("playgame", function() {  
   
@@ -159,6 +102,7 @@ Crafty.scene("playgame", function() {
     _points++;
     //_pointsCounter.text(Math.floor(_points/10));
       (_points%_frequency) ? {} : CreateRandomPlatform(_h);
+      (_points%500) ? {} : _frequency = roll(2)*20;
    
      
     

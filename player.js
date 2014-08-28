@@ -12,6 +12,7 @@ function GenPlayer1(order){
   .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name})  
   .reel("walk",1000, 0, 0, 1)
   .reel("jump",1000, 2, 0, 1)
+  
   .animate("walk",-1)
    .color(original.color)
   //.twoway(6,0)  
@@ -38,7 +39,7 @@ function GenPlayer1(order){
     var p = who[0].obj.y;
     var x = this.y+this.h; 
     
-    if(who[0].obj.y>this.y+this.h-10){       
+    if(who[0].obj.y>this.y+this.h-15){       
     this.y = this.y-_pspeed-_g;
     }
     if(who[0].obj.is_mover){ //apply mover left right 
@@ -47,11 +48,23 @@ function GenPlayer1(order){
     
     this.animate("walk",-1)
     
-    if(who[0].obj.glass){ //apply destruction in case
-      who[0].obj.y=0;
+    if(who[0].obj.glass){ //apply destruction of platform in case
+      //who[0].obj.y=0;
+      who[0].obj.removeComponent("Platform");
+      who[0].obj.removeComponent("pgreen");
+      who[0].obj.addComponent("pblue");
+      
       
     }
     
-  }) //end of player
+    if(who[0].obj.fireKill){ //apply kill in case
+      
+      this.destroy(); Kill();
+      
+    }
+    
+   
+    
+  }); //end of player
   
 }
