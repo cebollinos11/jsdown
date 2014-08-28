@@ -19,7 +19,8 @@ function GenPlayer1(order){
   .bind("EnterFrame", function (){    
     //check keyboard input
     if (this.isDown(original.controls[0])) {      
-      this.x-=_ps;    } 
+      this.x-=_ps;    
+   } 
     if (this.isDown(original.controls[1])) 
       this.x+=_ps; 
     //Apply gravity

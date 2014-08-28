@@ -1,6 +1,7 @@
 body {
    background: linear-gradient(to right, black , red, black); /* Standard syntax (must be last) */
 overflow:hidden;    
+  
 }
 
 div{
@@ -11,4 +12,25 @@ p{
   border-style: solid;
   border-width: 1px;
   font-size: 200%;
+}
+
+.platform{
+  border-style: solid;
+  border-width: 1px;  
+  text-align: center;  
+ 
+}
+.pred{
+  background-image: url('sprites/rail.png');
+   background-color: red; 
+   border-radius: 20px;
+}
+.pblue{
+   background-image: url('sprites/glass.png');
+   background-color:  blue; 
+}
+.pgreen{
+      background-image: url('sprites/brick.png');
+    background-color:  green; 
+  
 }

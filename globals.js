@@ -4,7 +4,7 @@ var _w = 800; //width
 var _g = 4;//gravity
 
 //platforms
-var _size = _w/2.8; //platform size
+var _size = _w/3; //platform size
 var _pspeed = 4; //platform speed
 var _np = 4; //number of platforms
 var _frequency = 40; //frequency of platforms

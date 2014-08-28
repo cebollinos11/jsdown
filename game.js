@@ -8,6 +8,7 @@ function roll(max) //dice roll to simplify randomized calculations
 function Kill() //destroy a player, if its the last one, go to title screen
 {
   
+  
   _AlivePlayers--;
   //console.log(Crafty("Player_element")[0].player_name);
   
@@ -26,8 +27,8 @@ function Kill() //destroy a player, if its the last one, go to title screen
 function CreateRandomPlatform(height)
 {
   
-  var newplat = Crafty.e('Platform, 2D, Canvas, Color')
-  .attr({x: roll(_w-_size), y: height, w: roll(_size)+20, h: 30})
+  var newplat = Crafty.e('Platform, 2D, DOM, Text,platform,  Color')
+  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30})
   
   
   .bind("EnterFrame",function()
@@ -39,12 +40,14 @@ function CreateRandomPlatform(height)
        });
   
   var platform_type = roll(100);
+  //newplat.addComponent("pred");
+
   if(platform_type>90)
-    {newplat.color('blue').attr({glass:1})}
+    {newplat.addComponent("pblue").attr({glass:1})}
   else if(platform_type>50)
-    {newplat.color('red').attr({ is_mover:roll(10)-5})}
+    {newplat.addComponent("pred").attr({ is_mover:roll(10)-5})}
   else if(platform_type>0)
-  {newplat.color('green')} 
+  {newplat.addComponent("pgreen")} 
 }
 
 //create div
