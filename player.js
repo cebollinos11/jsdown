@@ -8,7 +8,7 @@ var _playerList = [
 //functions
 function GenPlayer1(order){
   var original = this;
-  var Player = Crafty.e('Player_element, 2D, Color, Canvas,s_Pablo, SpriteAnimation, Twoway, Gravity, Collision')
+  var Player = Crafty.e('Player_element, 2D, Color, DOM,s_Pablo, SpriteAnimation, Twoway, Gravity, Collision')
   .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name})  
   .reel("walk",1000, 0, 0, 1)
   .reel("jump",1000, 2, 0, 1)
@@ -20,7 +20,8 @@ function GenPlayer1(order){
   .bind("EnterFrame", function (){    
     //check keyboard input
     if (this.isDown(original.controls[0])) {      
-      this.x-=_ps;    
+      this.x-=_ps;  
+     // Crafty.stop();
    } 
     if (this.isDown(original.controls[1])) 
       this.x+=_ps; 

@@ -65,7 +65,7 @@ Crafty.init(_w,_h, document.getElementById('game'));
 //fix fps
 Crafty.timer.FPS(50);
 
-Crafty.background('white');
+Crafty.background('url(sprites/sky.png)');
 
 //initialize sprites
 Crafty.load(["sprites/platforms.png"]);
@@ -91,6 +91,9 @@ Crafty.scene("playgame", function() {
   _points = 0;
   //reset alive players;
   _AlivePlayers = _nplayers;
+  //set background
+
+  
   //put one plat
   CreateRandomPlatform(_h);
   
@@ -113,8 +116,8 @@ Crafty.scene("playgame", function() {
   .attr({x: 0, y: _h-10, w: _w, h: 10})
   .color('red');
 
-  Crafty.e('DeathFloorTop, 2D, Canvas, SpikeUp')
-  .attr({x: 0, y: 0, w: _w, h: 30});
+  Crafty.e('DeathFloorTop, 2D, DOM, Color')
+  .attr({x: 0, y: 0, w: _w, h: 64,z:100});
   //.color('red');
   
   //STARTing Platforms
