@@ -14,7 +14,11 @@ function GenBird(){
     this.sinusoidal_ticks++;
     
     })
-  .onHit('Player_element',function(who) { Kill(who[0].obj);})
+  .onHit('Player_element',function(who) { 
+    //Kill(who[0].obj);
+    who[0].obj.x = this.x+this.w/2;
+    who[0].obj.y = this.y+this.h/2;
+  })
   .attr({x: -(_w-_pw)/2*(direction-1), y_original: roll(_h), w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude });  
   
   }

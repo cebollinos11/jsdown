@@ -55,6 +55,7 @@ function GenPlayer1(order){
       who[0].obj.removeComponent("Platform");
       who[0].obj.removeComponent("pgreen");
       who[0].obj.addComponent("pblue");
+      who[0].obj.bind("EnterFrame", function (){ who[0].obj.y+=_pspeed*3;   });
       
       
     }

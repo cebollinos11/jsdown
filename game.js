@@ -10,12 +10,12 @@ function CreateRandomPlatform(height)
 {
   
   var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
-  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30})
+  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _pspeed})
   
   
   .bind("EnterFrame",function()
        {
-         this.y-=_pspeed;
+         this.y-=this.speed;
          if(this.y<0){
            
          this.destroy();}
@@ -31,7 +31,12 @@ function CreateRandomPlatform(height)
   else if(platform_type>70)
     {newplat.addComponent("pred").attr({ is_mover:roll(10)-5})}
   else if(platform_type>0)
-  {newplat.addComponent("pgreen")} 
+  {newplat.addComponent("pgreen")}
+  
+  
+
+  
+   
 }
 
 //create div
@@ -87,7 +92,7 @@ Crafty.scene("playgame", function() {
     _points++;
     //_pointsCounter.text(Math.floor(_points/10));
       (_points%_frequency) ? {} : CreateRandomPlatform(_h);
-      (_points%500) ? {} : _frequency = roll(2)*20;
+      (_points%500) ? {} : _frequency = roll(40)+40;
       (_points%150) ? {} : GenBird();
       
    
