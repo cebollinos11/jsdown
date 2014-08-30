@@ -5,24 +5,6 @@ function roll(max) //dice roll to simplify randomized calculations
   return Math.floor((Math.random() * max) + 1);
 }
 
-function Kill() //destroy a player, if its the last one, go to title screen
-{
-  
-  
-  _AlivePlayers--;
-  //console.log(Crafty("Player_element")[0].player_name);
-  
-  if(_AlivePlayers<1)
-    Crafty.scene("title");
-  
-  
-  if(_AlivePlayers==1)
-    {
-      alert(Crafty("Player_element").player_name+" wins!");
-    Crafty.scene("title");
-    }
-  
-}
 
 function CreateRandomPlatform(height)
 {
@@ -106,6 +88,8 @@ Crafty.scene("playgame", function() {
     //_pointsCounter.text(Math.floor(_points/10));
       (_points%_frequency) ? {} : CreateRandomPlatform(_h);
       (_points%500) ? {} : _frequency = roll(2)*20;
+      (_points%150) ? {} : GenBird();
+      
    
      
     

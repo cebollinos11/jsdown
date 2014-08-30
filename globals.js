@@ -20,3 +20,26 @@ var _maxplayers = 3;
 var _AlivePlayers = 0;
 var playerlister = 0;
 //var _playercontrols = [["LEFT_ARROW","RIGHT_ARROW"],["Q","W"],["N","M"]];
+
+
+function Kill(who) //destroy a player, if its the last one, go to title screen
+{
+  
+  who.destroy();
+  
+  
+  _AlivePlayers--;
+  //console.log(Crafty("Player_element")[0].player_name);
+  
+  if(_AlivePlayers<1)
+    Crafty.scene("title");
+  
+  
+  if(_AlivePlayers==1)
+    {
+      alert(Crafty("Player_element").player_name+" wins!");
+    Crafty.scene("title");
+    }
+  
+}
+

@@ -22,6 +22,7 @@ function GenPlayer1(order){
     if (this.isDown(original.controls[0])) {      
       this.x-=_ps;  
      // Crafty.stop();
+      
    } 
     if (this.isDown(original.controls[1])) 
       this.x+=_ps; 
@@ -34,8 +35,8 @@ function GenPlayer1(order){
       this.x=_w-_pw-1;
     }  
   })
-  .onHit('DeathFloorBottom',function () { this.destroy();Kill();})
-  .onHit('DeathFloorTop',function () {this.destroy(); Kill();})
+  .onHit('DeathFloorBottom',function () { Kill(this);})
+  .onHit('DeathFloorTop',function () { Kill(this);})
   .onHit('Platform',function(who){
     var p = who[0].obj.y;
     var x = this.y+this.h; 
@@ -60,7 +61,7 @@ function GenPlayer1(order){
     
     if(who[0].obj.fireKill){ //apply kill in case
       
-      this.destroy(); Kill();
+       Kill(this);
       
     }
     
