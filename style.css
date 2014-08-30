@@ -2,6 +2,7 @@ body {
    background: linear-gradient(to right, black , red, black); /* Standard syntax (must be last) */
 overflow:hidden;    
   
+  
 }
 
 div{
@@ -10,10 +11,11 @@ div{
 
 H1{
   border-style: solid;
-  border-width: 5px; 
-  border-radius: 20px;
+  border-width: 4px; 
+  border-radius: 20px 0 20px 0;
   padding:20px;
   text-align: center;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
   
 }
 H1 span
@@ -25,13 +27,15 @@ H1 span
 p{
   border-style: solid;
   border-width: 1px;
-  font-size: 200%;
+  font-size: 150%;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .platform{
   border-style: solid;
   border-width: 4px;  
   text-align: center;  
+  
  
 }
 .pred{

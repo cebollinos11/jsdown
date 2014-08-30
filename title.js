@@ -1,9 +1,7 @@
 Crafty.scene("title", function() {
   
   
-    Crafty.sprite("sprites/portada.jpg", {
-        title: [0,0, 600, 400]
-    })
+    
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
     Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
     .text("<H1>Press SPACE to START!!</H1>")
