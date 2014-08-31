@@ -38,11 +38,17 @@ p{
   
  
 }
-.pred{
-  background-image: url('sprites/rail.png');
-   background-color: red; 
-   border-radius: 20px;
+
+.railright{
+  background-image: url('sprites/rail_r.gif');
+  border-radius: 20px;
 }
+
+.railleft{
+  background-image: url('sprites/rail_l.gif');
+  border-radius: 20px;
+}
+
 .pblue{
    background-image: url('sprites/glass.png');
    background-color:  blue; 

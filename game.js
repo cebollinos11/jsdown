@@ -10,7 +10,7 @@ function CreateRandomPlatform(height)
 {
   
   var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
-  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _pspeed})
+  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _currPspeed})
   
   
   .bind("EnterFrame",function()
@@ -29,7 +29,12 @@ function CreateRandomPlatform(height)
   else if(platform_type>90)
     {newplat.addComponent("pfire").attr({fireKill:1})}
   else if(platform_type>70)
-    {newplat.addComponent("pred").attr({ is_mover:roll(10)-5})}
+    {
+      var rails = [['right',3],['left',-3]];
+      var dice = roll(2)-1;
+      console.log(rails[dice][0],rails[dice][1]);
+      newplat.addComponent("rail"+rails[dice][0]).attr({ is_mover:rails[dice][1]})
+    }
   else if(platform_type>0)
   {newplat.addComponent("pgreen")}
   
@@ -78,6 +83,11 @@ Crafty.scene("playgame", function() {
   _points = 0;
   //reset alive players;
   _AlivePlayers = _nplayers;
+  
+  //reset globals
+   _currPspeed = _pspeed;//
+
+  _currFrequency = _frequency;
   //set background
 
   
@@ -91,8 +101,8 @@ Crafty.scene("playgame", function() {
     .bind("EnterFrame", function (){
     _points++;
     //_pointsCounter.text(Math.floor(_points/10));
-      (_points%_frequency) ? {} : CreateRandomPlatform(_h);
-      (_points%500) ? {} : _frequency = roll(40)+40;
+      (_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
+      //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%150) ? {} : GenBird();
       
    
@@ -108,7 +118,14 @@ Crafty.scene("playgame", function() {
   Crafty.e('DeathFloorTop, 2D, DOM, Color')
   .attr({x: 0, y: 0, w: _w, h: 64,z:100});
   //.color('red');
-  
+  Crafty.e()
+       
+    .bind("KeyDown",function(e)
+         {
+           if(e.key=="p"){ //check for SPACE KEY
+             //IncreaseDifficulty();             
+           }           
+         }); 
   //STARTing Platforms
   for(i=0;i<_np;i++)
     {
@@ -128,7 +145,6 @@ function GenPlayer(controls,color,order){
 //Crafty.audio.add("bgmusic", "audio/music.mp3");
 //Crafty.audio.play("bgmusic", -1);
 Crafty.scene("title"); //play title screen
-
 
 
 
