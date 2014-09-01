@@ -50,6 +50,7 @@ Crafty.scene("playgame", function() {
   
   //reset globals
    _currPspeed = _pspeed;//
+  _difficulty[1]=_difficulty[0];
 
   _currFrequency = _frequency;
   //set background
@@ -72,6 +73,7 @@ Crafty.scene("playgame", function() {
       //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
       //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%150) ? {} : GenBird();
+      if(_points%150===1){_difficulty[1]+=1;}
       
    
      

@@ -50,7 +50,7 @@ function CreateRandomPlatform(height,canbeinvisible)
        });
   
   //check frequencies
-  if(roll(100)>_platformList[typeplat].freq+90)typeplat=0;
+  if(roll(100)>_platformList[typeplat].freq+_difficulty[1])typeplat=0;
   if(canbeinvisible!=1){
                        typeplat = 0;//fix brick platform
                        newplat.x=_w/2;
