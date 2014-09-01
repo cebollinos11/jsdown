@@ -14,6 +14,9 @@ Crafty.scene("title", function() {
   
   Crafty.e("2D, DOM, Text").attr({ x: 500, y: 50 , w:200 })
    .text("<H1>Highest Record: "+Math.floor(_points/10)+"</H1>")
+  
+  Crafty.e("2D, DOM, Logo").attr({ x: 500, y: 50 , w:200 })
+  .attr({ x: 0.1*_w, y: 0.1*_h, w:_w, h:_h })
     
    
    Crafty.e("2D, DOM, Text").attr({ x: 200, y: 250, w:200 })

@@ -32,6 +32,9 @@ p{
   background-color:rgba(255,255,255,0.5);
 }
 
+.logo{background-image: url('sprites/logo.png');
+background-repeat: no-repeat;}
+
 .platform{
   border-style: solid;
   border-width: 4px;  
