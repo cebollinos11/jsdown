@@ -38,7 +38,7 @@ function CreateRandomPlatform(height,canbeinvisible)
   var px =  roll(_w-_pw-psize)+_pw;
   
   var newplat = Crafty.e('Platform, 2D, DOM, Text, Color,Collision')
-  .attr({x: px, y: height, w: psize, h: 30, speed : _currPspeed, spawned:0, hitplayer:do_nothing})
+  .attr({x: px, y: height, w: psize, h: 30,z:0, speed : _currPspeed, spawned:0, hitplayer:do_nothing})
   
     .bind("EnterFrame",function() //normal platform movement
        {
@@ -71,58 +71,5 @@ function CreateRandomPlatform(height,canbeinvisible)
 //     _platformList[typeplat].hitplayer(who);
 //   });
   
-}
-function CreateRandomPlatform_old(height,canbeinvisible)
-{
-  var tilesize = 32;
-  var psize = roll(_size/32)*32;
-  console.log(psize/32);
-  var px =  roll(_w-_pw-psize)+_pw;
-  var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
-  .attr({x: px, y: height, w: psize, h: 30, speed : _currPspeed, spawned:0})
   
-  
-  .bind("EnterFrame",function()
-       {
-         this.y-=this.speed;
-         if(this.y<0){
-           
-         this.destroy();}
-         
-         //generate new platform
-         if(this.y<_platSpawnTrigger && this.spawned===0){
-           this.spawned=1;
-           CreateRandomPlatform(_h,1);}
-       });
-  
-  var platform_type = roll(100);
-  
-  
-  //newplat.addComponent("pred");
-  //fix first platform to be easy
-  if(canbeinvisible!=1){newplat.addComponent("pgreen");
-                       newplat.x=_w/2;
-                       newplat.w=_w/3;
-                       }
-  else if(platform_type>95)
-    {newplat.addComponent("pgreen").attr({glass:1})}
-  else if(platform_type>90)
-    {newplat.addComponent("pfire").attr({fireKill:1})}
-  else if(platform_type>70)
-    {
-      var rails = [['right',3],['left',-3]];
-      var dice = roll(2)-1;
-      
-      newplat.addComponent("rail"+rails[dice][0]).attr({ is_mover:rails[dice][1]})
-    }
-  else if(platform_type>0)
-  {newplat.addComponent("pgreen")}
-  
-  //make out of bounds in case (skip a platform)
-  if(canbeinvisible && roll(15)===1){newplat.x=_w}
-  
-  
-
-  
-   
 }

@@ -16,7 +16,8 @@ H1{
   padding:20px;
   text-align: center;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  background-color:rgba(255,255,255,0.5);
+  background-color:rgba(255,255,255,0.8);
+  
 }
 H1 span
 {
@@ -29,7 +30,7 @@ p{
   border-width: 1px;
   font-size: 150%;
   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  background-color:rgba(255,255,255,0.5);
+  background-color:rgba(255,255,255,0.8);
 }
 
 .logo{background-image: url('sprites/logo.png');
