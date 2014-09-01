@@ -111,7 +111,7 @@ function StartBackground(where){
   .bind("EnterFrame", function (){
     if(this.y === 0){ StartBackground(_h-2);}
     
-    this.y-=2;
+    this.y-=1;
     if(this.y===-_h) {this.destroy();}
   });
 }

@@ -1,7 +1,7 @@
 Crafty.scene("title", function() {
   
   
-    
+    StartBackground(0);
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
     Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
     .text("<H1>Press SPACE to START!!</H1>")
