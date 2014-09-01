@@ -19,6 +19,6 @@ function GenBird(){
     who[0].obj.x = this.x+this.w/2;
     who[0].obj.y = this.y+this.h/2;
   })
-  .attr({x: -(_w-_pw)/2*(direction-1), y_original: roll(_h), w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude });  
+  .attr({x: -(_w-_pw)/2*(direction-1), y_original: roll(0.7*_h)+0.2*_h, w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100});  
   
   }
