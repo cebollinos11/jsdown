@@ -31,8 +31,14 @@ function kill_player(who){Kill(who);}
 function CreateRandomPlatform(height,canbeinvisible)
 {
   var typeplat = roll(5)-1;
+  
+  var tilesize = 32;
+  var psize = roll(_size/32)*32;
+  
+  var px =  roll(_w-_pw-psize)+_pw;
+  
   var newplat = Crafty.e('Platform, 2D, DOM, Text, Color,Collision')
-  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _currPspeed, spawned:0, hitplayer:do_nothing})
+  .attr({x: px, y: height, w: psize, h: 30, speed : _currPspeed, spawned:0, hitplayer:do_nothing})
   
     .bind("EnterFrame",function() //normal platform movement
        {
@@ -68,9 +74,12 @@ function CreateRandomPlatform(height,canbeinvisible)
 }
 function CreateRandomPlatform_old(height,canbeinvisible)
 {
-  
+  var tilesize = 32;
+  var psize = roll(_size/32)*32;
+  console.log(psize/32);
+  var px =  roll(_w-_pw-psize)+_pw;
   var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
-  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _currPspeed, spawned:0})
+  .attr({x: px, y: height, w: psize, h: 30, speed : _currPspeed, spawned:0})
   
   
   .bind("EnterFrame",function()
