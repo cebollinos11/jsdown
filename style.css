@@ -15,8 +15,8 @@ H1{
   border-radius: 20px 0 20px 0;
   padding:20px;
   text-align: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
-  
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color:rgba(255,255,255,0.5);
 }
 H1 span
 {
@@ -29,6 +29,7 @@ p{
   border-width: 1px;
   font-size: 150%;
   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color:rgba(255,255,255,0.5);
 }
 
 .platform{
