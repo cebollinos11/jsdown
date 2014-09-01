@@ -10,6 +10,7 @@ var _currPspeed = _pspeed;//
 var _np = 4; //number of platforms
 var _frequency = 40; //frequency of platforms
 var _currFrequency = _frequency;
+var _platSpawnTrigger = 4*_h/5; //screen height that triggers the spawn of a new platform
 
 var _pw = 50;//player width
 var _ph = 50;//player height

@@ -6,43 +6,7 @@ function roll(max) //dice roll to simplify randomized calculations
 }
 
 
-function CreateRandomPlatform(height)
-{
-  
-  var newplat = Crafty.e('Platform, 2D, DOM, Text, Color')
-  .attr({x: roll(_w-_size-20), y: height, w: roll(_size)+40, h: 30, speed : _currPspeed})
-  
-  
-  .bind("EnterFrame",function()
-       {
-         this.y-=this.speed;
-         if(this.y<0){
-           
-         this.destroy();}
-       });
-  
-  var platform_type = roll(100);
-  //newplat.addComponent("pred");
 
-  if(platform_type>95)
-    {newplat.addComponent("pgreen").attr({glass:1})}
-  else if(platform_type>90)
-    {newplat.addComponent("pfire").attr({fireKill:1})}
-  else if(platform_type>70)
-    {
-      var rails = [['right',3],['left',-3]];
-      var dice = roll(2)-1;
-      console.log(rails[dice][0],rails[dice][1]);
-      newplat.addComponent("rail"+rails[dice][0]).attr({ is_mover:rails[dice][1]})
-    }
-  else if(platform_type>0)
-  {newplat.addComponent("pgreen")}
-  
-  
-
-  
-   
-}
 
 //create div
 $("body").append('<div id="game"></div>');
@@ -57,7 +21,7 @@ Crafty.init(_w,_h, document.getElementById('game'));
 //fix fps
 Crafty.timer.FPS(50);
 
-Crafty.background('url(sprites/sky.png)');
+//Crafty.background('url(sprites/sky.png)');
 
 //initialize sprites
 Crafty.load(["sprites/platforms.png"]);
@@ -89,6 +53,10 @@ Crafty.scene("playgame", function() {
 
   _currFrequency = _frequency;
   //set background
+  //put background componente
+  StartBackground(0);
+  //Crafty.e("2D, DOM, background_component").attr({x: 0, y: 0, w: _w, h: _h,z:0})
+  //.bind("EnterFrame", function (){this.y--;});
 
   
   //put one plat
@@ -101,7 +69,7 @@ Crafty.scene("playgame", function() {
     .bind("EnterFrame", function (){
     _points++;
     //_pointsCounter.text(Math.floor(_points/10));
-      (_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
+      //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
       //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%150) ? {} : GenBird();
       
@@ -135,6 +103,16 @@ Crafty.scene("playgame", function() {
     {_playerList[i].generate_player(i);}
   
 });
+
+function StartBackground(where){
+  Crafty.e("2D, DOM, background_component").attr({x: 0, y: where, w: _w, h: _h,z:-1})
+  .bind("EnterFrame", function (){
+    if(this.y === 0){ StartBackground(_h-2);}
+    
+    this.y-=2;
+    if(this.y===-_h) {this.destroy();}
+  });
+}
 
 function GenPlayer(controls,color,order){
   
