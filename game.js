@@ -81,7 +81,7 @@ Crafty.scene("playgame", function() {
     });//.attr({ plat_frequency: _frequency });
   
     
-  Crafty.e('DeathFloorBottom, 2D, Canvas, Color')
+  Crafty.e('DeathFloorBottom, 2D, DOM , Color')
   .attr({x: 0, y: _h-10, w: _w, h: 10})
   .color('red');
 
@@ -107,11 +107,13 @@ Crafty.scene("playgame", function() {
 });
 
 function StartBackground(where){
-  Crafty.e("2D, DOM, background_component").attr({x: 0, y: where, w: _w, h: _h,z:-1})
+  var initial_height = 0;
+  if(where===0) initial_height = _h;
+  Crafty.e("2D, DOM , background_component").attr({x: 0, y: where, w: _w, h: initial_height,z:-1})
   .bind("EnterFrame", function (){
-    if(this.y === 0){ StartBackground(_h-2);}
-    
+    if(this.y === 0){ StartBackground(_h-2);}    
     this.y-=1;
+    this.h++;
     if(this.y===-_h) {this.destroy();}
   });
 }
