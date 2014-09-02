@@ -1,5 +1,5 @@
 var _platformList = [
-  {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing,freq:100},
+  {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing,freq:999},
   {name:"fire",css_sprite:"pfire",hitplayer:kill_player,freq:50},
   {name:"railright",css_sprite:"railright",hitplayer:move_right,freq:90},
   {name:"railleft",css_sprite:"railleft",hitplayer:move_left,freq:90},
@@ -41,7 +41,7 @@ function kill_player(who){Kill(who);}
 
 function CreateRandomPlatform(height,canbeinvisible)
 {
-  var typeplat = 4;//roll(5)-1;
+  var typeplat = roll(5)-1;
   
   var tilesize = 32;
   var psize = roll(_size/32)*32;
