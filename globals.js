@@ -19,7 +19,7 @@ var _points = 0; //current points
 var _pointsCounter = 0;
 
 var _nplayers = 1;
-var _maxplayers = 3;
+var _maxplayers = 4;
 var _AlivePlayers = 0;
 var playerlister = 0;
 //var _playercontrols = [["LEFT_ARROW","RIGHT_ARROW"],["Q","W"],["N","M"]];

@@ -1,7 +1,8 @@
 var _playerList = [
   {name : "Player 1", controls:["LEFT_ARROW","RIGHT_ARROW"],color:"pink",generate_player: GenPlayer1},
   {name : "Player 2", controls:["Q","W"],color:"blue",generate_player: GenPlayer1},
-  {name : "Player 3", controls:["N","M"],color:"green",generate_player: GenPlayer1}
+  {name : "Player 3", controls:["O","P"],color:"green",generate_player: GenPlayer1},
+  {name : "Player 3", controls:["V","B"],color:"yellow",generate_player: GenPlayer1}
 ];
 
 //_playerList[0].generate_player(3);
