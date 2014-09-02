@@ -1,7 +1,6 @@
 body {
    background: linear-gradient(to right, black , red, black); /* Standard syntax (must be last) */
-overflow:hidden;    
-  
+overflow:hidden;     
   
 }
 
@@ -19,6 +18,7 @@ H1{
   background-color:rgba(255,255,255,0.8);
   
 }
+
 H1 span
 {
   background-color:white;

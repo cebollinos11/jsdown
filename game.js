@@ -43,6 +43,8 @@ Crafty.load(["sprites/platforms.png"]);
 
 Crafty.scene("playgame", function() {  
   
+ 
+  
   //reset points
   _points = 0;
   //reset alive players;
@@ -73,7 +75,9 @@ Crafty.scene("playgame", function() {
       //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
       //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%150) ? {} : GenBird();
-      if(_points%150===1){_difficulty[1]+=1;}
+      if(_points%150===1){_difficulty[1]+=1;
+                         console.log(_difficulty);}
+      
       
    
      

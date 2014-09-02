@@ -1,5 +1,5 @@
 Crafty.scene("title", function() {
-  
+   
   
     StartBackground(0);
     CreateRandomPlatform(_h);
