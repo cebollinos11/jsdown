@@ -74,7 +74,7 @@ Crafty.scene("playgame", function() {
     //_pointsCounter.text(Math.floor(_points/10));
       //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
       //(_points%500) ? {} : _frequency = roll(40)+40;
-      (_points%150) ? {} : GenBird();
+      (_points%300) ? {} : GenBird();
       if(_points%150===1){_difficulty[1]+=1;
                          console.log(_difficulty);}
       
