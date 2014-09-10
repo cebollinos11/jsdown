@@ -24,7 +24,7 @@ var _AlivePlayers = 0;
 var playerlister = 0;
 //var _playercontrols = [["LEFT_ARROW","RIGHT_ARROW"],["Q","W"],["N","M"]];
 //game difficulty (for platform spawning)
-var _difficulty = [-20,-20];
+var _difficulty = [0,0];
 
 function Kill(who) //destroy a player, if its the last one, go to title screen
 {

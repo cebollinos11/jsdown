@@ -103,3 +103,11 @@ background-repeat: no-repeat;}
   border-style: solid;
   border-width: 4px;
 }
+
+#game{
+border: 8px #5d6e49 double;
+
+-moz-box-shadow: 0px 0px 37px 10px #f4e5dc;
+-webkit-box-shadow: 0px 0px 37px 10px #f4e5dc;
+box-shadow: 0px 0px 37px 10px #f4e5dc;
+}
