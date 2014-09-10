@@ -76,7 +76,7 @@ Crafty.scene("playgame", function() {
       //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%300) ? {} : GenBird();
       if(_points%150===1){_difficulty[1]+=1;
-                         console.log(_difficulty);}
+                         }
       
       
    
@@ -85,9 +85,8 @@ Crafty.scene("playgame", function() {
     });//.attr({ plat_frequency: _frequency });
   
     
-  Crafty.e('DeathFloorBottom, 2D, DOM , Color')
-  .attr({x: 0, y: _h-10, w: _w, h: 10})
-  .color('red');
+  Crafty.e('DeathFloorBottom, 2D, DOM ')
+  .attr({x: 0, y: _h+10, w: _w, h: 10});
 
   Crafty.e('DeathFloorTop, 2D, DOM, Color')
   .attr({x: 0, y: 0, w: _w, h: 64,z:100});
