@@ -10763,6 +10763,7 @@ Crafty.c("SpriteAnimation", {
 	// Bound to "EnterFrame".  Progresses the animation by dt, changing the frame if necessary.
 	// dt is multiplied by the animationSpeed property
 	_animationTick: function(frameData) {
+    if(this._currentReelId===undefined)return; //single line edited by cebollinos@gmail.com
 		var currentReel = this._reels[this._currentReelId];
 		currentReel.easing.tick(frameData.dt * this.animationSpeed);
 		var progress = currentReel.easing.value();
