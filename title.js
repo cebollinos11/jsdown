@@ -21,7 +21,7 @@ Crafty.scene("title", function() {
     
    
    Crafty.e("2D, DOM, Text").attr({ x: 200, y: 250, w:200 }).attr({z:2})
-   .text("<H1>Number of Players:<br><br> - <span>"+_nplayers+"</span> +</H1>")   
+   .text("<H1>Number of Players:<br><span class='nplayers'> "+_nplayers+"</span><br><span class='info'><br>Create more players with + and - keys</span></H1>")
    .bind("KeyDown",function(e)
          {
            
@@ -34,7 +34,7 @@ Crafty.scene("title", function() {
              (_nplayers<1) ? _nplayers=1 : {}
            UpdatePlayerList();}         
                               
-              this.text("<H1>Number of Players:<br><br> - <span>"+_nplayers+"</span> +</H1>");
+              this.text("<H1>Number of Players:<br><span class='nplayers'> "+_nplayers+"</span><br><span class='info'><br>Create more players with + and - keys</span></H1>");
          })
    
    UpdatePlayerList();
@@ -46,7 +46,7 @@ Crafty.scene("title", function() {
        {
          TextString+="<p>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls+"</p>";
        }
-     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 450,y: 200,w:300}).attr({z:2})
+     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 450,y: 180,w:300}).attr({z:2})
    //.color("black")
    //.textColor("#FF0000") 
    //.color("white")
