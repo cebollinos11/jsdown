@@ -26,6 +26,11 @@ var playerlister = 0;
 //game difficulty (for platform spawning)
 var _difficulty = [0,0];
 
+function highscore_callback()
+{
+  console.log("highscore submitted");
+}
+
 function Kill(who) //destroy a player, if its the last one, go to title screen
 {
   
@@ -35,8 +40,12 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   _AlivePlayers--;
   //console.log(Crafty("Player_element")[0].player_name);
   
-  if(_AlivePlayers<1)
+  if(_AlivePlayers<1) //submit high score
+    {
+    console.log("highscore sending...");
+      $.post( "php/highscore.php", {points:Math.floor(_points/10)} , highscore_callback );
     Crafty.scene("title");
+    }
   
   
   if(_AlivePlayers==1)

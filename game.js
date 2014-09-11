@@ -66,12 +66,13 @@ Crafty.scene("playgame", function() {
   CreateRandomPlatform(_h);
   
   var _pointsCounter = Crafty.e("2D, DOM, Text")
-    //.text(Math.floor(_points/10))
-    //.textColor('#FF0000')    
-    //.textFont({ size: '30px', weight: 'bold' })
+    .attr({x: _w*0.95, y: _h*0.1, w: _w, h: 10})
+    .text(Math.floor(_points/10))
+    
+    .textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){
     _points++;
-    //_pointsCounter.text(Math.floor(_points/10));
+    _pointsCounter.text(Math.floor(_points/10));
       //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
       //(_points%500) ? {} : _frequency = roll(40)+40;
       (_points%300) ? {} : GenBird();
