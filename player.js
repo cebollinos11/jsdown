@@ -12,7 +12,7 @@ function GenPlayer1(order){
   var Player = Crafty.e('Player_element, 2D, Color, DOM,s_Pablo, SpriteAnimation, Twoway, Gravity, Collision')
   .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name})  
   .reel("walk",1000, 0, 0, 1)
-  .reel("jump",1000, 2, 0, 1)
+  .reel("jump",1000, 1, 0, 1)
   
   .animate("walk",-1)
    .color(original.color)
