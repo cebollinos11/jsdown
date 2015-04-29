@@ -33,7 +33,7 @@ Crafty.load(["sprites/platforms.png"]);
  });
 
 //Crafty.load(["sprites/pabloanim2.png"]);
- Crafty.sprite(50, "sprites/pabloanim2.png", {
+ Crafty.sprite(50, "sprites/tupi.png", {
     s_Pablo: [0,0]
     
  });
