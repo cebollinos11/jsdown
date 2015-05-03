@@ -1,6 +1,9 @@
 Crafty.scene("title", function() {
    
-  
+    //get new background
+    _currBG+=1;
+    if(_currBG>_maxBG){_currBG=1}
+    
     StartBackground(0);
     CreateRandomPlatform(_h);
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});

@@ -112,8 +112,10 @@ Crafty.scene("playgame", function() {
 
 function StartBackground(where){
   var initial_height = 0;
+  background_id = _currBG; //get random background
+  background_string = "background_component"+String(background_id)
   if(where===0) initial_height = _h;
-  Crafty.e("2D, DOM , background_component").attr({x: 0, y: where, w: _w, h: initial_height,z:-1})
+  Crafty.e('2D, DOM , '+background_string).attr({x: 0, y: where, w: _w, h: initial_height,z:-1})
   .bind("EnterFrame", function (){
     if(this.y === 0){ StartBackground(_h-2);}    
     this.y-=1;

@@ -26,6 +26,10 @@ var playerlister = 0;
 //game difficulty (for platform spawning)
 var _difficulty = [0,0];
 
+//background related
+var _maxBG = 2;
+var _currBG = 0;
+
 function highscore_callback()
 {
   console.log("highscore submitted");
