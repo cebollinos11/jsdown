@@ -30,10 +30,7 @@ var _difficulty = [0,0];
 var _maxBG = 3;
 var _currBG = 0;
 
-function highscore_callback()
-{
-  console.log("highscore submitted");
-}
+
 
 function Kill(who) //destroy a player, if its the last one, go to title screen
 {
@@ -45,17 +42,18 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   //console.log(Crafty("Player_element")[0].player_name);
   
   if(_AlivePlayers<1) //submit high score
-    {
-    console.log("highscore sending...");
-      $.post( "php/highscore.php", {points:Math.floor(_points/10)} , highscore_callback );
-    Crafty.scene("title");
+    { 
+    //Crafty.stop();
+    endGame(0);    
     }
   
   
   if(_AlivePlayers==1)
     {
-      alert(Crafty("Player_element").player_name+" wins!");
-    Crafty.scene("title");
+    //alert(Crafty("Player_element").player_name+" wins!");
+    //Crafty.scene("title");
+    Crafty("Player_element").destroy();
+    endGame(Crafty("Player_element"));
     }
   
 }

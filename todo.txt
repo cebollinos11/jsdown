@@ -1,6 +1,0 @@
--persistent high scores
--improve main menu look
--improve plataform spawn algorithm
--sounds
--knives
--increase difficulty over time
