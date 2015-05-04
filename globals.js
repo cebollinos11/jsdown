@@ -27,7 +27,7 @@ var playerlister = 0;
 var _difficulty = [0,0];
 
 //background related
-var _maxBG = 2;
+var _maxBG = 3;
 var _currBG = 0;
 
 function highscore_callback()

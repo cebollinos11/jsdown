@@ -56,21 +56,26 @@ background-repeat: no-repeat;}
 }
 
 .background_component1{
-  background-image: url('http://media.tumblr.com/e70a0da214e04e0451d7fdbe92bea124/tumblr_inline_mwbruq68nk1qkc0d3.png');
+  background-image: url('sprites/bg/blue.jpg');
 }
 .background_component2{
-  background-image: url('http://www.psdgraphics.com/file/colorful-triangles-background.jpg');
+  background-image: url('sprites/bg/matrix.jpg');
+}
+.background_component3{
+  background-image: url('sprites/bg/pink.jpg');
 }
 
 
 .railright{
   background-image: url('sprites/rail_r.gif');
   border-radius: 20px;
+  border: 1px white solid;
 }
 
 .railleft{
   background-image: url('sprites/rail_l.gif');
   border-radius: 20px;
+  border: 1px white solid;
 }
 
 .pblue{
