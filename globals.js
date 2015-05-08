@@ -15,7 +15,7 @@ var _platSpawnTrigger = 4*_h/5; //screen height that triggers the spawn of a new
 var _pw = 50;//player width
 var _ph = 50;//player height
 var _ps = 6;//player speed
-var _points = 0; //current points
+
 var _pointsCounter = 0;
 
 var _nplayers = 1;
@@ -37,6 +37,7 @@ function jsDown(){ //main class
     console.log("init");
     
     this.timer = new TimerManager();
+    this.score = new ScoreManager();
 
     //start game
 
@@ -70,9 +71,12 @@ function jsDown(){ //main class
   this.StartGame = function(){
     console.log("Starting Game");
     Crafty.scene("playgame");
-    //start timer
+    //restart timer
     this.timer.reset();
     this.timer.start();
+
+    //restart score
+    this.score.reset();
   }
 
   this.EndGame = function(who){ //who won

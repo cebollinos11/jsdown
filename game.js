@@ -15,8 +15,7 @@ function roll(max) //dice roll to simplify randomized calculations
 
 
 Crafty.scene("playgame", function() {  
-  //reset points
-  _points = 0;
+  
   //reset alive players;
   _AlivePlayers = _nplayers;
   
@@ -37,19 +36,13 @@ Crafty.scene("playgame", function() {
   
   var _pointsCounter = Crafty.e("2D, DOM, Text")
     .attr({x: _w*0.95, y: _h*0.1, w: _w, h: 10})
-    .text(Math.floor(_points/10))
+    .text(G.score.score)
     
     .textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){
-    _points++;
-    _pointsCounter.text(Math.floor(_points/10));
-      //(_points%_currFrequency) ? {} : CreateRandomPlatform(_h);
-      //(_points%500) ? {} : _frequency = roll(40)+40;
-      //(_points%300) ? {} : GenBird();
-      //if(_points%150===1){_difficulty[1]+=1;
-      //}
-      
-      
+    
+    _pointsCounter.text(G.score.score);
+        
    
      
     

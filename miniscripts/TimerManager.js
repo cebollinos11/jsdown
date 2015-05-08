@@ -13,6 +13,7 @@ function TimerManager(){
 	//timer generates stuff
 		(this.count%5) ? {} : GenBird();
       if(this.count%15===1){_difficulty[1]+=1;}
+      G.score.add(1);
 
 
 		

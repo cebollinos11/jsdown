@@ -14,7 +14,7 @@ function endGameClass()
 		var title_text = "End of the game!"
 		Crafty.e("2D, DOM, Text").text("<H1><br><br><br><br><br><br><br><br> </H1>").attr({ x: 150, y: 100 ,w:500,h:400,z:1 });
 		Crafty.e("2D, DOM, Text")
-		.attr({ x: 200, y: 150 ,w:400 }).text("<H1>"+title_text+"</H1><p>Your Score: "+Math.floor(_points/10)+"</p><p>Highest Record: "+Math.floor(_points/10)+"</p>")
+		.attr({ x: 200, y: 150 ,w:400 }).text("<H1>"+title_text+"</H1><p>Your Score: "+G.score.score+"</p><p>Highest Record: "+999+"</p>")
 		.attr({z:2})
 		.bind("KeyDown",function(e)
 	         {
