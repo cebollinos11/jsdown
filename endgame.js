@@ -17,7 +17,7 @@ function showEndGameMessage(who){
          {
            if(e.key==32){ //check for SPACE KEY
              //Crafty.scene("title");  
-             G.StartGame();           
+             G.LoadTitle();           
            }           
          });
 
