@@ -5,16 +5,6 @@ function roll(max) //dice roll to simplify randomized calculations
   return Math.floor((Math.random() * max) + 1);
 }
 
-
-
-
-//create div
-//$("body").append('<div id="game"></div>');
-                 
-
-
-
-
 //start game
 
 Crafty.init(_w,_h, document.getElementById('game'));
