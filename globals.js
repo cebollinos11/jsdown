@@ -66,6 +66,11 @@ function jsDown(){ //main class
     console.log("LoadingTitleScren");
     Crafty.scene("title"); //play title screen
   }
+
+  this.StartGame = function(){
+    console.log("Starting Game");
+    Crafty.scene("playgame");
+  }
 }
 
 

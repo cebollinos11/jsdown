@@ -12,7 +12,7 @@ Crafty.scene("title", function() {
     .bind("KeyDown",function(e)
          {
            if(e.key==32){ //check for SPACE KEY
-             Crafty.scene("playgame");             
+             G.StartGame();             
            }           
          });  
   
