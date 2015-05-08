@@ -58,3 +58,12 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   
 }
 
+
+function jsDown(){
+
+  this.StartGame = function(){
+    console.log("Starting Game");
+    Crafty.scene("title"); //play title screen
+  }
+}
+

@@ -128,7 +128,7 @@ function StartBackground(where){
 //start music
 //Crafty.audio.add("bgmusic", "audio/music.mp3");
 //Crafty.audio.play("bgmusic", -1);
-Crafty.scene("title"); //play title screen
+//Crafty.scene("title"); //play title screen
 
 
 
