@@ -53,7 +53,7 @@ Crafty.scene("playgame", function() {
   .attr({x: 0, y: _h+10, w: _w, h: 10});
 
   Crafty.e('DeathFloorTop, 2D, DOM, Color')
-  .attr({x: 0, y: 0, w: _w, h: 64,z:100});
+  .attr({x: 0, y: -30, w: _w, h: 64,z:100});
   //.color('red');
   Crafty.e()
        
