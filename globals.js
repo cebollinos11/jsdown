@@ -82,6 +82,9 @@ function jsDown(){ //main class
 
     //restart score
     this.score.reset();
+
+    //fordebuggin endgame
+    //G.EndGame(0);  
   }
 
   this.EndGame = function(who){ //who won

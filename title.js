@@ -1,18 +1,4 @@
-function updateHS(){
-    $(".HighScoresPanel").html("Loading...");
 
-    $.getJSON( "highscore/db.json", function( data ) {
-      var items = "";
-      $.each( data["entries"], function( key, val ) {
-        var n = key
-        items+=( "<tr><td>#"+parseInt(key+1)+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
-      });
-    $(".HighScoresPanel").html("<h1>Online Leaderboard</h1><table>"+items+"</table>");
-    
-      console.log(items);
-    });
-
-    }
 
 Crafty.scene("title", function() {
    
@@ -33,8 +19,7 @@ Crafty.scene("title", function() {
          });  
 
   
-  updateHS();
-  
+  updateHS();  
   Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 550, y: 50 , w:200 })
    .text("<H1>Highest Record: "+999+"</H1>").attr({z:2})
   

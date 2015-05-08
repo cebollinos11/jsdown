@@ -1,7 +1,7 @@
 <?php
 
 $MAXENTRIES = 10;
-$DBPATH = "db.json";
+$DBPATH = "highscore/db.json";
 
 //Example of post
 $POST = '{  
