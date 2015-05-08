@@ -37,6 +37,7 @@ function jsDown(){ //main class
     console.log("init");
 
 
+
     //start game
 
     Crafty.init(_w,_h, document.getElementById('game'));
@@ -58,7 +59,7 @@ function jsDown(){ //main class
         
      });
 
-
+     this.endGame = new endGameClass();
 
     this.LoadTitle();
   }
@@ -88,7 +89,7 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   if(_AlivePlayers<1) //submit high score
     { 
     //Crafty.stop();
-    endGame(0);    
+    G.endGame.endGame(0);    
     }
   
   
@@ -97,7 +98,7 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
     //alert(Crafty("Player_element").player_name+" wins!");
     
     Crafty("Player_element").destroy();
-    endGame(Crafty("Player_element"));
+    G.endGame.endGame(Crafty("Player_element"));
     }
   
 }
