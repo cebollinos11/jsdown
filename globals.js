@@ -72,6 +72,12 @@ function jsDown(){ //main class
     console.log("Starting Game");
     Crafty.scene("playgame");
   }
+
+  this.EndGame = function(who){ //who won
+    console.log("Game Ended")
+    this.endGame.endGame(who);
+
+  }
 }
 
 
@@ -89,7 +95,7 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   if(_AlivePlayers<1) //submit high score
     { 
     //Crafty.stop();
-    G.endGame.endGame(0);    
+    G.EndGame(0);    
     }
   
   
@@ -98,7 +104,7 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
     //alert(Crafty("Player_element").player_name+" wins!");
     
     Crafty("Player_element").destroy();
-    G.endGame.endGame(Crafty("Player_element"));
+    G.EndGame(Crafty("Player_element"));
     }
   
 }
