@@ -4,9 +4,10 @@ function updateHS(){
     $.getJSON( "highscore/db.json", function( data ) {
       var items = "";
       $.each( data["entries"], function( key, val ) {
-        items+=( "<tr><td>"+key+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
+        var n = key
+        items+=( "<tr><td>#"+parseInt(key+1)+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
       });
-    $(".HighScoresPanel").html("<table>"+items+"</table>");
+    $(".HighScoresPanel").html("<h1>Online Leaderboard</h1><table>"+items+"</table>");
     
       console.log(items);
     });
@@ -34,14 +35,14 @@ Crafty.scene("title", function() {
   
   updateHS();
   
-  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 500, y: 50 , w:200 })
+  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 550, y: 50 , w:200 })
    .text("<H1>Highest Record: "+999+"</H1>").attr({z:2})
   
   Crafty.e("2D, DOM, Logo").attr({ x: 500, y: 50 , w:200 })
   .attr({ x: 0.1*_w, y: 0.1*_h, w:_w, h:_h }).attr({z:2})
     
    
-   Crafty.e("2D, DOM, Text").attr({ x: 200, y: 250, w:200 }).attr({z:2})
+   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
    .text("<H1>Number of Players:<br><span class='nplayers'> "+_nplayers+"</span><br><span class='info'><br>Create more players with + and - keys</span></H1>")
    .bind("KeyDown",function(e)
          {
@@ -65,9 +66,9 @@ Crafty.scene("title", function() {
      if(playerlister !== 0) {playerlister.destroy();}
      for(i=0;i<_nplayers;i++)
        {
-         TextString+="<p>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls+"</p>";
+         TextString+="<p style='float:left'>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls+"</p>";
        }
-     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 450,y: 180,w:300}).attr({z:2})
+     playerlister = Crafty.e("2D, DOM, Text").attr({ x: 100,y: 300,w:400}).attr({z:2})
    //.color("black")
    //.textColor("#FF0000") 
    //.color("white")
