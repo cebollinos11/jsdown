@@ -1,4 +1,4 @@
-function TimeManager(){
+function TimerManager(){
 	this.name = "counter";
 	
 	this.count=0;
@@ -30,5 +30,4 @@ function TimeManager(){
 		this.count = 0;
 	}
 }
-var t = new TimeManager();
-t.start();
+

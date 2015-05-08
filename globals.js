@@ -35,8 +35,8 @@ function jsDown(){ //main class
   this.init = function(){
     //Init stuff
     console.log("init");
-
-
+    
+    this.timer = new TimerManager();
 
     //start game
 
@@ -55,8 +55,7 @@ function jsDown(){ //main class
 
     //Crafty.load(["sprites/pabloanim2.png"]);
      Crafty.sprite(50, "sprites/tupi.png", {
-        s_Pablo: [0,0]
-        
+        s_Pablo: [0,0]        
      });
 
      this.endGame = new endGameClass();
@@ -71,11 +70,19 @@ function jsDown(){ //main class
   this.StartGame = function(){
     console.log("Starting Game");
     Crafty.scene("playgame");
+    //start timer
+    this.timer.reset();
+    this.timer.start();
   }
 
   this.EndGame = function(who){ //who won
-    console.log("Game Ended")
+    console.log("Game Ended");
+    //stop timer
+    this.timer.stop();
+
+
     this.endGame.endGame(who);
+
 
   }
 }
@@ -87,7 +94,6 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
 {
   
   who.destroy();
-  
   
   _AlivePlayers--;
   //console.log(Crafty("Player_element")[0].player_name);
