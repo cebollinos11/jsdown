@@ -51,7 +51,7 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   if(_AlivePlayers==1)
     {
     //alert(Crafty("Player_element").player_name+" wins!");
-    //Crafty.scene("title");
+    
     Crafty("Player_element").destroy();
     endGame(Crafty("Player_element"));
     }

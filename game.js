@@ -9,7 +9,7 @@ function roll(max) //dice roll to simplify randomized calculations
 
 
 //create div
-$("body").append('<div id="game"></div>');
+//$("body").append('<div id="game"></div>');
                  
 
 
@@ -42,9 +42,6 @@ Crafty.load(["sprites/platforms.png"]);
 
 
 Crafty.scene("playgame", function() {  
-  
- 
-  
   //reset points
   _points = 0;
   //reset alive players;
@@ -125,10 +122,7 @@ function StartBackground(where){
 }
 
 
-//start music
-//Crafty.audio.add("bgmusic", "audio/music.mp3");
-//Crafty.audio.play("bgmusic", -1);
-//Crafty.scene("title"); //play title screen
+
 
 
 
