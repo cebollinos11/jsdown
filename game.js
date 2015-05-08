@@ -5,28 +5,11 @@ function roll(max) //dice roll to simplify randomized calculations
   return Math.floor((Math.random() * max) + 1);
 }
 
-//start game
 
-Crafty.init(_w,_h, document.getElementById('game'));
-//fix fps
-Crafty.timer.FPS(50);
 
 //Crafty.background('url(sprites/sky.png)');
 
-//initialize sprites
-Crafty.load(["sprites/platforms.png"]);
- Crafty.sprite(32, "sprites/platforms.png", {
-    GreenP: [0,0,4,1],
-    RedP: [0,1,4,2],
-     SpikeDown: [0,2,4,3],
-     SpikeUp: [0,3,4,4]
- });
 
-//Crafty.load(["sprites/pabloanim2.png"]);
- Crafty.sprite(50, "sprites/tupi.png", {
-    s_Pablo: [0,0]
-    
- });
 
 
 

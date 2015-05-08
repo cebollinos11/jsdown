@@ -31,6 +31,45 @@ var _maxBG = 3;
 var _currBG = 0;
 
 
+function jsDown(){ //main class
+  this.init = function(){
+    //Init stuff
+    console.log("init");
+
+
+    //start game
+
+    Crafty.init(_w,_h, document.getElementById('game'));
+    //fix fps
+    Crafty.timer.FPS(50);
+
+        //initialize sprites
+    Crafty.load(["sprites/platforms.png"]);
+     Crafty.sprite(32, "sprites/platforms.png", {
+        GreenP: [0,0,4,1],
+        RedP: [0,1,4,2],
+         SpikeDown: [0,2,4,3],
+         SpikeUp: [0,3,4,4]
+     });
+
+    //Crafty.load(["sprites/pabloanim2.png"]);
+     Crafty.sprite(50, "sprites/tupi.png", {
+        s_Pablo: [0,0]
+        
+     });
+
+
+
+    this.LoadTitle();
+  }
+  this.LoadTitle = function(){
+    console.log("LoadingTitleScren");
+    Crafty.scene("title"); //play title screen
+  }
+}
+
+
+
 
 function Kill(who) //destroy a player, if its the last one, go to title screen
 {
@@ -57,17 +96,3 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
     }
   
 }
-
-
-function jsDown(){ //main class
-  this.init = function(){
-    //Init stuff
-    console.log("init");
-    this.LoadTitle();
-  }
-  this.LoadTitle = function(){
-    console.log("LoadingTitleScren");
-    Crafty.scene("title"); //play title screen
-  }
-}
-
