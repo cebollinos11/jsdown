@@ -32,12 +32,16 @@ var _currBG = 0;
 
 
 function jsDown(){ //main class
+
+  
+
   this.init = function(){
     //Init stuff
     console.log("init");
     
     this.timer = new TimerManager();
     this.score = new ScoreManager();
+    
 
     //start game
 
@@ -65,6 +69,7 @@ function jsDown(){ //main class
   }
   this.LoadTitle = function(){
     console.log("LoadingTitleScren");
+
     Crafty.scene("title"); //play title screen
   }
 

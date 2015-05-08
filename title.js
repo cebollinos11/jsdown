@@ -1,3 +1,18 @@
+function updateHS(){
+    $(".HighScoresPanel").html("Loading...");
+
+    $.getJSON( "highscore/db.json", function( data ) {
+      var items = "";
+      $.each( data["entries"], function( key, val ) {
+        items+=( "<tr><td>"+key+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
+      });
+    $(".HighScoresPanel").html("<table>"+items+"</table>");
+    
+      console.log(items);
+    });
+
+    }
+
 Crafty.scene("title", function() {
    
     //get new background
@@ -15,8 +30,11 @@ Crafty.scene("title", function() {
              G.StartGame();             
            }           
          });  
+
   
-  Crafty.e("2D, DOM, Text").attr({ x: 500, y: 50 , w:200 })
+  updateHS();
+  
+  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 500, y: 50 , w:200 })
    .text("<H1>Highest Record: "+999+"</H1>").attr({z:2})
   
   Crafty.e("2D, DOM, Logo").attr({ x: 500, y: 50 , w:200 })

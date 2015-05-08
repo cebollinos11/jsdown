@@ -1,5 +1,3 @@
-
-
 function roll(max) //dice roll to simplify randomized calculations
 {
   return Math.floor((Math.random() * max) + 1);
@@ -8,10 +6,6 @@ function roll(max) //dice roll to simplify randomized calculations
 
 
 //Crafty.background('url(sprites/sky.png)');
-
-
-
-
 
 
 Crafty.scene("playgame", function() {  

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+function updateHS(){
+    $("#HS").html("Loading...");
+
+    $.getJSON( "db.json", function( data ) {
+      var items = "";
+      $.each( data["entries"], function( key, val ) {
+        items+=( "<tr><td>"+key+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
+      });
+    $("#HS").html("<table>"+items+"</table>");
+    
+      console.log(items);
+    });
+
+    }
+
+   
+
+
+    $("#Send").click(function(){
+
+        var ToSend = {};
+        ToSend.name = $("#name").val();
+        ToSend.score = $("#score").val();
+
+        $.post("hs.php",
+        {
+          data: JSON.stringify(ToSend)
+        },
+        function(data,status){
+            $("#response").text("Data: " + data);
+        });
+    });
+
+
+     $("#Refresh").click(function(){
+        updateHS();
+    });
+
+    updateHS();
+
+
+});
+</script>
+</head>
+<body>
+<div id="HS"></div>
+<button id="Refresh">Refresh Scores</button>
+name<input id="name"></input>
+score<input id="score"></input>
+<button id="Send">Send Score</button>
+<p>Response:</p><div id="response">Waiting for submission...</div>
+</body>
+</html>
