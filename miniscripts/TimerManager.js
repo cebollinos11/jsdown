@@ -7,6 +7,14 @@ function TimerManager(){
 	self.iteration = function(){
 		this.count++;
 		console.log(this.count,this.id);
+
+
+
+	//timer generates stuff
+		(this.count%5) ? {} : GenBird();
+      if(this.count%15===1){_difficulty[1]+=1;}
+
+
 		
 	}
 	self.start = function(){

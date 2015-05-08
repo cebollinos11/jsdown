@@ -77,9 +77,9 @@ function jsDown(){ //main class
 
   this.EndGame = function(who){ //who won
     console.log("Game Ended");
+
     //stop timer
     this.timer.stop();
-
 
     this.endGame.endGame(who);
 
