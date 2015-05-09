@@ -32,7 +32,7 @@ table{
   border-radius: 5px;  
 }
 
-#Retry:hover{
+.jsButton:hover{
   background-color: yellow;
   cursor: pointer;
 }

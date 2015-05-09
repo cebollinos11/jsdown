@@ -22,7 +22,7 @@ function endGameClass()
 
 		updateHS();
 	   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
-	    .text("<H1 id='Retry'>Try AGAIN!</H1>").attr({z:2});  
+	    .text("<H1 id='Retry' class='jsButton'>Try AGAIN!</H1>").attr({z:2});  
 
 	    //submitbutton
 	    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 350, w:600 })
