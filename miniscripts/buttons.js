@@ -1,11 +1,22 @@
+function updateButtons()
+{
+    setTimeout(RunjQueryInButtons, 1000);
+}
 
 
-function updateButtons(){
+function RunjQueryInButtons(){
 
 		$("#Retry").click(function(){
+
 			 G.LoadTitle();       
 			}
 			);
+
+        $("#Start").click(function(){
+             G.StartGame();    
+
+            }
+            );
 
 	    $("#Send").click(function(){
 

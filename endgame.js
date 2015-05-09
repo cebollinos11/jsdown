@@ -28,7 +28,7 @@ function endGameClass()
 	    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 350, w:600 })
 	    .text("Your name <input id='submitName' ></input> <button id='Send'>Submit score</button><div id='Response'>Response</div>").attr({z:2});  
 
-	    setTimeout(updateButtons, 1000);
+	    updateButtons();
 	    
 	}
 
