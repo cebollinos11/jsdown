@@ -29,7 +29,7 @@ Crafty.scene("title", function() {
     
    
    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
-   .text("<H1>Number of Players:<br><span class='nplayers'> "+_nplayers+"</span><br><span class='info'><br>Create more players with + and - keys</span></H1>")
+   .text("<H1>Number of Players:<br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br>Create more players with + and - keys</span></H1>")
    .bind("KeyDown",function(e)
          {
            
@@ -41,8 +41,7 @@ Crafty.scene("title", function() {
              _nplayers--;
              (_nplayers<1) ? _nplayers=1 : {}
            UpdatePlayerList();}         
-                              
-              this.text("<H1>Number of Players:<br><span class='nplayers'> "+_nplayers+"</span><br><span class='info'><br>Create more players with + and - keys</span></H1>");
+              $(".nplayers").text(_nplayers);                
          })
    
    UpdatePlayerList();
