@@ -14,6 +14,7 @@ function updateHS(){
         items+=( "<tr><td>"+getGetOrdinal(parseInt(key+1))+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
       });
     $(".HighScoresPanel").html("<h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table>");
+    //alert("hs refreshed");
     
       //console.log(items);
     });

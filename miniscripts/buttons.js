@@ -49,7 +49,8 @@ function RunjQueryInButtons(){
         function(data,status){
         	console.log(data,status)
             $("#Response").html("Data: " + data);
-            updateHS();
+            
+            setTimeout(updateHS(), 1000);
         });
     });
 }
