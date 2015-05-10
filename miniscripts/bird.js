@@ -1,7 +1,10 @@
 var _birdspeed = 4;
 var _birdsize = 32;
-function GenBird(){
-  var direction = (roll(2)==1)?-1:1;
+function GenBird(direction){
+  var direction = direction;
+  if (direction==undefined){
+     direction = (roll(2)==1)?-1:1;
+   }
   var amplitude = roll(100);
   
   var Bird = Crafty.e('spawnable,bird, 2D, Color, DOM, Collision')
@@ -25,3 +28,14 @@ function GenBird(){
      w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100});  
   
   }
+
+
+function MultiBird() //direction should be -1 or 1
+{
+  var t = 10;
+  var direction = (roll(2)==1)?-1:1;
+  for (var i = 0; i < 10; i++) {
+    setTimeout(function(){GenBird(direction)},roll(2000));
+
+  }
+}
