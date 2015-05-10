@@ -29,15 +29,10 @@ Crafty.scene("playgame", function() {
   CreateRandomPlatform(_h);
   
    _pointsCounter = Crafty.e("2D, DOM, Text")
-    .attr({x: 0, y: _h*0.05, w: _w, h: 10})
-    
-    
+    .attr({x: 0, y: _h*0.05, w: _w, h: 10})    
     .textFont({ size: '30px', weight: 'bold' })
-    .bind("EnterFrame", function (){
-    
-    _pointsCounter.text("Score: "+G.score.score);  
-     
-    
+    .bind("EnterFrame", function (){    
+    _pointsCounter.text("Score: "+G.score.score);      
     });//.attr({ plat_frequency: _frequency });
   
     
