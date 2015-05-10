@@ -1,6 +1,8 @@
 body {
    background: linear-gradient(black , red); /* Standard syntax (must be last) */
-overflow:hidden;     
+  overflow:hidden;   
+
+  font-family: "Paragraph" !important;  
   
 }
 
@@ -14,7 +16,7 @@ H1{
   border-radius: 20px 0 20px 0;
   padding:20px;
   text-align: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: "Paragraph";
   background-color:rgba(255,255,255,0.8);
   
 }
@@ -44,7 +46,7 @@ p{
   border-width: 1px;
   font-size: 150%;
   padding:3px;
-  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  
   background-color:rgba(255,255,255,0.8);
 }
 
@@ -135,7 +137,7 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
   border-radius: 20px 0 20px 0;
   padding:20px;
   text-align: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  
   background-color:rgba(255,255,255,0.8); 
 
 }
@@ -168,4 +170,20 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
 .submitHSpanel .HSinfo{
   text-align: left;
   padding-left: 50px;
+}
+
+.playercontrols{
+  float: left;
+  width: 90px;
+  height: 60px;
+}
+
+@font-face {
+    font-family: 'Header'; /*a name to be used later*/
+    src: url('fonts/actionj.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Paragraph'; /*a name to be used later*/
+    src: url('fonts/qarmic.ttf'); /*URL to font*/
 }
