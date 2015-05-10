@@ -15,7 +15,7 @@ function updateHS(){
       });
     $(".HighScoresPanel").html("<h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table>");
     
-      console.log(items);
+      //console.log(items);
     });
 
     }

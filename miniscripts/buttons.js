@@ -27,6 +27,9 @@ function RunjQueryInButtons(){
             );
 
 	    $("#Send").click(function(){
+
+        $(this).hide();
+
         var ToSend = {};
         ToSend.name = $("#submitName").val();
         ToSend.score = G.score.score.toString();

@@ -12,10 +12,3 @@ function ScoreManager(){
 	this.freeze = function(){this.frozen=1;}
 }
 
-s = new ScoreManager;
-s.add(5);
-s.freeze();
-s.reset();
-s.add(7);
-
-console.log(s.score);
