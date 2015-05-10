@@ -6,7 +6,7 @@ function TimerManager(){
 	var self = this; //trick so iteration method can access "this"
 	self.iteration = function(){
 		this.count++;
-		console.log(this.count,this.id);
+		//console.log(this.count,this.id);
 
 
 
@@ -28,7 +28,7 @@ function TimerManager(){
 		
 		this.id.forEach(
 			function(ele){
-			console.log("stopping",ele);
+			//console.log("stopping",ele);
 			clearInterval(ele);
 		}
 		);

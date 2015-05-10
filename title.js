@@ -1,5 +1,3 @@
-
-
 Crafty.scene("title", function() {
    
     //get new background
