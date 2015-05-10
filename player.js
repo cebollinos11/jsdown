@@ -51,30 +51,7 @@ function GenPlayer1(order){
     if(who[0].obj.y>this.y+this.h-15){       
     this.y = this.y-_pspeed-_g;
     }
-    
-//     if(who[0].obj.is_mover){ //apply mover left right 
-//       this.x+=who[0].obj.is_mover;
-//     }
-    
-    
-    
-//     if(who[0].obj.glass){ //apply destruction of platform in case
-//       //who[0].obj.y=0;
-//       who[0].obj.removeComponent("Platform");
-//       who[0].obj.removeComponent("pgreen");
-//       who[0].obj.addComponent("pblue");
-//       who[0].obj.bind("EnterFrame", function (){ who[0].obj.y+=_pspeed*3;   });
       
-      
-//     }
-    
-//     if(who[0].obj.fireKill){ //apply kill in case
-      
-//        Kill(this);
-      
-//     }
-    
-   
     
   }); //end of player
   
