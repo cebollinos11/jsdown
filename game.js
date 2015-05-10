@@ -28,16 +28,14 @@ Crafty.scene("playgame", function() {
   //put one plat
   CreateRandomPlatform(_h);
   
-  var _pointsCounter = Crafty.e("2D, DOM, Text")
-    .attr({x: _w*0.95, y: _h*0.1, w: _w, h: 10})
-    .text(G.score.score)
+   _pointsCounter = Crafty.e("2D, DOM, Text")
+    .attr({x: 0, y: _h*0.05, w: _w, h: 10})
+    
     
     .textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){
     
-    _pointsCounter.text(G.score.score);
-        
-   
+    _pointsCounter.text("Score: "+G.score.score);  
      
     
     });//.attr({ plat_frequency: _frequency });
