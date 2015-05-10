@@ -10,7 +10,7 @@ Crafty.scene("title", function() {
     CreateRandomPlatform(_h);
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
     Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
-    .text("<H1 id='Start' class='jsButton'>Press SPACE to START!!</H1>").attr({z:3})
+    .text("<H1 id='Start' class='jsButton'>START</H1>").attr({z:3})
     .bind("KeyDown",function(e)
          {
            if(e.key==32){ //check for SPACE KEY
