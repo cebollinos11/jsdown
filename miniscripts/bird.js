@@ -4,7 +4,7 @@ function GenBird(){
   var direction = (roll(2)==1)?-1:1;
   var amplitude = roll(100);
   
-  var Bird = Crafty.e('bird, 2D, Color, DOM, Collision')
+  var Bird = Crafty.e('spawnable,bird, 2D, Color, DOM, Collision')
   .bind("EnterFrame", function (){
   this.x+=_birdspeed*this.direction;
   if(this.x<0 || this.x>_w){this.destroy();}
