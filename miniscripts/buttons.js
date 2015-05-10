@@ -17,7 +17,7 @@ function RunjQueryInButtons(){
 
 		$("#Retry").click(function(){
 
-			 G.LoadTitle();       
+			 G.StartGame();       
 			}
 			);
 

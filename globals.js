@@ -84,7 +84,7 @@ function jsDown(){ //main class
     this.score.reset();
 
     //fordebuggin endgame
-    G.EndGame(0);  
+    //G.EndGame(0);  
   }
 
   this.EndGame = function(who){ //who won
