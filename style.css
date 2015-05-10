@@ -118,7 +118,8 @@ background-repeat: no-repeat;}
 {
   background-image: url('http://cdn2.scratch.mit.edu/get_image/gallery/370937_170x100.png');  
 }
-.banana{background-image: url('http://files.gamebanana.com/img/ico/games/banana.gif')}
+.banana{background-image: url('sprites/banana.png')}
+.cherry{background-image: url('sprites/cherry.png')}
 
 #game{
 border: 8px #5d6e49 double;

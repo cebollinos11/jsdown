@@ -1,13 +1,14 @@
 
 Fr = {fruitsize:32,
+	db:["banana","cherry"],
 	Frequency:10//in percentage
 	};
 function GenFruit(x,y){
 	
 	var x = x-Fr.fruitsize/2;
 	var h = y-Fr.fruitsize;
-	
-	var Fruit = Crafty.e('spawnable,banana, 2D, Color, DOM, Collision').attr({x:x,y:h,w:Fr.fruitsize,h:Fr.fruitsize});
+	var FruitType = Fr.db[roll(2)-1];
+	var Fruit = Crafty.e('spawnable, '+FruitType+', 2D, Color, DOM, Collision').attr({x:x,y:h,w:Fr.fruitsize,h:Fr.fruitsize});
 	Fruit.TTL = Fr.TTL; 
 	Fruit.bind("EnterFrame", function (){
 		this.y-=_currPspeed;
