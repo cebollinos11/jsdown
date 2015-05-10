@@ -6,6 +6,15 @@ function updateButtons()
 
 function RunjQueryInButtons(){
 
+        $("#submitName").keyup(function(){
+            if($("#submitName").val()!=""){
+                $('#Send').removeAttr('disabled');
+            }
+            else{
+                $('#Send').attr('disabled', 'disabled');
+            }
+        })
+
 		$("#Retry").click(function(){
 
 			 G.LoadTitle();       
