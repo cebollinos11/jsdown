@@ -54,8 +54,7 @@ function CreateRandomPlatform(height,canbeinvisible)
     .bind("EnterFrame",function() //normal platform movement
        {
          this.y-=this.speed;
-         if(this.y<0 || this.y>_h+this.h+1){
-           
+         if(this.y<-this.h || this.y>_h+this.h+1){
          this.destroy();}
        })
       .bind("EnterFrame",function() //generate platform 
@@ -81,6 +80,10 @@ function CreateRandomPlatform(height,canbeinvisible)
 //   newplat.onHit('Player_element', function (who){    
 //     _platformList[typeplat].hitplayer(who);
 //   });
+
+    //set Fruits on top of platforms
+    if(roll(100)<Fr.Frequency){GenFruit(newplat.x+newplat.w/2,newplat.y);}
+    
   
   
 }

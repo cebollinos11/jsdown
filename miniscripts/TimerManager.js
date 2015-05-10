@@ -12,6 +12,8 @@ function TimerManager(){
 
 	//timer generates stuff
 		(this.count%5) ? {} : GenBird();
+		//(this.count%4) ? {} : GenFruit();
+
       if(this.count%15===1){_difficulty[1]+=1;}
       G.score.add(1);
 
