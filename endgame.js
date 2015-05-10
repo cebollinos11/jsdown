@@ -15,7 +15,7 @@ function endGameClass()
 		Crafty.e("2D, DOM, Text")
 		.attr({ x: 100, y: 100 ,w:400 }).text("<p style='text-align:center'>"+
 			title_text+"</p><div class='submitHSpanel'><p>Final Score: <span>"+G.score.score+
-			"</span></p><p>Name:<input id='submitName' ></input></p><button id='Send' class='jsButton' disabled='disabled'>Submit score</button><H1 id='Retry' class='jsButton'>Try AGAIN!</H1></div>")
+			"</span></p><p>Name:<input id='submitName' ></input></p><button id='Send' class='jsButton' disabled='disabled'>Submit score</button><H1 id='Retry' class='jsButton'>Try AGAIN!</H1><H1 id='GoToMainMenu' class='jsButton'>Main menu</H1></div>")
 		.attr({z:2});
 
 		  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 570, y: 50 , w:200 })

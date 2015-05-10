@@ -15,6 +15,14 @@ function RunjQueryInButtons(){
             }
         })
 
+
+            $("#GoToMainMenu").click(function(){
+
+             G.LoadTitle();       
+            }
+            );
+
+
 		$("#Retry").click(function(){
 
 			 G.StartGame();       
