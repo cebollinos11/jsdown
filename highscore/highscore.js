@@ -7,7 +7,7 @@ function getGetOrdinal(n) {
 function updateHS(){
     $(".HighScoresPanel").html("Loading...");
 
-    $.getJSON( "highscore/db.json", function( data ) {
+    $.getJSON( "highscore/db.json?"+roll(9999), function( data ) {
       var items = "";
       $.each( data["entries"], function( key, val ) {
         var n = key
