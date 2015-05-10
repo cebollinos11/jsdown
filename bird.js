@@ -18,6 +18,7 @@ function GenBird(){
     //Kill(who[0].obj);
     who[0].obj.x = this.x+this.w/2;
     who[0].obj.y = this.y+this.h/2;
+    G.score.add(1);
   })
   .attr({x: -(_w-_pw)/2*(direction-1), y_original: roll(0.5*_h)+0.2*_h, w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100});  
   
