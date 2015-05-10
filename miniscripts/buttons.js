@@ -14,12 +14,10 @@ function RunjQueryInButtons(){
 
         $("#Start").click(function(){
              G.StartGame();    
-
             }
             );
 
 	    $("#Send").click(function(){
-
         var ToSend = {};
         ToSend.name = $("#submitName").val();
         ToSend.score = G.score.score.toString();
