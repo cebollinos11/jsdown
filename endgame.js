@@ -18,9 +18,9 @@ function endGameClass()
 		.attr({z:2});
 
 		  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 570, y: 50 , w:200 })
-   			.text("<H1>Highest Record: "+999+"</H1>").attr({z:2})
+   			.text("<H1>Loading Leaderboard...</H1>").attr({z:2})
 
-		updateHS();
+	    updateHS(); 
 	   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
 	    .text("").attr({z:2});  
 

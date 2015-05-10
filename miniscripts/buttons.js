@@ -49,8 +49,8 @@ function RunjQueryInButtons(){
         function(data,status){
         	console.log(data,status)
             $("#Response").html("Data: " + data);
-            
-            setTimeout(updateHS(), 1000);
+            $(".HighScoresPanel").html("<H1>Updating Leaderboard...</H1>");
+            setTimeout(updateHS, 1000);
         });
     });
 }
