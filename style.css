@@ -128,6 +128,10 @@ background-repeat: no-repeat;}
 .banana{background-image: url('sprites/banana.png')}
 .cherry{background-image: url('sprites/cherry.png')}
 .fish{background-image: url('sprites/fish.gif')}
+.tupifly{background-image: url('sprites/tupifly.png')}
+.tupiwalk{
+    background-image: url('sprites/tupiwalk.gif');
+    }
 
 #game{
 border: 8px #5d6e49 double;

@@ -9,13 +9,9 @@ var _playerList = [
 //functions
 function GenPlayer1(order){
   var original = this;
-  var Player = Crafty.e('Player_element, 2D, Color, DOM,s_Pablo, SpriteAnimation, Twoway, Gravity, Collision')
+  var Player = Crafty.e('Player_element, 2D, Color, DOM,tupiwalk, Twoway, Gravity, Collision, spawnable')
   .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name})  
-  .reel("walk",1000, 0, 0, 1)
-  .reel("jump",1000, 1, 0, 1)
-  
-  .animate("walk",-1)
-   .color(original.color)
+  .color(original.color)
   //.twoway(6,0)  
   //.collision([0,0], [0,50])
   .bind("EnterFrame", function (){    
@@ -29,7 +25,9 @@ function GenPlayer1(order){
       this.x+=_ps; 
     //Apply gravity
     this.y+=_g;
-    this.animate("jump",-1)
+    //this.animate("jump",-1)
+    this.removeComponent("tupiwalk");
+    this.addComponent("tupifly");
   //prevent out of bounds
     if(this.x<0){this.x=1;}
     if(this.x>_w-_pw){
@@ -42,7 +40,9 @@ function GenPlayer1(order){
     var p = who[0].obj.y;
     var x = this.y+this.h; 
     
-    this.animate("walk",-1);
+    //this.animate("walk",-1);
+    this.removeComponent("tupifly");
+    this.addComponent("tupiwalk");
     
     
     //apply effect of platform on player

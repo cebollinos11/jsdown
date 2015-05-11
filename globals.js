@@ -58,10 +58,7 @@ function jsDown(){ //main class
          SpikeUp: [0,3,4,4]
      });
 
-    //Crafty.load(["sprites/pabloanim2.png"]);
-     Crafty.sprite(50, "sprites/tupi.png", {
-        s_Pablo: [0,0]        
-     });
+    
 
      this.endGame = new endGameClass();
 
