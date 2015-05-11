@@ -16,12 +16,12 @@ function GenPlayer1(order){
   //.collision([0,0], [0,50])
   .bind("EnterFrame", function (){    
     //check keyboard input
-    if (this.isDown(original.controls[0])) {      
+    if (this.isDown(original.controls[0]) && !this.burned) {      
       this.x-=_ps;  
      // Crafty.stop();
       
    } 
-    if (this.isDown(original.controls[1])) 
+    if (this.isDown(original.controls[1])&& !this.burned) 
       this.x+=_ps; 
     //Apply gravity
     this.y+=_g;
