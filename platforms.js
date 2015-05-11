@@ -95,9 +95,9 @@ function CreateRandomPlatform(height,canbeinvisible)
 
   //for testing burning
 
-
+    console.log();
     //set Fruits on top of platforms
-    if(roll(100)<Fr.Frequency){GenFruit(newplat.x+newplat.w/2,newplat.y);}
+    if(roll(100)<Fr.Frequency && _platformList[typeplat].name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
     
   
   
