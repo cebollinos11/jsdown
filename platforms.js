@@ -43,7 +43,7 @@ function CreateRandomPlatform(height,canbeinvisible)
 {
   var typeplat = roll(5)-1;
   
-  var tilesize = 32;
+  
   var psize = roll(_size/32)*32;
   
   var px =  roll(_w-_pw-psize)+_pw;
