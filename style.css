@@ -1,7 +1,6 @@
 body {
    background: linear-gradient(black , red); /* Standard syntax (must be last) */
   overflow:hidden;   
-
   font-family: "Paragraph" !important;  
   
 }
@@ -10,15 +9,18 @@ div{
   margin: 0px auto;
 }
 
-H1{
+.menubutton{
   border-style: solid;
   border-width: 4px; 
   border-radius: 20px 0 20px 0;
   padding:20px;
   text-align: center;
   font-family: "Paragraph";
-  background-color:rgba(255,255,255,0.8);
+  background-color:rgba(255,255,255,0.8); 
+
   
+  
+
 }
 
 
@@ -31,9 +33,23 @@ H1{
   border-radius: 5px;  
 }
 
+.jsButton{
+    border-style: solid;
+  border-width: 4px; 
+  border-radius: 20px 0 20px 0;
+  padding:20px;
+  text-align: center;
+  font-family: "Paragraph";
+  background-color:rgba(255,255,255,0.8);
+  font-size: 2em;  
+  font-weight: bold;
+  margin: 15px;
+}
 .jsButton:hover{
   background-color: yellow;
   cursor: pointer;
+
+
 }
 .info
 {
@@ -41,14 +57,7 @@ H1{
   font-size:50%;
 }
 
-p{
-  border-style: solid;
-  border-width: 1px;
-  font-size: 150%;
-  padding:3px;
-  
-  background-color:rgba(255,255,255,0.8);
-}
+
 
 .logo{background-image: url('sprites/logo.png');
 background-repeat: no-repeat;}
@@ -140,7 +149,7 @@ border: 8px #5d6e49 double;
 box-shadow: 0px 0px 37px 10px #f4e5dc;
 }
 
-.submitHSpanel{
+.jsPanel{
    border-style: solid;
   border-width: 4px; 
   border-radius: 20px 0 20px 0;
@@ -150,33 +159,33 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
   background-color:rgba(255,255,255,0.8); 
 
 }
-.submitHSpanel span{
+.jsPanel span{
   font-size: 200%;
   vertical-align: middle;
 }
-.submitHSpanel p{
-  font-size: 200%;
+.jsPanel p{
+  
   border: 0;
   background:none;
   padding: 0px;
 }
-.submitHSpanel input{
+.jsPanel input{
   font-size: larger;
   width: 200px;
 
 }
-.submitHSpanel button{
+.jsPanel button{
   font-size: larger;
   width: 200px;
 
 
 }
-.submitHSpanel button:hover{
+.jsPanel button:hover{
   cursor: pointer;
 }
 
   
-.submitHSpanel .HSinfo{
+.jsPanel .HSinfo{
   text-align: left;
   padding-left: 50px;
 }

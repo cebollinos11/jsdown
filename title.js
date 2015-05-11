@@ -8,7 +8,7 @@ Crafty.scene("title", function() {
     CreateRandomPlatform(_h);
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
     Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
-    .text("<H1 id='Start' class='jsButton'>START</H1>").attr({z:3})
+    .text("<div id='Start' class='jsButton'>START</div>").attr({z:3})
     .bind("KeyDown",function(e)
          {
            if(e.key==32){ //check for SPACE KEY
@@ -17,15 +17,15 @@ Crafty.scene("title", function() {
          });  
   updateButtons();
   updateHS();  
-  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 550, y: 50 , w:200 })
-   .text("<H1>Loading Leaderboard...</H1>").attr({z:2})
+  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 520, y: 50 , w:250 })
+   .text("<div class='menubutton'>Loading Leaderboard...</div>").attr({z:2})
   
   Crafty.e("2D, DOM, Logo").attr({ x: 500, y: 50 , w:200 })
   .attr({ x: 0.1*_w, y: 0.1*_h, w:_w, h:_h }).attr({z:2})
     
    
    Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
-   .text("<H1>Number of Players:<br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br><p>Create more players with + and - keys</p></span></H1>")
+   .text("<div class='jsPanel'><h1>Players:</h1><br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br><p>Create more players with + and - keys</p></span><div class='plister'>a</div></div>")
    .bind("KeyDown",function(e)
          {
            
@@ -41,13 +41,29 @@ Crafty.scene("title", function() {
          })
    
    UpdatePlayerList();
-  
+
    function UpdatePlayerList(){
+    $(".plister").empty();
+    var TextString = "";
+    if(playerlister !== 0) {playerlister.destroy();}
+     for(i=0;i<_nplayers;i++)
+       {
+         TextString+="<div class='playercontrols'>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls[0]+" "+_playerList[i].controls[1]+"</div>";
+       }
+    $(".plister").append(TextString);
+
+
+
+  }
+  
+   function UpdatePlayerList1(){
+
+      $(".plister").text("FUUU");
      var TextString = "";
      if(playerlister !== 0) {playerlister.destroy();}
      for(i=0;i<_nplayers;i++)
        {
-         TextString+="<p  class='playercontrols'>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls[0]+" "+_playerList[i].controls[1]+"</p>";
+         TextString+="<p class='playercontrols'>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls[0]+" "+_playerList[i].controls[1]+"</p>";
        }
      playerlister = Crafty.e("2D, DOM, Text").attr({ x: 100,y: 350,w:400}).attr({z:2})
    //.color("black")

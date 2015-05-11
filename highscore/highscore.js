@@ -13,7 +13,7 @@ function updateHS(){
         var n = key
         items+=( "<tr><td>"+getGetOrdinal(parseInt(key+1))+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
       });
-    $(".HighScoresPanel").html("<h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table>");
+    $(".HighScoresPanel").html("<div class='jsPanel'><h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table></div>");
     //alert("hs refreshed");
     
       //console.log(items);
