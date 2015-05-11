@@ -105,6 +105,11 @@ background-repeat: no-repeat;}
   
 }
 
+.brokenbrick{
+    background-image: url('sprites/broken.png');
+     
+}
+
 .Player_element
 {
   border-style: solid;

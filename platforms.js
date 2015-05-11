@@ -3,12 +3,12 @@ var _platformList = [
   {name:"fire",css_sprite:"pfire",hitplayer:kill_player,freq:50},
   {name:"railright",css_sprite:"railright",hitplayer:move_right,freq:90},
   {name:"railleft",css_sprite:"railleft",hitplayer:move_left,freq:90},
-  {name:"glass",css_sprite:"pgreen",hitplayer:push_glass,freq:50}
+  {name:"glass",css_sprite:"brokenbrick",hitplayer:push_glass,freq:50}
   
 ];
 function push_glass(who)
 {
-  this.removeComponent("pgreen");
+  this.removeComponent("brokenbrick");
   this.addComponent("pblue");
   this.attr({count_down:20});
   this.bind("EnterFrame", function (){ this.count_down--;
