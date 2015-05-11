@@ -5,6 +5,13 @@ var _playerList = [
   {name : "Player 3", controls:["V","B"],color:"yellow",generate_player: GenPlayer1}
 ];
 
+function ControlsForDisplay(i){
+  if(i==0){
+    return "&larr; , &rarr;";
+  }
+
+  return _playerList[i].controls[0]+","+_playerList[i].controls[1]
+}
 //_playerList[0].generate_player(3);
 //functions
 function GenPlayer1(order){

@@ -24,8 +24,8 @@ Crafty.scene("title", function() {
   .attr({ x: 0.1*_w, y: 0.1*_h, w:_w, h:_h }).attr({z:2})
     
    
-   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
-   .text("<div class='jsPanel'><h1>Players:</h1><br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br><p>Create more players with + and - keys</p></span><div class='plister'>a</div></div>")
+   var mainPanel = Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
+   .text("<div class='jsPanel'><h1>Players</h1><br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br><p>Create more players with + and - keys</p></span><div class='plister'>a</div></div>")
    .bind("KeyDown",function(e)
          {
            
@@ -39,20 +39,28 @@ Crafty.scene("title", function() {
            UpdatePlayerList();}         
               $(".nplayers").text(_nplayers);                
          })
+   var mainPanelText = "<div class='jsPanel'><h1>Players<span style='padding-left:2em'>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span></h1><div class='plister'>"
+
+   for(i=0;i<4;i++)
+       {
+         opacity = (!i)?1:0.2;
+         mainPanelText+="<div  id='infoplayer"+i+"' class='playercontrols' style='opacity:"+opacity+"'><p>"+_playerList[i].name+"</p><div class='playerthumbnail' style='background-color: "+_playerList[i].color+";'></div><p>"+ControlsForDisplay(i)+"</p></div>";
+       }
+
+    mainPanelText+="</div></div>"
+
+    mainPanel.text(mainPanelText);
    
    UpdatePlayerList();
 
    function UpdatePlayerList(){
-    $(".plister").empty();
-    var TextString = "";
-    if(playerlister !== 0) {playerlister.destroy();}
-     for(i=0;i<_nplayers;i++)
-       {
-         TextString+="<div class='playercontrols'>"+_playerList[i].name+": "+_playerList[i].color+"<br>"+_playerList[i].controls[0]+" "+_playerList[i].controls[1]+"</div>";
-       }
-    $(".plister").append(TextString);
+    
+    $(".playercontrols").css('opacity',0.2);
+    for(i=0;i<_nplayers;i++)
+    {
+          $("#infoplayer"+i).css('opacity',1);
 
-
+    }
 
   }
   
