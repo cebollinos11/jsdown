@@ -60,7 +60,7 @@ function jsDown(){ //main class
 
     
 
-     this.endGame = new endGameClass();
+    
 
     this.LoadTitle();
   }
@@ -79,6 +79,10 @@ function jsDown(){ //main class
 
     //restart score
     this.score.reset();
+
+    //endgame reset
+    this.endGame = new endGameClass();
+
 
     //fordebuggin endgame
     //G.EndGame(0);  
@@ -101,7 +105,14 @@ function jsDown(){ //main class
 
 function Kill(who) //destroy a player, if its the last one, go to title screen
 {
-  
+  if(who.killed){
+    console.log("who.name","killed already");
+    return
+  }
+  else{
+    who.killed=1;
+
+  }
   who.destroy();
   
   _AlivePlayers--;

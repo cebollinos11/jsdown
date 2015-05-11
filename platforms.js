@@ -1,6 +1,6 @@
 var _platformList = [
   {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing,freq:999},
-  {name:"fire",css_sprite:"pfire",hitplayer:kill_player,freq:50},
+  {name:"fire",css_sprite:"pfire",hitplayer:burn_player,freq:50}, //50
   {name:"railright",css_sprite:"railright",hitplayer:move_right,freq:90},
   {name:"railleft",css_sprite:"railleft",hitplayer:move_left,freq:90},
   {name:"glass",css_sprite:"brokenbrick",hitplayer:push_glass,freq:50}
@@ -37,7 +37,19 @@ function move_left(who)
 }
 function do_nothing()
 {}
-function kill_player(who){Kill(who);}
+function burn_player(who){
+  if(who.burned == 0)
+  {
+
+  who.burned=1;
+  console.log("burning",who);
+  who.addComponent("tupiburned");
+  setTimeout(function(){Kill(who)},2000);
+  
+  }
+  
+  
+}
 
 function CreateRandomPlatform(height,canbeinvisible)
 {
@@ -80,6 +92,9 @@ function CreateRandomPlatform(height,canbeinvisible)
 //   newplat.onHit('Player_element', function (who){    
 //     _platformList[typeplat].hitplayer(who);
 //   });
+
+  //for testing burning
+
 
     //set Fruits on top of platforms
     if(roll(100)<Fr.Frequency){GenFruit(newplat.x+newplat.w/2,newplat.y);}

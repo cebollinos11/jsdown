@@ -129,9 +129,8 @@ background-repeat: no-repeat;}
 .cherry{background-image: url('sprites/cherry.png')}
 .fish{background-image: url('sprites/fish.gif')}
 .tupifly{background-image: url('sprites/tupifly.png')}
-.tupiwalk{
-    background-image: url('sprites/tupiwalk.gif');
-    }
+.tupiwalk{background-image: url('sprites/tupiwalk.gif');}
+.tupiburned{background-image: url('sprites/tupiburned.png')!important;}
 
 #game{
 border: 8px #5d6e49 double;

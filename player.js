@@ -10,7 +10,7 @@ var _playerList = [
 function GenPlayer1(order){
   var original = this;
   var Player = Crafty.e('Player_element, 2D, Color, DOM,tupiwalk, Twoway, Gravity, Collision, spawnable')
-  .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name})  
+  .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name,burned:0,killed:0})  
   .color(original.color)
   //.twoway(6,0)  
   //.collision([0,0], [0,50])
