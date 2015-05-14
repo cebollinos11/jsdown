@@ -1,7 +1,7 @@
 //gobals
 var _h = 600; //height
 var _w = 800; //width
-var _g = 4;//gravity
+var _g = 3;//gravity
 
 //platforms
 var _size = _w/2.5; //platform size x 32px
@@ -74,7 +74,7 @@ function jsDown(){ //main class
   this.LoadTitle = function(){
     console.log("LoadingTitleScren");
     playsound("title",1);
-    
+
     Crafty.scene("title"); //play title screen
   }
 
