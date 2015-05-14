@@ -12,6 +12,10 @@ function GenFish(){
 	});
 
 	Fish.onHit('Player_element',function(who) {
+		if( who[0].obj.grabbing!=this){
+      	G.score.add(50,who[0].obj);
+      
+    	}
 		who[0].obj.grabbing = this;
 		who[0].obj.x = this.x+this.w/2;
     	who[0].obj.y = this.y+this.h/2;

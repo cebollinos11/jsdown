@@ -17,6 +17,9 @@ function GenFruit(x,y){
 	});
 
 	Fruit.onHit('Player_element',function(who) {
+		
+      	G.score.add(50,who[0].obj);
+    	
 		this.destroy();
 		G.score.add(50);
 	});

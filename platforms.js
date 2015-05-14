@@ -97,7 +97,7 @@ function CreateRandomPlatform(height,canbeinvisible)
 
     console.log();
     //set Fruits on top of platforms
-    if(roll(100)<Fr.Frequency && _platformList[typeplat].name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
+    if(1 || roll(100)<Fr.Frequency && _platformList[typeplat].name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
     
   
   
