@@ -1,3 +1,5 @@
+music = 1;
+
 loadAudio = function(){
     Crafty.audio.add("title", ["audio/title.mp3" ]);
     Crafty.audio.add("gameover", ["audio/gameover.mp3" ]);
@@ -12,6 +14,7 @@ loadAudio = function(){
 
   function playsound(n,killer)
   {
+  	if(music==0) {return}
   	if(killer){Crafty.audio.stop();}
   	Crafty.audio.play(n);
   }

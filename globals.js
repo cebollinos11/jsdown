@@ -31,6 +31,8 @@ var _maxBG = 3;
 var _currBG = 0;
 
 
+
+
 function jsDown(){ //main class
 
   
