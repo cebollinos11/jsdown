@@ -7,6 +7,7 @@ loadAudio = function(){
     Crafty.audio.add("bite", [    "audio/bite.mp3"    ]);
     Crafty.audio.add("fire", [    "audio/fire.mp3"    ]);
     Crafty.audio.add("bird", [    "audio/bird.mp3"    ]);
+    Crafty.audio.add("glass", [    "audio/glass.mp3"    ]);
   }
 
   function playsound(n,killer)

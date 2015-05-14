@@ -8,6 +8,7 @@ var _platformList = [
 ];
 function push_glass(who)
 {
+
   this.removeComponent("brokenbrick");
   this.addComponent("pblue");
   this.attr({count_down:20});
@@ -23,7 +24,7 @@ function push_glass(who)
 function activate_glass(who)
 {
  this.removeComponent("Platform"); 
- 
+ playsound("glass"); 
  this.bind("EnterFrame", function (){ this.y+=_pspeed*3;});
 }
 function move_right(who)
