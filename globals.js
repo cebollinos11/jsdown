@@ -41,6 +41,10 @@ function jsDown(){ //main class
     
     this.timer = new TimerManager();
     this.score = new ScoreManager();
+
+    //load audio
+    loadAudio();
+    
     
 
     //start game
@@ -64,13 +68,17 @@ function jsDown(){ //main class
 
     this.LoadTitle();
   }
+
+  
+
   this.LoadTitle = function(){
     console.log("LoadingTitleScren");
-
+    playsound("title",1);
     Crafty.scene("title"); //play title screen
   }
 
   this.StartGame = function(){
+    playsound("game",1);
     console.log("Starting Game");
     Crafty.scene("playgame");
     //restart timer

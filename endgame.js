@@ -5,6 +5,8 @@ function endGameClass()
 	this.endGame = function(who){
 	if(this.gameEnded){console.log("game already ended");return}
 	this.gameEnded = 1;
+
+	playsound("gameover",1)
 	//console.log(who);
 	//Crafty.stop();
 	this.showEndGameMessage(who);	

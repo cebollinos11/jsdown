@@ -13,13 +13,15 @@ function GenFruit(x,y){
 	Fruit.bind("EnterFrame", function (){
 		this.y-=_currPspeed;
          if(this.y<-this.h || this.y>_h+this.h+1){           
-         this.destroy();}
+         this.destroy();
+         
+
+     	}
 	});
 
 	Fruit.onHit('Player_element',function(who) {
-		
-      	G.score.add(100,who[0].obj);
-    	
+		playsound("bite");
+      	G.score.add(100,who[0].obj);    	
 		this.destroy();
 		G.score.add(50);
 	});
