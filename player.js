@@ -2,7 +2,7 @@ var _playerList = [
   {name : "Player 1", controls:["LEFT_ARROW","RIGHT_ARROW"],color:"pink",generate_player: GenPlayer1},
   {name : "Player 2", controls:["Q","W"],color:"blue",generate_player: GenPlayer1},
   {name : "Player 3", controls:["O","P"],color:"green",generate_player: GenPlayer1},
-  {name : "Player 3", controls:["V","B"],color:"yellow",generate_player: GenPlayer1}
+  {name : "Player 3", controls:["V","B"],color:"red",generate_player: GenPlayer1}
 ];
 
 function ControlsForDisplay(i){
@@ -16,8 +16,8 @@ function ControlsForDisplay(i){
 //functions
 function GenPlayer1(order){
   var original = this;
-  var Player = Crafty.e('Player_element, 2D, Color, DOM,tupiwalk, Twoway, Gravity, Collision, spawnable')
-  .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, player_name: original.name,burned:0,killed:0})  
+  var Player = Crafty.e('Player_element, 2D, Color, DOM, tupiwalk, Twoway, Gravity, Collision, spawnable')
+  .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color})  
   .color(original.color)
   //.twoway(6,0)  
   //.collision([0,0], [0,50])

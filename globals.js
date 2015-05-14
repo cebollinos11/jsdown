@@ -131,16 +131,15 @@ function Kill(who) //destroy a player, if its the last one, go to title screen
   if(_AlivePlayers<1) //submit high score
     { 
     //Crafty.stop();
-    G.EndGame(0);    
+    G.EndGame(who);    
     }
   
   
   if(_AlivePlayers==1)
     {
-    //alert(Crafty("Player_element").player_name+" wins!");
-    
-    Crafty("Player_element").destroy();
-    G.EndGame(Crafty("Player_element"));
+    //alert(Crafty("Player_element").player_name+" wins!");   
+    G.EndGame(Crafty("Player_element")); 
+    Crafty("Player_element").destroy();    
     }
   
 }
