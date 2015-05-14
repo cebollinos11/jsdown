@@ -9,6 +9,7 @@ function GenBird(direction){
   
   var Bird = Crafty.e('spawnable,bird, 2D, Color, DOM, Collision')
   .bind("EnterFrame", function (){
+
   this.x+=_birdspeed*this.direction;
   if(this.x<0 || this.x>_w){this.destroy();}
     
@@ -19,13 +20,14 @@ function GenBird(direction){
     })
   .onHit('Player_element',function(who) { 
     //Kill(who[0].obj);
+    who[0].obj.grabbing = this;
     who[0].obj.x = this.x+this.w/2;
     who[0].obj.y = this.y+this.h/2;
     G.score.add(1);
   })
   .attr({x: -(_w-_pw)/2*(direction-1), 
     y_original: roll(0.4*_h)+0.15*_h,
-     w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100});  
+     w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100,grabbingPoints:10});  
   
   }
 

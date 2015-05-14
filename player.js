@@ -24,12 +24,26 @@ function GenPlayer1(order){
   .bind("EnterFrame", function (){    
     //check keyboard input
     if (this.isDown(original.controls[0]) && !this.burned) {      
-      this.x-=_ps;  
-     // Crafty.stop();
+      this.x-=_ps; 
+      try{
+        this.grabbing.grabbingPoints-=1;
+        console.log(this.grabbing.grabbingPoints)
+        if(this.grabbing.grabbingPoints<0){this.grabbing.destroy();}
+        }
+      catch(err) {}
+        
       
    } 
-    if (this.isDown(original.controls[1])&& !this.burned) 
-      this.x+=_ps; 
+    if (this.isDown(original.controls[1])&& !this.burned) {
+       this.x+=_ps;
+      try{
+        this.grabbing.grabbingPoints-=1;
+        console.log(this.grabbing.grabbingPoints)
+        if(this.grabbing.grabbingPoints<0){this.grabbing.destroy();}
+        }
+      catch(err) {}
+    }
+     
     //Apply gravity
     this.y+=_g;
     //this.animate("jump",-1)
