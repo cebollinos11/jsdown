@@ -65,8 +65,7 @@ function jsDown(){ //main class
      });
 
     
-
-    
+  
 
     this.LoadTitle();
   }

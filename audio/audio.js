@@ -10,11 +10,14 @@ loadAudio = function(){
     Crafty.audio.add("fire", [    "audio/fire.mp3"    ]);
     Crafty.audio.add("bird", [    "audio/bird.mp3"    ]);
     Crafty.audio.add("glass", [    "audio/glass.mp3"    ]);
+    Crafty.audio.add("blip", [    "audio/blip.mp3"    ]);
+
   }
 
   function playsound(n,killer)
   {
   	if(music==0) {return}
   	if(killer){Crafty.audio.stop();}
+
   	Crafty.audio.play(n);
   }

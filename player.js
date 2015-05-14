@@ -27,8 +27,10 @@ function GenPlayer1(order){
       this.x-=_ps; 
       try{
         this.grabbing.grabbingPoints-=1;
-        console.log(this.grabbing.grabbingPoints)
-        if(this.grabbing.grabbingPoints<0){this.grabbing.destroy();}
+        
+        if(this.grabbing.grabbingPoints==0){
+          playsound("blip");
+          this.grabbing.destroy();}
         }
       catch(err) {}
         
