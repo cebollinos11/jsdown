@@ -74,6 +74,7 @@ function jsDown(){ //main class
   this.LoadTitle = function(){
     console.log("LoadingTitleScren");
     playsound("title",1);
+    
     Crafty.scene("title"); //play title screen
   }
 

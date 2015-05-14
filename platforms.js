@@ -40,7 +40,7 @@ function do_nothing()
 function burn_player(who){
   if(who.burned == 0)
   {
-
+  playsound("fire");
   who.burned=1;
   console.log("burning",who);
   who.addComponent("tupiburned");
