@@ -33,7 +33,7 @@ function GenBird(direction){
   })
   .attr({x: -(_w-_pw)/2*(direction-1), 
     y_original: roll(0.4*_h)+0.15*_h,
-     w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100,grabbingPoints:10,uniquepoints:50});  
+     w: _birdsize, h:_birdsize, direction:direction, sinusoidal_ticks:0, amplitude:amplitude ,z:100,grabbingPoints:10,uniquepoints:30});  
   
   }
 
