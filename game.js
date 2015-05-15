@@ -60,7 +60,8 @@ Crafty.scene("playgame", function() {
 
 function StartBackground(where){
   var initial_height = 0;
-  background_id = _currBG; //get random background
+  //background_id = _currBG; //get random background
+  background_id = G.levelmgr.currentLeveln;
   background_string = "background_component"+String(background_id)
   if(where===0) initial_height = _h;
   Crafty.e('2D, DOM , '+background_string).attr({x: 0, y: where, w: _w, h: initial_height,z:-1})

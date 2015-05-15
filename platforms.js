@@ -69,6 +69,8 @@ function CreatePlatform(height,mustbebricks)
   var typeplat =mix[Math.floor(Math.random()*mix.length)];
   
   var psize = roll(_size/32)*32;
+
+  if(G.levelmgr.currentLevel.maxsize){psize=32;} //mini size special level
   
   var px =  roll(_w-_pw-psize)+_pw;
   

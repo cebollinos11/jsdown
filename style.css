@@ -30,6 +30,16 @@ div{
   display: inline-block;
   
 }
+.LevelParticle{
+  font-weight: bold;
+  background-color: white;
+  font-size: 500%;
+  padding: 1px;
+  display: inline-block;
+  font-family: "Paragraph";
+  white-space: nowrap;
+  
+}
 .nplayers
 {
   background-color:white;
@@ -83,6 +93,15 @@ background-repeat: no-repeat;}
   background-image: url('sprites/bg/matrix.jpg');
 }
 .background_component3{
+  background-image: url('sprites/bg/pink.jpg');
+}
+.background_component4{
+  background-image: url('sprites/bg/pink.jpg');
+}
+.background_component5{
+  background-image: url('sprites/bg/pink.jpg');
+}
+.background_component6{
   background-image: url('sprites/bg/pink.jpg');
 }
 
