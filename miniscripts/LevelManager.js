@@ -14,6 +14,9 @@ function InitLevels()
 		{name:"Level 5",points:600,mix:[g.rright,
 										g.rleft,
 										g.fire]},
+		{name:"Level 6",points:600,maxsize:1,mix:[g.rright,
+										g.rleft,
+										g.fire]},
 	];
 
 	this.pointsPool = 0;

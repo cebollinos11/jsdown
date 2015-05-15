@@ -1,13 +1,13 @@
 
 Fr = {fruitsize:32,
-	db:["banana","cherry"],
-	Frequency:20//in percentage
+	db:["banana","cherry","pineapple","beer"],
+	Frequency:45//in percentage
 	};
 function GenFruit(x,y){
 	
 	var x = x-Fr.fruitsize/2;
 	var h = y-Fr.fruitsize;
-	var FruitType = Fr.db[roll(2)-1];
+	var FruitType = Fr.db[roll(4)-1];
 	var Fruit = Crafty.e('spawnable, '+FruitType+', 2D, Color, DOM, Collision').attr({x:x,y:h,w:Fr.fruitsize,h:Fr.fruitsize});
 	 
 	Fruit.bind("EnterFrame", function (){
@@ -21,7 +21,7 @@ function GenFruit(x,y){
 
 	Fruit.onHit('Player_element',function(who) {
 		playsound("bite");
-      	G.score.add(50,who[0].obj);    	
+      	G.score.add(25,who[0].obj);    	
 		this.destroy();
 		
 	});

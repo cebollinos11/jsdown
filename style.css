@@ -103,7 +103,7 @@ background-repeat: no-repeat;}
   background-image: url('sprites/bg/sun.jpg');
 }
 .background_component6{
-  background-image: url('sprites/bg/pink.jpg');
+  background-image: url('sprites/bg/loading2.gif');
 }
 
 
@@ -159,8 +159,13 @@ background-repeat: no-repeat;}
 .bird
 {
   background-image: url('http://cdn2.scratch.mit.edu/get_image/gallery/370937_170x100.png');  
+
 }
+
+.beer{background-image: url('sprites/beer.png')}
+
 .banana{background-image: url('sprites/banana.png')}
+.pineapple{background-image: url('sprites/pineapple.png')}
 .cherry{background-image: url('sprites/cherry.png')}
 .fish{background-image: url('sprites/fish.gif')}
 .tupifly{background-image: url('sprites/tupifly.png')}
