@@ -22,9 +22,7 @@ var _nplayers = 1;
 var _maxplayers = 4;
 var _AlivePlayers = 0;
 var playerlister = 0;
-//var _playercontrols = [["LEFT_ARROW","RIGHT_ARROW"],["Q","W"],["N","M"]];
-//game difficulty (for platform spawning)
-var _difficulty = [0,0];
+
 
 //background related
 var _maxBG = 3;
@@ -43,6 +41,11 @@ function jsDown(){ //main class
     
     this.timer = new TimerManager();
     this.score = new ScoreManager();
+
+    //load platformsDB
+    this.platformsDB = new InitPlatforms();
+    console.log(this.platformsDB.bricks);
+
 
     //load audio
     loadAudio();

@@ -5,7 +5,7 @@ Crafty.scene("title", function() {
     if(_currBG>_maxBG){_currBG=1}
     
     StartBackground(0);
-    CreateRandomPlatform(_h);
+    CreatePlatform(_h);
     //Crafty.e("2D, DOM, title").attr({w:_w,h:_h});
     Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
     .text("<div id='Start' class='jsButton'>START</div>").attr({z:3})

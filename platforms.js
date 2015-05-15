@@ -1,3 +1,13 @@
+function InitPlatforms(){
+  this.bricks = {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing};
+  this.rleft = {name:"railright",css_sprite:"railright",hitplayer:move_right} ;
+  this.rright = {name:"railright",css_sprite:"railright",hitplayer:move_right};
+  this.glass={name:"glass",css_sprite:"brokenbrick",hitplayer:push_glass};
+  this.fire={name:"fire",css_sprite:"pfire",hitplayer:burn_player};
+}
+
+
+
 var _platformList = [
   {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing,freq:999},
   {name:"fire",css_sprite:"pfire",hitplayer:burn_player,freq:50}, //50
@@ -52,10 +62,18 @@ function burn_player(who){
   
 }
 
-function CreateRandomPlatform(height,canbeinvisible)
+function CreatePlatform(height,mustbebricks)
 {
-  var typeplat = roll(5)-1;
-  
+  var mix = [
+              G.platformsDB.rleft,
+              G.platformsDB.rright,
+              G.platformsDB.fire,
+              G.platformsDB.bricks,
+              G.platformsDB.glass,
+              G.platformsDB.bricks,
+              G.platformsDB.bricks
+              ];
+  var typeplat =mix[Math.floor(Math.random()*mix.length)];
   
   var psize = roll(_size/32)*32;
   
@@ -75,30 +93,30 @@ function CreateRandomPlatform(height,canbeinvisible)
          //generate new platform
          if(this.y<_platSpawnTrigger && this.spawned===0){
            this.spawned=1;
-           CreateRandomPlatform(_h,1);}
+           CreatePlatform(_h);}
        });
   
   //check frequencies
-  if(roll(100)>_platformList[typeplat].freq+_difficulty[1])typeplat=0;
-  if(canbeinvisible!=1){
-                       typeplat = 0;//fix brick platform
+  //if(roll(100)>_platformList[typeplat].freq)typeplat=0;
+  if(mustbebricks==1){
+                       typeplat = G.platformsDB.bricks;//fix brick platform
                        newplat.x=_w/2;
                        newplat.w=_w/3;
                        }
   //set the sprite
-  newplat.addComponent(_platformList[typeplat].css_sprite);
+  newplat.addComponent(typeplat.css_sprite);
   
   //set what happens when touching the player
-  newplat.hitplayer=_platformList[typeplat].hitplayer;
+  newplat.hitplayer=typeplat.hitplayer;
 //   newplat.onHit('Player_element', function (who){    
 //     _platformList[typeplat].hitplayer(who);
 //   });
 
   //for testing burning
 
-    console.log();
+    //console.log();
     //set Fruits on top of platforms
-    if(roll(100)<Fr.Frequency && _platformList[typeplat].name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
+    if(roll(100)<Fr.Frequency && typeplat.name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
     
   
   

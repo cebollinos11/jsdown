@@ -15,7 +15,7 @@ Crafty.scene("playgame", function() {
   
   //reset globals
    _currPspeed = _pspeed;//
-  _difficulty[1]=_difficulty[0];
+  
 
   _currFrequency = _frequency;
   //set background
@@ -26,7 +26,7 @@ Crafty.scene("playgame", function() {
 
   
   //put one plat
-  CreateRandomPlatform(_h);
+  CreatePlatform(_h,1);
   
    _pointsCounter = Crafty.e("2D, DOM, Text")
     .attr({x: 0, y: _h*0.05, w: _w, h: 10})    
@@ -46,8 +46,7 @@ Crafty.scene("playgame", function() {
        
     .bind("KeyDown",function(e)
          {
-           if(e.key=="p"){ //check for SPACE KEY
-             //IncreaseDifficulty();             
+           if(e.key=="p"){ //check for SPACE KEY                  
            }           
          }); 
   //STARTing Platforms
@@ -56,8 +55,7 @@ Crafty.scene("playgame", function() {
       //CreateRandomPlatform(_h*i/_np);
     }
   for(i=0;i<_nplayers;i++)
-    {_playerList[i].generate_player(i);}
-  
+    {_playerList[i].generate_player(i);}  
 });
 
 function StartBackground(where){
