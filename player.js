@@ -21,6 +21,37 @@ function GenPlayer1(order){
   .color(original.color)
   //.twoway(6,0)  
   //.collision([0,0], [0,50])
+  .onHit('Platform',function(who){
+
+    //console.log("hit platform");
+    this.inplatform=1;
+
+    var p = who[0].obj.y;
+    var x = this.y+this.h; 
+    
+    //this.animate("walk",-1);
+    
+    
+    
+    //apply effect of platform on player
+    who[0].obj.hitplayer(this);
+    
+    if(who[0].obj.y>this.y+this.h-15){   
+      this.inplatform=1;    
+      //this.y = this.y-_pspeed-_g;
+      this.y = who[0].obj.y-50;
+      console.log("platform h",who[0].obj.h);
+
+      this.removeComponent("tupifly");
+      this.addComponent("tupiwalk");     
+
+    }
+    else{console.log("grinding");
+    this.y+=_g;}
+
+      
+    
+  })
   .bind("EnterFrame", function (){    
     //check keyboard input
     if (this.isDown(original.controls[0]) && !this.burned) {      
@@ -46,10 +77,29 @@ function GenPlayer1(order){
     }
      
     //Apply gravity
-    this.y+=_g;
+    
+
+    //check for umbrellas
+    
+    if(this.inplatform){
+      //console.log("NO applied gravity");
+
+
+    }
+    else{ 
+        
+        this.y+=_g;
+        if(this.umbrella){this.umbrella.effect(this);}
+        //console.log("applied gravity");
+        this.removeComponent("tupiwalk");
+        this.addComponent("tupifly");
+      }
+      this.inplatform =0;
+
+
+
     //this.animate("jump",-1)
-    this.removeComponent("tupiwalk");
-    this.addComponent("tupifly");
+    
   //prevent out of bounds
     if(this.x<0){this.x=1;}
     if(this.x>_w-_pw){
@@ -57,24 +107,6 @@ function GenPlayer1(order){
     }  
   })
   .onHit('DeathFloorBottom',function () { Kill(this);})
-  .onHit('DeathFloorTop',function () { Kill(this);})
-  .onHit('Platform',function(who){
-    var p = who[0].obj.y;
-    var x = this.y+this.h; 
-    
-    //this.animate("walk",-1);
-    this.removeComponent("tupifly");
-    this.addComponent("tupiwalk");
-    
-    
-    //apply effect of platform on player
-    who[0].obj.hitplayer(this);
-    
-    if(who[0].obj.y>this.y+this.h-15){       
-    this.y = this.y-_pspeed-_g;
-    }
-      
-    
-  }); //end of player
+  .onHit('DeathFloorTop',function () { Kill(this);})  ; //end of player
   
 }

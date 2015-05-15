@@ -54,14 +54,13 @@ function InitLevels()
 	this.LevelParticle=function()
 	{
 		var n = this.currentLevel.name;
-		var x = _w/2;
-		var y = _h/2;
+		var x = _w/3;
+		var y = _h/3;
 		var L = Crafty.e('2D, DOM, Text')
 		.bind("EnterFrame", function (){			
-	  	this.x+=3;
+	  	this.y+=3;
 	  	this.TTL--;
-	  	if(this.TTL<0){this.destroy();}
-	    
+	  	if(this.TTL<0){this.destroy();}	    
 	    })
 		.text('<div class="LevelParticle">+'+n+'</div>')
 		.attr({x:x,y:y,TTL:50,z:-1});

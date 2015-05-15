@@ -32,7 +32,7 @@ Crafty.scene("playgame", function() {
     .attr({x: 0, y: _h*0.05, w: _w, h: 10})    
     .textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){    
-    _pointsCounter.text("Score: "+G.score.score);      
+    _pointsCounter.text("Score: "+G.score.score+"<br>"+G.levelmgr.currentLevel.name);      
     });//.attr({ plat_frequency: _frequency });
   
     

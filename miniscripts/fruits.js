@@ -23,6 +23,6 @@ function GenFruit(x,y){
 		playsound("bite");
       	G.score.add(100,who[0].obj);    	
 		this.destroy();
-		G.score.add(50);
+		
 	});
 }

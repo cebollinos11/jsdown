@@ -100,6 +100,7 @@ function jsDown(){ //main class
     this.endGame = new endGameClass();
 
 
+
     //fordebuggin endgame
     //G.EndGame(0);  
   }
