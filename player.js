@@ -25,6 +25,13 @@ function GenPlayer1(order){
 
     //console.log("hit platform");
     this.inplatform=1;
+    if(this.inwhichplatform==who[0].obj){}
+      else{
+          this.inwhichplatform=who[0].obj;
+          playsound("blip");
+        
+      }
+
 
     var p = who[0].obj.y;
     var x = this.y+this.h; 
