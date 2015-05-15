@@ -64,15 +64,8 @@ function burn_player(who){
 
 function CreatePlatform(height,mustbebricks)
 {
-  var mix = [
-              G.platformsDB.rleft,
-              G.platformsDB.rright,
-              G.platformsDB.fire,
-              G.platformsDB.bricks,
-              G.platformsDB.glass,
-              G.platformsDB.bricks,
-              G.platformsDB.bricks
-              ];
+  var mix = G.levelmgr.currentLevel.mix;
+
   var typeplat =mix[Math.floor(Math.random()*mix.length)];
   
   var psize = roll(_size/32)*32;

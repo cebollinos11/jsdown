@@ -44,7 +44,9 @@ function jsDown(){ //main class
 
     //load platformsDB
     this.platformsDB = new InitPlatforms();
-    console.log(this.platformsDB.bricks);
+    //load level manager
+    this.levelmgr = new InitLevels();
+    console.log(this.levelmgr);
 
 
     //load audio
@@ -83,6 +85,7 @@ function jsDown(){ //main class
   }
 
   this.StartGame = function(){
+    this.levelmgr.reset();
     playsound("game",1);
     console.log("Starting Game");
     Crafty.scene("playgame");
