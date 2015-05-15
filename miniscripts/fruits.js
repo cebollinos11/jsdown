@@ -1,7 +1,7 @@
 
 Fr = {fruitsize:32,
 	db:["banana","cherry"],
-	Frequency:10//in percentage
+	Frequency:20//in percentage
 	};
 function GenFruit(x,y){
 	
@@ -21,7 +21,7 @@ function GenFruit(x,y){
 
 	Fruit.onHit('Player_element',function(who) {
 		playsound("bite");
-      	G.score.add(100,who[0].obj);    	
+      	G.score.add(50,who[0].obj);    	
 		this.destroy();
 		
 	});
