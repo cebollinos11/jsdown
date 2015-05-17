@@ -21,7 +21,7 @@ function GenFruit(x,y){
 
 	Fruit.onHit('Player_element',function(who) {
 		playsound("bite");
-      	G.score.add(25,who[0].obj);    	
+      	G.score.add(5*roll(10),who[0].obj);    	
 		this.destroy();
 		
 	});

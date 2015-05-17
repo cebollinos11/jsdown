@@ -13,7 +13,7 @@ function GenFish(){
 
 	Fish.onHit('Player_element',function(who) {
 		if( who[0].obj.grabbing!=this){
-      	G.score.add(20,who[0].obj);
+      	G.score.add(75,who[0].obj);
       	playsound("bird");      
     	}
 		who[0].obj.grabbing = this;
