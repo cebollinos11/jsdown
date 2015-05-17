@@ -18,7 +18,7 @@ function GenPlayer1(order){
   var original = this;
   var Player = Crafty.e('Player_element, 2D, Color, DOM, tupiwalk, Twoway, Gravity, Collision, spawnable')
   .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color})  
-  .color(original.color)
+  
   //.twoway(6,0)  
   //.collision([0,0], [0,50])
   .onHit('Platform',function(who){
@@ -115,5 +115,8 @@ function GenPlayer1(order){
   })
   .onHit('DeathFloorBottom',function () { Kill(this);})
   .onHit('DeathFloorTop',function () { Kill(this);})  ; //end of player
+
+  if(_nplayers>1){Player.color(original.color);}
+   
   
 }
