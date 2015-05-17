@@ -47,7 +47,7 @@ function GenPlayer1(order){
       this.inplatform=1;    
       //this.y = this.y-_pspeed-_g;
       this.y = who[0].obj.y-50;
-      console.log("platform h",who[0].obj.h);
+      //console.log("platform h",who[0].obj.h);
 
       this.removeComponent("tupifly");
       this.addComponent("tupiwalk");     
