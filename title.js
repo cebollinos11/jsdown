@@ -20,8 +20,9 @@ Crafty.scene("title", function() {
   Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 520, y: 50 , w:250 })
    .text("<div class='menubutton'>Loading Leaderboard...</div>").attr({z:2})
   
-  Crafty.e("2D, DOM, Logo").attr({ x: 500, y: 50 , w:200 })
-  .attr({ x: 0.1*_w, y: 0.1*_h, w:_w, h:_h }).attr({z:2})
+  Crafty.e("2D, DOM, Text").attr({ x: 500, y: 50 , w:200 })
+  .attr({ x: 100, y: 0.08*_h,w:400}).attr({z:2})
+  .text("<div class='jsPanel'><h1>Welcome to Jsdown</h1></div>");
     
    
    var mainPanel = Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
