@@ -22,7 +22,7 @@ function GenBird(direction){
     if( who[0].obj.grabbing!=this){
       G.score.add(this.uniquepoints,who[0].obj);
       this.uniquepoints = 0;
-      playsound("bird");
+      playsound("blip",0,0.5);
       
     }
     //Kill(who[0].obj);

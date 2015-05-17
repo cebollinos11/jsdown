@@ -64,10 +64,12 @@ function GenPlayer1(order){
     if (this.isDown(original.controls[0]) && !this.burned) {      
       this.x-=_ps; 
       try{
+
         this.grabbing.grabbingPoints-=1;
         
         if(this.grabbing.grabbingPoints==0){
-          playsound("blip");
+          
+          playsound("bird");
           this.grabbing.destroy();}
         }
       catch(err) {}
@@ -78,7 +80,8 @@ function GenPlayer1(order){
        this.x+=_ps;
       try{
         this.grabbing.grabbingPoints-=1;
-        if(this.grabbing.grabbingPoints<0){this.grabbing.destroy();}
+        if(this.grabbing.grabbingPoints==0){
+          playsound("bird");this.grabbing.destroy();}
         }
       catch(err) {}
     }

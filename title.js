@@ -13,7 +13,7 @@ Crafty.scene("title", function() {
          {
            if(e.key==32){ //check for SPACE KEY
              G.StartGame();  
-             playsound("blip");           
+                  
            }           
          });  
   updateButtons();
