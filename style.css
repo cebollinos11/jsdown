@@ -106,13 +106,13 @@ div{
 
 
 .railright{
-  background-image: url('sprites/rail_r.gif');
+  background-image: url('sprites/Rright.gif');
   border-radius: 20px;
-  border: 1px white solid;
+  border: 4px black solid;
 }
 
 .railleft{
-  background-image: url('sprites/rail_l.gif');
+  background-image: url('sprites/Rleft.gif');
   border-radius: 20px;
   border: 1px white solid;
 }

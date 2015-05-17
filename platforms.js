@@ -1,21 +1,14 @@
 function InitPlatforms(){
   this.bricks = {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing};
-  this.rleft = {name:"railright",css_sprite:"railright",hitplayer:move_right} ;
+  this.rleft = {name:"railleft",css_sprite:"railleft",hitplayer:move_left} ;
   this.rright = {name:"railright",css_sprite:"railright",hitplayer:move_right};
-  this.glass={name:"glass",css_sprite:"brokenbrick",hitplayer:push_glass};
+  this.glass={name:"glass",css_sprite:"pblue",hitplayer:push_glass};
   this.fire={name:"fire",css_sprite:"pfire",hitplayer:burn_player};
 }
 
 
 
-var _platformList = [
-  {name:"bricks",css_sprite:"pgreen",hitplayer:do_nothing,freq:999},
-  {name:"fire",css_sprite:"pfire",hitplayer:burn_player,freq:50}, //50
-  {name:"railright",css_sprite:"railright",hitplayer:move_right,freq:90},
-  {name:"railleft",css_sprite:"railleft",hitplayer:move_left,freq:90},
-  {name:"glass",css_sprite:"brokenbrick",hitplayer:push_glass,freq:50}
-  
-];
+
 function push_glass(who)
 {
 
