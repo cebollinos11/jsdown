@@ -6,6 +6,17 @@ function updateButtons()
 
 function RunjQueryInButtons(){
 
+
+    $(".playercontrols").click(function(){
+
+        var n = parseInt($(this).attr("id").slice(-1))+1;
+
+      console.log(n," clicked");
+      _nplayers = n;
+        UpdatePlayerList();
+
+    });
+
         $("#submitName").keyup(function(){
             if($("#submitName").val()!=""){
                 $('#Send').removeAttr('disabled');

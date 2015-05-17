@@ -26,27 +26,30 @@ Crafty.scene("title", function() {
     
    
    var mainPanel = Crafty.e("2D, DOM, Text").attr({ x: 100, y: 150, w:400 }).attr({z:2})
-   .text("<div class='jsPanel'><h1>Players</h1><br><span>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span><br><span class='info'><br><p>Create more players with + and - keys</p></span><div class='plister'>a</div></div>")
-   .bind("KeyDown",function(e)
-         {
+   .text("<div class='jsPanel'><h1>Players</h1><br><span class='nplayers'> "+_nplayers+"</span><span></span><br><span class='info'><br><p>Create more players with + and - keys</p></span><div class='plister'>a</div></div>")
+   // .bind("KeyDown",function(e)
+   //       {
            
-           if(e.key==107 || e.key==187){ //check for +
-             _nplayers++;
-            (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}
-           UpdatePlayerList();}
-           if(e.key==109 || e.key==189){ //check for -  ||
-             _nplayers--;
-             (_nplayers<1) ? _nplayers=1 : {}
-           UpdatePlayerList();}         
-              $(".nplayers").text(_nplayers);                
-         })
+   //         if(e.key==107 || e.key==187){ //check for +
+   //           _nplayers++;
+   //          (_nplayers>_maxplayers) ? _nplayers=_maxplayers : {}
+   //         UpdatePlayerList();}
+   //         if(e.key==109 || e.key==189){ //check for -  ||
+   //           _nplayers--;
+   //           (_nplayers<1) ? _nplayers=1 : {}
+   //         UpdatePlayerList();}         
+   //            $(".nplayers").text(_nplayers);                
+   //       })
    var mainPanelText = "<div class='jsPanel'><h1>Players<span style='padding-left:2em'>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span></h1><div class='plister'>"
 
    for(i=0;i<4;i++)
        {
          opacity = (!i)?1:0.2;
-         mainPanelText+="<div  id='infoplayer"+i+"' class='playercontrols' style='opacity:"+opacity+"'><p>"+_playerList[i].name+"</p><div class='playerthumbnail' style='background-color: "+_playerList[i].color+";'></div><p>"+ControlsForDisplay(i)+"</p></div>";
+         mainPanelText+="<div id='infoplayer"+i+"' class='playercontrols' style='opacity:"+opacity+"'><p>"+_playerList[i].name+"</p><div class='playerthumbnail' style='background-color: "+_playerList[i].color+";'></div><p>"+ControlsForDisplay(i)+"</p></div>";
        }
+
+
+
 
     mainPanelText+="</div></div>"
 
@@ -54,16 +57,7 @@ Crafty.scene("title", function() {
    
    UpdatePlayerList();
 
-   function UpdatePlayerList(){
-    
-    $(".playercontrols").css('opacity',0.2);
-    for(i=0;i<_nplayers;i++)
-    {
-          $("#infoplayer"+i).css('opacity',1);
-
-    }
-
-  }
+  
   
    function UpdatePlayerList1(){
 
@@ -82,3 +76,16 @@ Crafty.scene("title", function() {
    .text(TextString);
    }
 });
+
+ function UpdatePlayerList(){
+    
+    $(".playercontrols").css('opacity',0.2);
+    for(i=0;i<_nplayers;i++)
+    {
+          $("#infoplayer"+i).css('opacity',1);
+
+    }
+
+     $(".nplayers").text(_nplayers); 
+
+  }

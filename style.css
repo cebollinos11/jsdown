@@ -237,6 +237,11 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
   opacity: 0.2;
 }
 
+
+.playercontrols:hover{
+  cursor: pointer;
+}
+
 @font-face {
     font-family: 'Header'; /*a name to be used later*/
     src: url('fonts/actionj.ttf'); /*URL to font*/
