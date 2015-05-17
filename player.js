@@ -28,7 +28,7 @@ function GenPlayer1(order){
     if(this.inwhichplatform==who[0].obj){}
       else{
           this.inwhichplatform=who[0].obj;
-          playsound("blip");
+          playsound("blip",0,0.1);
         
       }
 

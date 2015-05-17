@@ -12,7 +12,8 @@ Crafty.scene("title", function() {
     .bind("KeyDown",function(e)
          {
            if(e.key==32){ //check for SPACE KEY
-             G.StartGame();             
+             G.StartGame();  
+             playsound("blip");           
            }           
          });  
   updateButtons();
