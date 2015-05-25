@@ -1,5 +1,5 @@
 body {
-   background: linear-gradient(black , red); /* Standard syntax (must be last) */
+  background-color:black;
   overflow:hidden;   
   font-family: "Paragraph" !important;  
   

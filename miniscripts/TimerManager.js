@@ -11,7 +11,7 @@ function TimerManager(){
 
 
 	//timer generates stuff
-		(this.count%2) ? {} : GenBird();
+		(this.count%9) ? {} : GenBird();
 		(this.count%25) ? {} : MultiBird();
 		(this.count%10) ? {} :GenFish();
       
