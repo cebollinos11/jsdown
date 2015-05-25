@@ -86,6 +86,12 @@ function jsDown(){ //main class
   }
 
   this.StartGame = function(){
+
+    $.get( "highscore/counter.php", function() {
+ 
+  });
+
+
     this.levelmgr.reset();
     playsound("game",1);
     console.log("Starting Game");
