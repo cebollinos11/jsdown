@@ -7,7 +7,7 @@ function endGameClass()
 	this.gameEnded = 1;
 
 	if(G.score.score>1000){playsound("highscore",1)}
-		else{playsound("gameover",1);}
+		else{playsound("gameover",1,0.5);}
 	
 	//console.log(who);
 	//Crafty.stop();
