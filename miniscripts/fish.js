@@ -22,7 +22,22 @@ function GenFish(){
     	//this.speed+=1;
 	});
 
-	Fish.onHit('DeathFloorTop',function () { playsound("pop");this.destroy(); })
-	Fish.onHit('bird',function () { playsound("pop");this.destroy(); })
+	
+
+	Fish.onHit('DeathFloorTop',function () { playsound("pop");
+
+		SetExplodingBalloon(this.x,this.y);
+		this.destroy(); })
+	Fish.onHit('bird',function () {SetExplodingBalloon(this.x,this.y); playsound("pop");this.destroy(); })
+
+}
+
+
+
+function SetExplodingBalloon(x,y){
+
+	var explo = Crafty.e('2D, DOM,Color,ExplodingBalloon').attr({x:x,y:y,w:_fishsize,h:_fishsize});
+	setTimeout(function(){ explo.destroy(); }, 400);
+
 
 }

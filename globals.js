@@ -61,15 +61,7 @@ function jsDown(){ //main class
     Crafty.timer.FPS(50);
 
         //initialize sprites
-    Crafty.load(["sprites/platforms.png"]);
-     Crafty.sprite(32, "sprites/platforms.png", {
-        GreenP: [0,0,4,1],
-        RedP: [0,1,4,2],
-         SpikeDown: [0,2,4,3],
-         SpikeUp: [0,3,4,4]
-     });
-
-    
+    Crafty.load(["sprites/platforms.png"]);   
   
 
     this.LoadTitle();

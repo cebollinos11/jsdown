@@ -167,6 +167,8 @@ div{
 .pineapple{background-image: url('sprites/pineapple.png')}
 .cherry{background-image: url('sprites/cherry.png')}
 .fish{background-image: url('sprites/balloon.gif')}
+.ExplodingBalloon{background-image: url('sprites/balloon_explode.gif');background-size: 100% 100%;}
+
 .tupifly{background-image: url('sprites/tupifly.png')}
 .playerthumbnail,.tupiwalk{background-image: url('sprites/tupiwalk.gif');}
 .tupiburned{background-image: url('sprites/tupiburned.png')!important;}
