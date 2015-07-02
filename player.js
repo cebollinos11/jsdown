@@ -69,7 +69,7 @@ function GenPlayer1(order){
         
         if(this.grabbing.grabbingPoints==0){
           
-          playsound("blip",0,0.2);
+          playsound("bird",0,0.2);
           this.grabbing.destroy();}
         }
       catch(err) {}
@@ -81,7 +81,7 @@ function GenPlayer1(order){
       try{
         this.grabbing.grabbingPoints-=1;
         if(this.grabbing.grabbingPoints==0){
-          playsound("blip",0,0.2);this.grabbing.destroy();}
+          playsound("bird",0,0.2);this.grabbing.destroy();}
         }
       catch(err) {}
     }
