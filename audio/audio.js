@@ -25,3 +25,36 @@ loadAudio = function(){
 
   	Crafty.audio.play(n,1,volume=volume);
   }
+
+
+function ToggleAudio(){
+   //check for SPACE KEY
+             if(music){
+                music=0;
+              Crafty.audio.stop();}
+              else{music=1;
+                playsound("bird");}
+             //ACL.image(ImageARR[music]);
+                  
+             
+}
+
+function AudioControllerListener(){
+    var ImageARR = ["sprites/ui/sound-off.png","sprites/ui/sound.png"]
+    var ACL = Crafty.e("2D, DOM, Image, Mouse")
+    
+    .attr({x:_w-40,z:2})
+    .bind('Click', function(MouseEvent){
+      ToggleAudio();  
+                ACL.image(ImageARR[music]);
+      })
+    .bind("KeyDown",function(e)
+         {
+            if(e.key==77){
+                ToggleAudio();  
+                ACL.image(ImageARR[music]); } 
+         });
+
+    ACL.image(ImageARR[music]);
+    
+}

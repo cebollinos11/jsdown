@@ -35,7 +35,7 @@ function endGameClass()
 	    updateHS(); 
 	   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
 	    .text("").attr({z:2});  
-
+	    AudioControllerListener();
 	    updateButtons();	    
 	}
 }

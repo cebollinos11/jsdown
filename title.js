@@ -55,6 +55,10 @@ Crafty.scene("title", function() {
     mainPanelText+="</div></div>"
 
     mainPanel.text(mainPanelText);
+
+    //music on off controller
+   AudioControllerListener();
+
    
    UpdatePlayerList();
 
