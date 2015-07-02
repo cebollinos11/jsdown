@@ -41,7 +41,7 @@ Crafty.scene("title", function() {
    //         UpdatePlayerList();}         
    //            $(".nplayers").text(_nplayers);                
    //       })
-   var mainPanelText = "<div class='jsPanel'><h1>Players<span style='padding-left:2em'>+</span><span class='nplayers'> "+_nplayers+"</span><span>-</span></h1><div class='plister'>"
+   var mainPanelText = "<div class='jsPanel'><h1>Players<span style='padding-left:2em'></span><span class='nplayers'> "+_nplayers+"</span><span></span></h1><div class='plister'>"
 
    for(i=0;i<4;i++)
        {
