@@ -166,7 +166,7 @@ div{
 .banana{background-image: url('sprites/banana.png')}
 .pineapple{background-image: url('sprites/pineapple.png')}
 .cherry{background-image: url('sprites/cherry.png')}
-.fish{background-image: url('sprites/fish.gif')}
+.fish{background-image: url('sprites/balloon.gif')}
 .tupifly{background-image: url('sprites/tupifly.png')}
 .playerthumbnail,.tupiwalk{background-image: url('sprites/tupiwalk.gif');}
 .tupiburned{background-image: url('sprites/tupiburned.png')!important;}

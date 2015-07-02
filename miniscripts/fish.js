@@ -1,4 +1,4 @@
-_fishsize = 50;
+_fishsize = 75;
 function GenFish(){
 	
 	var x = roll(_w-_fishsize)
@@ -14,13 +14,15 @@ function GenFish(){
 	Fish.onHit('Player_element',function(who) {
 		if( who[0].obj.grabbing!=this){
       	G.score.add(75,who[0].obj);
-      	playsound("bird");      
+      	playsound("blip");      
     	}
 		who[0].obj.grabbing = this;
-		who[0].obj.x = this.x+this.w/2;
+		who[0].obj.x = this.x+this.w/3;
     	who[0].obj.y = this.y+this.h/2;
     	//this.speed+=1;
 	});
 
-	Fish.onHit('DeathFloorTop',function () { this.destroy();})
+	Fish.onHit('DeathFloorTop',function () { playsound("pop");this.destroy(); })
+	Fish.onHit('bird',function () { playsound("pop");this.destroy(); })
+
 }
