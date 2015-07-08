@@ -89,7 +89,7 @@ function GenPlayer1(order){
     //Apply gravity
     
 
-    //check for umbrellas
+   
     
     if(this.inplatform){
       //console.log("NO applied gravity");

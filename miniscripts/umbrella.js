@@ -17,9 +17,23 @@ function SpawnUmbrella(x,y){
 			G.score.add(50,who);
 		}
 	}
-	var u = Crafty.e('spawnable, Umbrella, 2D, DOM, Collision').attr({x:x,y:y,w:Um.size,h:Um.size,z:1,effect:effect,usageleft:150});
+	var u = Crafty.e('spawnable, Umbrella, 2D, DOM, Collision').attr({x:x,y:y,w:Um.size,h:Um.size,z:1,effect:effect,usageleft:250});
 	u.onHit('Player_element',function(who) {
+
 		var p = who[0].obj;
+
+		if(p.umbrella!=this){
+			console.log(p.name+ " took umbrella");
+
+			if(this.owner != p && this.owner != undefined){
+				console.log("stolen from", this.owner);
+				//console.log(this.owner.name +" had "+this.owner.umbrella);
+				this.owner.umbrella = undefined;
+				ScoreParticle(p.x,p.y,"Steal!")
+			}
+			this.owner = p;
+		}
+
 		this.x = p.x;
 		this.y = p.y-Um.relposition;	
 		p.umbrella = this;

@@ -1,4 +1,4 @@
-_test = 0;
+
 
 function roll(max) //dice roll to simplify randomized calculations
 {
