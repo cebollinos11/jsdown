@@ -34,15 +34,22 @@ function SpawnUmbrella(x,y){
 			this.owner = p;
 		}
 
-		this.x = p.x;
-		this.y = p.y-Um.relposition;	
+			
 		p.umbrella = this;
 		
 	});
 
 
 	u.bind("EnterFrame", function (){
+		if(this.owner==undefined){
 		this.y-=_currPspeed;
+			
+		}
+		else{
+			var p =this.owner;
+			this.x = p.x;
+			this.y = p.y-Um.relposition;	
+		}
          if(this.y<-this.h){           
          this.destroy();     	
      }
