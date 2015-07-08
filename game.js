@@ -1,3 +1,5 @@
+_test = 0;
+
 function roll(max) //dice roll to simplify randomized calculations
 {
   return Math.floor((Math.random() * max) + 1);
@@ -26,8 +28,15 @@ Crafty.scene("playgame", function() {
 
   
   //put one plat
-  CreatePlatform(_h,1);
-  
+
+  if(_test)
+    {RunTest();}
+  else{
+
+    CreatePlatform(_h,1);
+
+  }
+
    _pointsCounter = Crafty.e("2D, DOM, Text")
     .attr({x: 0, y: _h*0.05, w: _w, h: 10})    
     .textFont({ size: '30px', weight: 'bold' })
