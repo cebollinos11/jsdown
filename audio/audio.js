@@ -3,7 +3,7 @@ music = 1;
 loadAudio = function(){
     Crafty.audio.add("title", ["audio/title.mp3" ]);
     Crafty.audio.add("gameover", ["audio/gameover.mp3" ]);
-    Crafty.audio.add("game", ["audio/game.mp3" ]);
+    Crafty.audio.add("game", ["audio/game12.mp3" ]);
     Crafty.audio.add("highscore", ["audio/highscore.mp3" ]);
 
     Crafty.audio.add("bite", [    "audio/bite.mp3"    ]);
@@ -16,6 +16,9 @@ loadAudio = function(){
 
   }
 
+  function playbackground(n){
+    Crafty.audio.play(n,-1);
+  }
   function playsound(n,killer,volume)
   {
 

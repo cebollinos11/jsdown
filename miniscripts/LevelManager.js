@@ -55,7 +55,7 @@ function InitLevels()
 		this.pointsPool+=this.currentLevel.points;
 		console.log("level up to", this.currentLevel.name, "points poll set to",this.pointsPool);
 		this.LevelParticle();
-		playsound("highscore",1);
+		//playsound("highscore",1);
 
 	};
 

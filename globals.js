@@ -72,6 +72,7 @@ function jsDown(){ //main class
   this.LoadTitle = function(){
     console.log("LoadingTitleScren");
     playsound("title",1);
+    
     _nplayers=1;
 
     Crafty.scene("title"); //play title screen
@@ -85,7 +86,8 @@ function jsDown(){ //main class
 
 
     this.levelmgr.reset();
-    playsound("game",1);
+    //playsound("game",1);
+    playbackground("game");
     console.log("Starting Game");
     Crafty.scene("playgame");
     //restart timer
