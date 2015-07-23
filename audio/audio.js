@@ -17,7 +17,8 @@ loadAudio = function(){
   }
 
   function playbackground(n){
-    Crafty.audio.play(n,-1);
+    Crafty.audio.stop();
+    Crafty.audio.play(n,99);
   }
   function playsound(n,killer,volume)
   {
