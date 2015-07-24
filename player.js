@@ -53,7 +53,7 @@ function GenPlayer1(order){
       this.addComponent("tupiwalk");     
 
     }
-    else{console.log("grinding");
+    else{//console.log("grinding");
     this.y+=_g;}
 
       

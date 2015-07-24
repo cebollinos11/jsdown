@@ -8,3 +8,31 @@ function RunTest(){
 
   	SpawnUmbrella(_w/2+100,_h-2);
 }
+
+function floate(){
+	//find player 1
+	var player1 = Crafty("Player_element");
+
+	console.log(player1);
+	
+	player1.bind("EnterFrame", function (){ 
+		//remove gravity
+		this.y-=_g;
+
+
+		//add up/ down controls
+		if (this.isDown(38)) {      
+      		this.y-=_ps; }
+
+      		if (this.isDown(40)) {      
+      		this.y+=_ps; }	
+
+
+	 });
+
+	
+
+
+
+	
+}

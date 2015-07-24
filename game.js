@@ -48,16 +48,16 @@ Crafty.scene("playgame", function() {
   Crafty.e('DeathFloorBottom, 2D, DOM ')
   .attr({x: 0, y: _h+50, w: _w, h: 10});
 
-  Crafty.e('DeathFloorTop, 2D, DOM, Color')
+  Crafty.e('DeathFloorTopImage, 2D, DOM, Color')
   .attr({x: 0, y: -30, w: _w, h: 64,z:100});
+
+  Crafty.e('DeathFloorTop, 2D, DOM, Color')
+  .attr({x: 0, y: -50, w: _w, h: 64,z:100});
+
+
+
   //.color('red');
-  Crafty.e()
-       
-    .bind("KeyDown",function(e)
-         {
-           if(e.key=="p"){ //check for SPACE KEY                  
-           }           
-         }); 
+
   //STARTing Platforms
   for(i=0;i<_np;i++)
     {
