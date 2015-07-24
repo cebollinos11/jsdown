@@ -12,8 +12,13 @@ function TimerManager(){
 
 	//timer generates stuff
 		(this.count%9) ? {} : GenBird();
-		(this.count%25) ? {} : MultiBird();
+		//(this.count%25 ) ? {} : MultiBird();
 		(this.count%10) ? {} :GenFish();
+      
+      	if (this.count%25 == 0 && G.levelmgr.currentLevel.no_multibird == undefined ) {MultiBird();}
+      	
+		
+      	//console.log(G.levelmgr.currentLevel.no_multibird);
       
       G.score.add(1);
 
