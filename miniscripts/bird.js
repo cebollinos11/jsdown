@@ -29,6 +29,11 @@ function GenBird(direction){
     who[0].obj.grabbing = this;
     who[0].obj.x = this.x+this.w/2;
     who[0].obj.y = this.y+this.h/2;
+
+    //prevent player out of bounds
+    if(who[0].obj.x>_w-_pw){
+      who[0].obj.x=_w-_pw-1;
+    }  
     
     
   })
