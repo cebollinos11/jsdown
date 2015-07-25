@@ -9,6 +9,9 @@ function RunjQueryInButtons(){
 
     $(".playercontrols").click(function(){
 
+
+        playsound("blip");
+
         var n = parseInt($(this).attr("id").slice(-1))+1;
 
       console.log(n," clicked");
@@ -43,7 +46,10 @@ function RunjQueryInButtons(){
         $("#Start").click(function(){
 
 
-             G.StartGame();    
+             StartGameFromMainMenu();
+             
+
+
             }
             );
 

@@ -2,6 +2,9 @@ title_elements = {foo:"bar"}
 
 Crafty.scene("title", function() {
 
+
+  playbackground("drop");
+
   
 
    
@@ -83,17 +86,17 @@ Crafty.scene("title", function() {
    
 
    title_elements.main_logo_slug = Crafty.e("2D,Image,DOM,Tween")
-   .attr({x:-100,y:150,z:20,alpha:0})
+   .attr({x:-100,y:100,z:20,alpha:0})
    .image("sprites/ui/slug.png");
    
    title_elements.main_logo_down = Crafty.e("2D,DOM,Text,Tween").text("DOWN")
-   .attr({x:100,y:-1000,z:20})
+   .attr({x:100,y:-500,z:20})
    .textFont({size: '200px', weight: 'bold' });
 
-   title_elements.main_logo_slug.tween({x: 100, y: 150,alpha:1.0}, 1000)
-   title_elements.main_logo_down.tween({x: 100, y: 200}, 2000)
+   title_elements.main_logo_slug.tween({x: 100,alpha:1.0}, 1000)
+   title_elements.main_logo_down.tween({x: 100, y: 150}, 1000)
 
-   setTimeout(placeNewGameButton, 2000)
+   setTimeout(placeNewGameButton, 1000);
   
   
    function UpdatePlayerList1(){
@@ -127,18 +130,6 @@ Crafty.scene("title", function() {
 
   }
 
-  function move_away(who)
-  {
-    who.x += 1000;
-
-  }
-
-  function bring_back(who)
-  {
-    who.x-=1000;
-    
-    
-  }
 
 
 
@@ -149,9 +140,9 @@ Crafty.scene("title", function() {
     //.color("red")
     .text("<div class='jsButton'>New Game</div>").attr({z:3})
     //.textFont({size: '100px', weight: 'bold' })
-    .attr({ x: 100, y: 450, w:600, h: 100 })
+    .attr({ x: 100, y: 350, w:600, h: 100 })
     .bind('Click', function() {
-
+      playsound("glass");
       title_elements.presentation_compilator.tween({x: 0, y: 2000,alpha:1.0}, 500);
       title_elements.playerselect_compilator.tween({x:0}, 500);
       updateButtons();
@@ -161,6 +152,9 @@ Crafty.scene("title", function() {
 
     title_elements.presentation_compilator = Crafty.e("2D,Tween").attr({x:50,y:50,h:50,w:50,});
     //attaching elements
+
+
+    
     title_elements.presentation_compilator.attach(
       title_elements.newgamebutton,
       title_elements.main_logo_down,
@@ -169,4 +163,15 @@ Crafty.scene("title", function() {
 
 
 
+
+
   }
+
+  function StartGameFromMainMenu()
+  {
+    playsound("bird",1);
+    title_elements.playerselect_compilator.tween({y:1000}, 500);
+    title_elements.playerselect_compilator.bind("TweenEnd", function(){ console.log("tween complete");
+    G.StartGame(); });
+    
+}

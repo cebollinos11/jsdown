@@ -5,6 +5,7 @@ loadAudio = function(){
     Crafty.audio.add("gameover", ["audio/gameover.mp3" ]);
     Crafty.audio.add("game", ["audio/game12.mp3" ]);
     Crafty.audio.add("highscore", ["audio/highscore.mp3" ]);
+    Crafty.audio.add("drop", [    "audio/drop.mp3"    ]);
 
     Crafty.audio.add("bite", [    "audio/bite.mp3"    ]);
     Crafty.audio.add("fire", [    "audio/fire.mp3"    ]);
