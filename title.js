@@ -32,7 +32,7 @@ Crafty.scene("title", function() {
   
    title_elements.header = Crafty.e("2D, DOM, Text").attr({ x: 500, y: 50 , w:200 })
    .attr({ x: 100, y: 0.08*_h,w:400}).attr({z:2})
-   .text("<div class='jsPanel'><h1>Welcome to Jsdown</h1></div>");
+   .text("<div class='jsPanel'><h1>Slug Down</h1></div>");
 
    
     
@@ -150,11 +150,23 @@ Crafty.scene("title", function() {
 
      });
 
-    title_elements.presentation_compilator = Crafty.e("2D,Tween").attr({x:50,y:50,h:50,w:50,});
+
+
+
+
+    // title_elements.creditsbutton  = Crafty.e("2D, DOM, Color, Mouse,Text")    
+    // .text("<div class='jsButton'>Credits</div>").attr({z:3})   
+    // .attr({ x: 100, y: 450, w:600, h: 80 })
+    // .bind('Click', function() {
+    //   playsound("glass");
+    //  });
+
+
     //attaching elements
 
+    title_elements.presentation_compilator = Crafty.e("2D,Tween").attr({x:50,y:50,h:50,w:50,});
 
-    
+
     title_elements.presentation_compilator.attach(
       title_elements.newgamebutton,
       title_elements.main_logo_down,
