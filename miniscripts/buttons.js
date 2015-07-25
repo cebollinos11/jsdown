@@ -41,9 +41,13 @@ function RunjQueryInButtons(){
 			);
 
         $("#Start").click(function(){
+
+
              G.StartGame();    
             }
             );
+
+        console.log("Start SET");
 
 	    $("#Send").click(function(){
 
