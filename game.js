@@ -48,11 +48,13 @@ Crafty.scene("playgame", function() {
   Crafty.e('DeathFloorBottom, 2D, DOM ')
   .attr({x: 0, y: _h+50, w: _w, h: 10});
 
-  Crafty.e('DeathFloorTopImage, 2D, DOM, Color')
+  var TopLimit = Crafty.e('DeathFloorTopImage, 2D, DOM, Color, Tween')
   .attr({x: 0, y: -30, w: _w, h: 64,z:100});
 
-  Crafty.e('DeathFloorTop, 2D, DOM, Color')
+  var TopLimitEffect = Crafty.e('DeathFloorTop, 2D, DOM, Color')
   .attr({x: 0, y: -50, w: _w, h: 64,z:100});
+
+  op = TopLimit.attach(TopLimitEffect);
 
 
 
