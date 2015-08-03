@@ -4,11 +4,11 @@ function InitLevels()
 
 	this.levelDB = ["level 0",
 		{name:"Level 1",points:200,mix:[g.bricks],no_multibird:1},
-		{name:"Level 2",points:400,mix:[g.bricks,
+		{name:"Level 2",points:600,mix:[g.bricks,
 										g.bricks,	
 										g.rleft,
 										g.rright]},
-		{name:"Level 3",points:400,mix:[g.bricks,
+		{name:"Level 3",points:600,mix:[g.bricks,
 										g.rleft,
 										g.rright,
 										g.glass]},
@@ -17,7 +17,12 @@ function InitLevels()
 										g.rleft,
 										g.fire,
 										g.bricks],no_multibird:1},
-		{name:"Level 6",points:600,maxsize:1,mix:[g.bricks,
+
+		{name:"Level 6",points:600,mix:[g.bricks,
+										g.bricks,
+										g.bricks,
+										g.fire],no_multibird:1},
+		{name:"Level 7",points:600,maxsize:1,mix:[g.bricks,
 										g.rright,
 										g.rleft,
 										g.fire],no_multibird:1},
@@ -49,8 +54,8 @@ function InitLevels()
 		this.currentLeveln++;
 		var new_class = "background_component"+this.currentLeveln
 		
-		$("."+current_class).addClass(new_class);
-		$("."+current_class).removeClass(current_class);		
+		//$("."+current_class).addClass(new_class);
+		//$("."+current_class).removeClass(current_class);		
 		this.currentLevel = this.levelDB[this.currentLeveln];
 		this.pointsPool+=this.currentLevel.points;
 		console.log("level up to", this.currentLevel.name, "points poll set to",this.pointsPool);

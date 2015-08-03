@@ -5,7 +5,7 @@ function ScoreManager(){
 		if(this.frozen){return;}
 		this.score+=n;
 		if(who != undefined){ScoreParticle(who.x,who.y,n);}
-		G.levelmgr.checkLevelUp(this.score);
+		//G.levelmgr.checkLevelUp(this.score);
 	}
 	this.reset = function(){
 		this.score = 0;

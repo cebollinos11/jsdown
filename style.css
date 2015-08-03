@@ -104,6 +104,9 @@ div{
 .background_component6{
   background-image: url('sprites/bg/gioconda.jpg');
 }
+.background_component7{
+  background-image: url('sprites/bg/void.png');
+}
 
 
 .railright{

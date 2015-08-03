@@ -77,7 +77,13 @@ function StartBackground(where){
   if(where===0) initial_height = _h;
   Crafty.e('2D, DOM , '+background_string).attr({x: 0, y: where, w: _w, h: initial_height,z:-1})
   .bind("EnterFrame", function (){
-    if(this.y === 0){ StartBackground(_h-2);}    
+    if(this.y === 0){ 
+
+
+      G.levelmgr.checkLevelUp(G.score.score);
+      StartBackground(_h-2);
+
+    }    
     this.y-=1;
     this.h++;
     if(this.y===-_h) {this.destroy();}

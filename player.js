@@ -64,7 +64,7 @@ function GenPlayer1(order){
     if (this.isDown(original.controls[0]) && !this.burned) {      
       this.x-=_ps; 
       try{
-
+        
         this.grabbing.grabbingPoints-=1;
         
         if(this.grabbing.grabbingPoints==0){
@@ -79,6 +79,7 @@ function GenPlayer1(order){
     if (this.isDown(original.controls[1])&& !this.burned) {
        this.x+=_ps;
       try{
+        
         this.grabbing.grabbingPoints-=1;
         if(this.grabbing.grabbingPoints==0){
           playsound("bird",0,0.2);this.grabbing.destroy();}
