@@ -145,7 +145,8 @@ Crafty.scene("title", function() {
     .attr({ x: 100, y: 350, w:600, h: 100 })
     .bind('Click', function() {
       playsound("glass");
-      title_elements.presentation_compilator.tween({x: 0, y: 2000,alpha:1.0}, 500);
+      //title_elements.presentation_compilator.tween({y: 1000}, 500);
+      UI_move_down(title_elements.presentation_compilator);
       title_elements.playerselect_compilator.tween({x:0}, 500);
       updateButtons();
       //bring_back(title_elements.mainPanel);
@@ -185,8 +186,17 @@ Crafty.scene("title", function() {
   function StartGameFromMainMenu()
   {
     playsound("bird",1);
-    title_elements.playerselect_compilator.tween({y:1000}, 500);
+    //title_elements.playerselect_compilator.tween({y:1000}, 500);
+    UI_move_down(title_elements.playerselect_compilator);
     title_elements.playerselect_compilator.bind("TweenEnd", function(){ console.log("tween complete");
     G.StartGame(); });
     
+}
+
+
+function UI_move_down(compilator){
+
+  compilator.tween({y:1000}, 500);
+
+
 }
