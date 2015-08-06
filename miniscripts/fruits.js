@@ -28,10 +28,16 @@ function GenFruit(x,y){
 
 	Fruit.onHit('Player_element',function(who) {
 		playsound("bite");
-      	G.score.add(this.points,who[0].obj);    	
 		this.destroy();
-		if(this.has("hotdog") || this.has("burger"))
-		who[0].obj.fat_component.getFat();
+		if(this.has("hotdog") || this.has("burger")){
+			who[0].obj.fat_component.getFat();
+
+			G.score.add(this.points*5,who[0].obj);    	
+		}
+		else{
+			
+      	G.score.add(this.points,who[0].obj);    	
+		}
 		
 	});
 }

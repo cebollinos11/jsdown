@@ -24,10 +24,13 @@ div{
 }
 
 .ScoreParticle{
+  color: yellow;
   font-weight: bold;
   font-size: 200%;
   padding: 1px;
   display: inline-block;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+
   
 }
 .LevelParticle{
