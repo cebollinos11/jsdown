@@ -18,6 +18,8 @@ loadAudio = function(){
   }
 
   function playbackground(n){
+    if(music==0) {return}
+
     Crafty.audio.stop();
     Crafty.audio.play(n,99);
   }
