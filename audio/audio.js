@@ -26,7 +26,7 @@ loadAudio = function(){
   function playsound(n,killer,volume)
   {
 
-    console.log("playing with volume",volume, "and killer",killer);
+   // console.log("playing with volume",volume, "and killer",killer);
 
   	if(music==0) {return}
   	if(killer){Crafty.audio.stop();}

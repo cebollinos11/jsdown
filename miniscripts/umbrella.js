@@ -17,7 +17,7 @@ function SpawnUmbrella(x,y){
 			G.score.add(50,who);
 		}
 	}
-	var u = Crafty.e('spawnable, Umbrella, 2D, DOM, Collision').attr({x:x,y:y,w:Um.size,h:Um.size,z:1,effect:effect,usageleft:250});
+	var u = Crafty.e('spawnable, Umbrella, 2D, DOM, Collision,DestroyOnSpikes').attr({x:x,y:y,w:Um.size,h:Um.size,z:1,effect:effect,usageleft:250});
 	u.onHit('Player_element',function(who) {
 
 		var p = who[0].obj;

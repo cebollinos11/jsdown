@@ -24,8 +24,8 @@ function GenFish(){
 
 	
 
-	Fish.onHit('DeathFloorTop',function () { playsound("pop");
-
+	Fish.onHit('DeathFloorTop',function () { 
+		playsound("pop");
 		SetExplodingBalloon(this.x,this.y);
 		this.destroy(); })
 	Fish.onHit('bird',function () {SetExplodingBalloon(this.x,this.y); playsound("pop");this.destroy(); })

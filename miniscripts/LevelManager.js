@@ -3,11 +3,11 @@ function InitLevels()
 	var g = G.platformsDB;
 
 	this.levelDB = ["level 0",
-		{name:"Level 1",points:200,mix:[g.bricks],no_multibird:1},
+		{name:"Level 1",points:100,mix:[g.bricks],no_multibird:1},
 		{name:"Level 2",points:200,mix:[g.bricks,
 										g.bricks,	
 										g.rleft,
-										g.rright]},
+										g.rright],spikes:1},
 		{name:"Level 3",points:300,mix:[g.bricks,
 										g.rleft,
 										g.rright,

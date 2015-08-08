@@ -14,8 +14,16 @@ function TimerManager(){
 		(this.count%9) ? {} : GenBird();
 		//(this.count%25 ) ? {} : MultiBird();
 		(this.count%10) ? {} :GenFish();
+		
       
+
       	if (this.count%25 == 0 && G.levelmgr.currentLevel.no_multibird == undefined ) {MultiBird();}
+
+
+      	if (this.count%10 == 0 && G.levelmgr.currentLevel.spikes != undefined) {RunSpikes();
+      		console.log("run spikes with", G.levelmgr.currentLevel.spikes)
+      	}
+
       	
 		
       	//console.log(G.levelmgr.currentLevel.no_multibird);

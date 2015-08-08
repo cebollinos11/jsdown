@@ -6,7 +6,10 @@ function RunTest(){
   	.attr({x: 0, y: _h-100, w: _w, h: 30,z:0,hitplayer:do_nothing}).color("#FFF");
 
 
-  	SpawnUmbrella(_w/2+100,_h-2);
+  	SpawnUmbrella(_w/2,_h/2);
+  	setTimeout(function(){ RunSpikes();
+  		
+  	}, 1000);
 }
 
 function floate(){

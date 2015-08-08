@@ -48,13 +48,16 @@ Crafty.scene("playgame", function() {
   Crafty.e('DeathFloorBottom, 2D, DOM ')
   .attr({x: 0, y: _h+50, w: _w, h: 10});
 
-  var TopLimit = Crafty.e('DeathFloorTopImage, 2D, DOM, Color, Tween')
+  G.spikes = TopLimit = Crafty.e('DeathFloorTopImage, 2D, DOM, Color, Tween')
   .attr({x: 0, y: -30, w: _w, h: 64,z:100});
 
   var TopLimitEffect = Crafty.e('DeathFloorTop, 2D, DOM, Color')
   .attr({x: 0, y: -50, w: _w, h: 64,z:100});
 
-  op = TopLimit.attach(TopLimitEffect);
+  var TopSpikesSprite = Crafty.e("2D","Color","DOM","DeathFloorTopImage").color("black")
+  .attr({x: 0, y: -30-_h/2, w: _w, h: _h/2,z:100})
+
+  TopLimit.attach(TopLimitEffect,TopSpikesSprite);
 
 
 
@@ -94,5 +97,38 @@ function StartBackground(where){
 
 
 
+
+function RunSpikes(){
+  var spikes_speed = 5000;
+
+  G.spikes.tween({y: _w*1/4}, spikes_speed);
+  G.spikes.bind("TweenEnd", function(){ 
+    G.spikes.tween({y:-30},spikes_speed/5); 
+    console.log("TWEEN");
+    G.spikes.unbind("TweenEnd");
+  });
+
+}
+
+Crafty.c("DestroyOnSpikes",{
+
+  init:function(){
+
+
+    this.onHit('DeathFloorTop',function () {
+      console.log(this,"on SPIKES");
+      this.destroy();
+
+      try{        this.owner.umbrella = undefined;
+}
+      catch(err){}
+
+
+    }); 
+
+  }
+  
+
+});
 
 
