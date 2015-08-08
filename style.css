@@ -100,7 +100,7 @@ div{
   background-image: url('sprites/bg/matrix.jpg');
 }
 .background_component3{
-  background-image: url('sprites/bg/pink.jpg');
+    background-image: url('sprites/bg/cave.png');
 }
 .background_component4{
   background-image: url('sprites/bg/sky.png');
@@ -113,6 +113,10 @@ div{
 }
 .background_component7{
   background-image: url('sprites/bg/void.png');
+}
+.background_component8{
+ 
+  background-image: url('sprites/bg/pink.jpg');
 }
 
 
