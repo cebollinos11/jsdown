@@ -12,8 +12,8 @@ function InitPlatforms(){
 function push_glass(who)
 {
 
-  this.removeComponent("brokenbrick");
-  this.addComponent("pblue");
+  //this.addComponent("pblue");
+  //this.removeComponent("brokenbrick");
   this.attr({count_down:20});
   this.bind("EnterFrame", function (){ this.count_down--;
                                      if (this.count_down===0)

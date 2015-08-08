@@ -17,8 +17,8 @@ function GenFish(){
       	playsound("blip");      
     	}
 		who[0].obj.grabbing = this;
-		who[0].obj.x = this.x+this.w/3;
-    	who[0].obj.y = this.y+this.h/2;
+		who[0].obj.x = this.x+this.w/2-who[0].obj.w/2;
+    	who[0].obj.y = this.y+3*this.h/4;
     	//this.speed+=1;
 	});
 

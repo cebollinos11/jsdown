@@ -48,7 +48,7 @@ function SpawnUmbrella(x,y){
 		else{
 			var p =this.owner;
 			this.x = p.x;
-			this.y = p.y-Um.relposition;	
+			this.y = p.y-this.h;	
 		}
          if(this.y<-this.h){           
          this.destroy();     	
