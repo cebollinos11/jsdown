@@ -7,9 +7,7 @@ function RunTest(){
 
 
   	SpawnUmbrella(_w/2,_h/2);
-  	setTimeout(function(){ RunSpikes();
-  		
-  	}, 1000);
+  	
 }
 
 function floate(){

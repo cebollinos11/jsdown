@@ -16,7 +16,7 @@ function ControlsForDisplay(i){
 //functions
 function GenPlayer1(order){
   var original = this;
-  var Player = Crafty.e('Player_element, 2D, Color, DOM, Twoway, Collision')
+  var Player = Crafty.e('Player_element, 2D, Color, DOM, Twoway, Collision,Tween')
   .attr({x: _w/2+_pw*order, y: _h/4, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color,speed:_ps,z:1})  
   .attr({w:_pw*0.8,h:_ph*0.5})
 
@@ -172,8 +172,13 @@ function fat(who){
 
     fat_component.fat = 1;
     fat_component.who.y-=fat_component.who.h/2;
-    fat_component.who.w *= 2;
-    fat_component.who.h *= 2;
+    //fat_component.who.w *= 2;
+    //fat_component.who.h *= 2;
+    playsound("getFat",0);
+    fat_component.who.tween({
+      w:fat_component.who.w*2,
+      h:fat_component.who.h*2
+    },1000);
     fat_component.fat_frames = fat_component._fat_frames;
     fat_component.who.speed /= 2;
   }
@@ -181,9 +186,15 @@ function fat(who){
   fat_component.removeFat = function(){
     fat_component.fat = 0;
     fat_component.who.y+=fat_component.who.h/2;
-    fat_component.who.w /= 2;
-    fat_component.who.h /= 2;
+    //fat_component.who.w /= 2;
+    //fat_component.who.h /= 2;
     fat_component.who.speed *= 2;
+
+    playsound("getFat",0);
+    fat_component.who.tween({
+      w:fat_component.who.w/2,
+      h:fat_component.who.h/2
+    },1000);
 
   }
 
