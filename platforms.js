@@ -32,12 +32,20 @@ function activate_glass(who)
 }
 function move_right(who)
 {
-  who.x+=4;
+   var move = 4;
+  if(who.fat_component.isfat()){
+    move=2;
+  }
+  who.x+=move;
 }
 
 function move_left(who)
 {
-  who.x-=4;
+  var move = -4;
+  if(who.fat_component.isfat()){
+    move=-2;
+  }
+  who.x+=move;
 }
 function do_nothing()
 {}
