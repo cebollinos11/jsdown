@@ -47,7 +47,7 @@ function burn_player(who){
   playsound("fire");
   who.burned=1;
   console.log("burning",who);
-  who.addComponent("tupiburned");
+  who.sprite.addComponent("tupiburned");
   setTimeout(function(){Kill(who)},2000);
   
   }

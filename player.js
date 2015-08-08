@@ -16,9 +16,15 @@ function ControlsForDisplay(i){
 //functions
 function GenPlayer1(order){
   var original = this;
-  var Player = Crafty.e('Player_element, 2D, Color, DOM, tupiwalk, Twoway, Gravity, Collision, spawnable')
-  .attr({x: _w/2+_pw*order, y: 100, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color,speed:_ps})  
-  
+  var Player = Crafty.e('Player_element, 2D, Color, DOM, Twoway, Collision')
+  .attr({x: _w/2+_pw*order, y: _h/4, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color,speed:_ps,z:1})  
+  .attr({w:_pw*0.8,h:_ph*0.5})
+
+    //add hitbox
+  // Player.hitbox = Crafty.e("2D,DOM,hitbox_style,player_hitbox,Collision")
+  // .attr({x:Player.x+0.1*Player.w,y:Player.y+0.5*Player.h,w:Player.w*0.8,h:Player.h*0.5,z:Player.z+1,owner:Player});
+  // Player.attach(Player.hitbox);
+
   //.twoway(6,0)  
   //.collision([0,0], [0,50])
   .onHit('Platform',function(who){
@@ -49,8 +55,8 @@ function GenPlayer1(order){
       this.y = who[0].obj.y-this.h;
       //console.log("platform h",who[0].obj.h);
 
-      this.removeComponent("tupifly");
-      this.addComponent("tupiwalk");     
+      this.sprite.removeComponent("tupifly");
+      this.sprite.addComponent("tupiwalk");     
 
     }
     else{//console.log("grinding");
@@ -60,6 +66,8 @@ function GenPlayer1(order){
     
   })
   .bind("EnterFrame", function (){    
+
+    
     //check keyboard input
     if (this.isDown(original.controls[0]) && !this.burned) {      
       this.x-=this.speed; 
@@ -96,7 +104,7 @@ function GenPlayer1(order){
    
     
     if(this.inplatform){
-      console.log("NO applied gravity");
+      //console.log("NO applied gravity");
 
 
     }
@@ -105,8 +113,8 @@ function GenPlayer1(order){
         this.y+=_g;
         if(this.umbrella){this.umbrella.effect(this);}
         //console.log("applied gravity");
-        this.removeComponent("tupiwalk");
-        this.addComponent("tupifly");
+        this.sprite.removeComponent("tupiwalk");
+        this.sprite.addComponent("tupifly");
       }
       this.inplatform =0;
 
@@ -120,13 +128,19 @@ function GenPlayer1(order){
       this.x=_w-this.w-1;
     }  
   })
-  .onHit('DeathFloorBottom',function () { Kill(this);})
-  .onHit('DeathFloorTop',function () { Kill(this);})  ; //end of player
+  .onHit('DeathFloorTop',function () { Kill(this);})  
+  .onHit('DeathFloorBottom',function () { Kill(this);}); //end of player
 
   if(_nplayers>1){Player.color(original.color);}
 
   //add fatty
   Player.fat_component = new fat(Player);
+
+
+  //add player sprite
+  Player.sprite = Crafty.e("2D,DOM,tupiwalk,spawnable").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
+  Player.attach(Player.sprite);
+  //alert(Player.sprite.x+","+Player.sprite.y+","+Player.sprite.w+","+Player.sprite.h);
 
   //alert(Player.fat_component.isfat());
 
