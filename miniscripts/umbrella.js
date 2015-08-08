@@ -24,6 +24,7 @@ function SpawnUmbrella(x,y){
 
 		if(p.umbrella!=this){
 			console.log(p.name+ " took umbrella");
+			playsound("umbrella",0);
 
 			if(this.owner != p && this.owner != undefined){
 				console.log("stolen from", this.owner);
