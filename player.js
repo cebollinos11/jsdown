@@ -172,6 +172,8 @@ function fat(who){
   fat_component.fat = 0;
   fat_component._fat_frames = 800;
   fat_component.fat_frames = 0;
+  fat_component.h_original = who.h;
+  fat_component.w_original = who.w;
 
   fat_component.isfat=function(){return fat_component.fat;}
 
@@ -184,8 +186,8 @@ function fat(who){
     //fat_component.who.h *= 2;
     playsound("getFat",0);
     fat_component.who.tween({
-      w:fat_component.who.w*2,
-      h:fat_component.who.h*2
+      w:fat_component.who.w+fat_component.w_original/2,
+      h:fat_component.who.h+fat_component.w_original/2
     },1000);
     fat_component.fat_frames = fat_component._fat_frames;
     //fat_component.who.speed *= 2;
@@ -200,8 +202,8 @@ function fat(who){
     //fat_component.who.speed /= 2;
     playsound("getFat",0);
     fat_component.who.tween({
-      w:fat_component.who.w/2,
-      h:fat_component.who.h/2
+      w:fat_component.who.w-fat_component.w_original/2,
+      h:fat_component.who.h-fat_component.w_original/2
     },1000);
     //fat_component.who.y-=10;
     //fat_component.who.y-=fat_component.fat;
