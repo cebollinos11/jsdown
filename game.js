@@ -117,7 +117,7 @@ function RunSpikes(){
 
   G.spikes.attach(G.spikes.redwarning);
 
-  G.spikes.tween({y: _w*1/4}, spikes_speed);
+  G.spikes.tween({y: _w*1/5}, spikes_speed);
   G.spikes.bind("TweenEnd", function(){ 
     G.spikes.tween({y:-30},spikes_speed/5); 
     console.log("TWEEN");
