@@ -177,7 +177,7 @@ function fat(who){
 
   fat_component.getFat = function(){
     //if(fat_component.isfat()){return;}
-
+    if(fat_component.fat>4){return;}
     fat_component.fat += 1;
     //fat_component.who.y-=fat_component.who.h/2;
     //fat_component.who.w *= 2;
