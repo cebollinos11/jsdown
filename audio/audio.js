@@ -15,6 +15,8 @@ loadAudio = function(){
     Crafty.audio.add("pop", [    "audio/bubblepop.mp3"    ]);
     Crafty.audio.add("getFat", [    "audio/getFat.mp3"    ]);
     Crafty.audio.add("umbrella", [    "audio/umbrella.mp3"    ]);
+    Crafty.audio.add("alarm", [    "audio/alarm.mp3"    ]);
+
 
 
 

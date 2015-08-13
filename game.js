@@ -100,12 +100,15 @@ function StartBackground(where){
 
 function RunSpikes(){
   var spikes_speed = 5000;
+  playsound("alarm",0);
 
   G.spikes.tween({y: _w*1/4}, spikes_speed);
   G.spikes.bind("TweenEnd", function(){ 
     G.spikes.tween({y:-30},spikes_speed/5); 
     console.log("TWEEN");
     G.spikes.unbind("TweenEnd");
+    playsound("alarm",0);
+
   });
 
 }

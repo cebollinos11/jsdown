@@ -131,19 +131,19 @@ function GenPlayer1(order){
   .onHit('DeathFloorTop',function () { Kill(this);})  
   .onHit('DeathFloorBottom',function () { Kill(this);}); //end of player
 
-  if(_nplayers>1){Player.color(original.color);}
 
   //add fatty
   Player.fat_component = new fat(Player);
 
 
   //add player sprite
-  Player.sprite = Crafty.e("2D,DOM,tupiwalk,spawnable").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
+  Player.sprite = Crafty.e("2D,DOM,tupiwalk,spawnable,Color").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
   Player.attach(Player.sprite);
   //alert(Player.sprite.x+","+Player.sprite.y+","+Player.sprite.w+","+Player.sprite.h);
 
   //alert(Player.fat_component.isfat());
 
+  if(_nplayers>1){Player.sprite.color(original.color);}
   //Player.fat_component.getFat();
 
 
@@ -189,7 +189,7 @@ function fat(who){
     //fat_component.who.w /= 2;
     //fat_component.who.h /= 2;
     fat_component.who.speed *= 2;
-
+    fat_component.who.y-=10;
     playsound("getFat",0);
     fat_component.who.tween({
       w:fat_component.who.w/2,

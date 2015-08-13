@@ -26,11 +26,11 @@ function InitLevels()
 		{name:"Level 6",points:600,mix:[g.bricks,
 										g.bricks,
 										g.bricks,
-										g.fire],no_multibird:1},
+										g.fire],no_multibird:1,spikes:1},
 		{name:"Level 7",points:600,maxsize:1,mix:[g.bricks,
 										g.rright,
 										g.rleft,
-										g.fire],no_multibird:1},
+										g.fire],no_multibird:1,spikes:1},
 	];
 
 	this.pointsPool = 0;
