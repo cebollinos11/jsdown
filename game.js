@@ -102,12 +102,28 @@ function RunSpikes(){
   var spikes_speed = 5000;
   playsound("alarm",0);
 
+  //add red warning
+  G.spikes.redwarning = Crafty.e("2D,DOM,Color")
+  .attr({x:0,y:-_h*0.9,w:_w,h:_h,z:4,alpha:0,up:1})
+  .color("red")
+  .bind("EnterFrame",function(){
+    
+    this.alpha+=this.up/20;
+    if(this.alpha>0.3){this.up=-1;}
+    if (this.alpha<0) {this.up=1;};
+
+
+  });
+
+  G.spikes.attach(G.spikes.redwarning);
+
   G.spikes.tween({y: _w*1/4}, spikes_speed);
   G.spikes.bind("TweenEnd", function(){ 
     G.spikes.tween({y:-30},spikes_speed/5); 
     console.log("TWEEN");
     G.spikes.unbind("TweenEnd");
     playsound("alarm",0);
+    G.spikes.redwarning.destroy();
 
   });
 
