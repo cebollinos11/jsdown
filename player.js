@@ -180,7 +180,7 @@ function fat(who){
       h:fat_component.who.h*2
     },1000);
     fat_component.fat_frames = fat_component._fat_frames;
-    fat_component.who.speed /= 2;
+    //fat_component.who.speed *= 2;
   }
 
   fat_component.removeFat = function(){
@@ -188,7 +188,7 @@ function fat(who){
     fat_component.who.y+=fat_component.who.h/2;
     //fat_component.who.w /= 2;
     //fat_component.who.h /= 2;
-    fat_component.who.speed *= 2;
+    //fat_component.who.speed /= 2;
     fat_component.who.y-=10;
     playsound("getFat",0);
     fat_component.who.tween({
