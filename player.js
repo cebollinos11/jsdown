@@ -35,6 +35,7 @@ function GenPlayer1(order){
       else{
           this.inwhichplatform=who[0].obj;
           playsound("blip",0,0.1);
+          
         
       }
 
@@ -67,7 +68,12 @@ function GenPlayer1(order){
   })
   .bind("EnterFrame", function (){    
 
-    
+    if(this.isDown(76)){
+      this.fat_component.getFat();
+    }
+    if(this.isDown(75)){
+      this.fat_component.removeFat();
+    }
     //check keyboard input
     if (this.isDown(original.controls[0]) && !this.burned) {      
       this.x-=this.speed; 
@@ -136,6 +142,7 @@ function GenPlayer1(order){
   Player.fat_component = new fat(Player);
 
 
+
   //add player sprite
   Player.sprite = Crafty.e("2D,DOM,tupiwalk,spawnable,Color").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
   Player.attach(Player.sprite);
@@ -143,6 +150,7 @@ function GenPlayer1(order){
 
   //alert(Player.fat_component.isfat());
 
+  
   if(_nplayers>1){Player.sprite.color(original.color);}
   //Player.fat_component.getFat();
 
@@ -168,10 +176,10 @@ function fat(who){
   fat_component.isfat=function(){return fat_component.fat;}
 
   fat_component.getFat = function(){
-    if(fat_component.isfat()){return;}
+    //if(fat_component.isfat()){return;}
 
-    fat_component.fat = 1;
-    fat_component.who.y-=fat_component.who.h/2;
+    fat_component.fat += 1;
+    //fat_component.who.y-=fat_component.who.h/2;
     //fat_component.who.w *= 2;
     //fat_component.who.h *= 2;
     playsound("getFat",0);
@@ -184,17 +192,19 @@ function fat(who){
   }
 
   fat_component.removeFat = function(){
-    fat_component.fat = 0;
-    fat_component.who.y+=fat_component.who.h/2;
+    if(fat_component.fat<1){return;};
+    fat_component.fat -= 1;
+    //fat_component.who.y+=fat_component.who.h/2;
     //fat_component.who.w /= 2;
     //fat_component.who.h /= 2;
     //fat_component.who.speed /= 2;
-    fat_component.who.y-=10;
     playsound("getFat",0);
     fat_component.who.tween({
       w:fat_component.who.w/2,
       h:fat_component.who.h/2
     },1000);
+    //fat_component.who.y-=10;
+    //fat_component.who.y-=fat_component.fat;
 
   }
 

@@ -6,9 +6,35 @@ function RunTest(){
   	.attr({x: 0, y: _h-100, w: _w, h: 30,z:0,hitplayer:do_nothing}).color("#FFF");
 
 
-  	SpawnUmbrella(_w/2,_h/2);
+  	//SpawnUmbrella(_w/2,_h/2);
+
+  	to = Crafty.e("2D,DOM,Color,Tween").color("green").attr({x:50,y:50,h:50,w:50,z:4});
+
+  	to.bump = function(){
+  		to.tween({h:this.h-10},200);
+  		to.bind("TweenEnd",function(){
+  			to.tween({h:this.h+10},200);
+  			to.unbind("TweenEnd");
+
+  		});
+  	}
+
   	
 }
+
+// function bump1(sprite){
+// 	console.log("start bump");	
+// 	console.log(sprite);
+// 	sprite.tween({h:sprite.h-10},200);
+//   		console.log("lets see: ",sprite.h)
+//   		sprite.bind("TweenEnd",function(){
+//   			sprite.tween({h:sprite.h+10},200);
+//   			sprite.unbind("TweenEnd");
+
+//   		});
+
+// }
+
 
 function floate(){
 	//find player 1
