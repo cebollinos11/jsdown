@@ -32,11 +32,15 @@ function GenFruit(x,y){
 		if(this.has("hotdog") || this.has("burger")){
 			who[0].obj.fat_component.getFat();
 
-			G.score.add(this.points*5,who[0].obj);    	
+			G.score.add(this.points*5,who[0].obj);    
+
 		}
 		else{
 			
-      	G.score.add(this.points,who[0].obj);    	
+      	G.score.add(this.points,who[0].obj);   
+      	if (roll(3)<4) {
+				who[0].obj.fat_component.removeFat();
+			} 	
 		}
 		
 	});

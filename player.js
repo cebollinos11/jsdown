@@ -194,7 +194,8 @@ function fat(who){
   }
 
   fat_component.removeFat = function(){
-    if(fat_component.fat<1){return;};
+    console.log("removing FAT");
+    if(fat_component.fat<1 || fat_component.w_original==fat_component.who.w){fat_component.fat=0;return;};
     fat_component.fat -= 1;
     //fat_component.who.y+=fat_component.who.h/2;
     //fat_component.who.w /= 2;
