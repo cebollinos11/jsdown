@@ -219,7 +219,7 @@ function fat(who){
     fat_component.fat_frames-=1;
 
     if(fat_component.fat_frames<0){
-      fat_component.removeFat();
+//      fat_component.removeFat();
     }
   }
 
