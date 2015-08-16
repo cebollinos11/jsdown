@@ -112,7 +112,7 @@ function CreatePlatform(height,mustbebricks)
 
     //console.log();
     //set Fruits on top of platforms
-    if(roll(100)<Fr.Frequency && typeplat.name != "fire"){GenFruit(newplat.x+newplat.w/2,newplat.y);}
+    if(roll(100)<Fr.Frequency && typeplat.name != "fire"){GenFruit(newplat.x+roll(newplat.w),newplat.y);}
     if(roll(100)<Um.Frequency && typeplat.name != "fire"){SpawnUmbrella(newplat.x+newplat.w/2,newplat.y);}
 
 

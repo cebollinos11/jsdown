@@ -7,25 +7,42 @@ function GenBird(direction){
    }
   var amplitude = roll(100);
   
-  var Bird = Crafty.e('spawnable,bird, 2D, Color, DOM, Collision,DestroyOnSpikes').attr({y:_h/2})
+  var Bird = Crafty.e('spawnable,bird, 2D, Color, DOM, Collision,DestroyOnSpikes').attr({y:_h/2,speed:_birdspeed,tired:0})
   .bind("EnterFrame", function (){
     
-  this.x+=_birdspeed*this.direction;
+  this.x+=this.speed*this.direction;
   if(this.x<0 || this.x>_w){this.destroy();}
     
     //add sinusoidal movemente
     this.y = Math.sin(this.sinusoidal_ticks*0.05)*this.amplitude+this.y_original;
     this.sinusoidal_ticks++;
+
+    
     
     })
   .onHit('Player_element',function(who) { 
+
+    // if(who[0].obj.fat_component.fat>0){
+    //   this.speed = _birdspeed/2;
+    //   this.tired = 1;
+    //   this.amplitude = 0;
+    // }
+
+    if(who[0].obj.fat_component.fat>2){
+      console.log("DESTROY");
+      this.destroy();
+      G.score.add(50,this);
+      playsound("bite",0);
+      return;
+    }
+
     if( who[0].obj.grabbing!=this){
       G.score.add(this.uniquepoints,who[0].obj);
       this.uniquepoints = 0;
       playsound("blip",0,0.5);
       
     }
-    //Kill(who[0].obj);
+    this.y+=this.tired*5;
     who[0].obj.grabbing = this;
     who[0].obj.x = this.x+this.w/2;
     who[0].obj.y = this.y+this.h/2;

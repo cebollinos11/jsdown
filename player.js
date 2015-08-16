@@ -50,7 +50,8 @@ function GenPlayer1(order){
     //apply effect of platform on player
     who[0].obj.hitplayer(this);
     
-    if(who[0].obj.y>this.y+this.h-this.h*0.5){   
+  //  if(who[0].obj.y>this.y+this.h-this.h*0.5){   
+    if(who[0].obj.y+who[0].obj.h > this.y+this.h){   
       this.inplatform=1;    
       //this.y = this.y-_pspeed-_g;
       this.y = who[0].obj.y-this.h;
@@ -69,10 +70,10 @@ function GenPlayer1(order){
   .bind("EnterFrame", function (){    
 
     if(this.isDown(76)){
-      this.fat_component.getFat();
+      //this.fat_component.getFat();
     }
     if(this.isDown(75)){
-      this.fat_component.removeFat();
+      //this.fat_component.removeFat();
     }
     //check keyboard input
     if (this.isDown(original.controls[0]) && !this.burned) {      
@@ -179,7 +180,8 @@ function fat(who){
 
   fat_component.getFat = function(){
     //if(fat_component.isfat()){return;}
-    if(fat_component.fat>4){return;}
+    if(fat_component.fat>2){return;}
+    console.log(fat_component.fat);
     fat_component.fat += 1;
     //fat_component.who.y-=fat_component.who.h/2;
     //fat_component.who.w *= 2;

@@ -10,6 +10,6 @@ function ScoreParticle(x,y,n)
     
     })
 	.text('<div class="ScoreParticle">+'+n+'</div>')
-	.attr({x:x,y:y,TTL:20});
+	.attr({x:x,y:y,TTL:20,z:4});
 
 }

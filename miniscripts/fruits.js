@@ -1,7 +1,7 @@
 
 Fr = {fruitsize:32,
 	db:["banana","cherry","pineapple","beer","burger","hotdog"],
-	Frequency:45//in percentage
+	Frequency:50//in percentage
 	};
 function GenFruit(x,y){
 
@@ -14,7 +14,7 @@ function GenFruit(x,y){
 	
 	var x = x-fsize/2;
 	var h = y-fsize;
-	var FruitType = Fr.db[roll(6)-1];
+	var FruitType = Fr.db[roll(6)-1];//Fr.db[roll(6)-1];
 	var Fruit = Crafty.e('spawnable, '+FruitType+', 2D, Color, DOM, Collision').attr({x:x,y:h,w:fsize,h:fsize,points:points});
 	 
 	Fruit.bind("EnterFrame", function (){

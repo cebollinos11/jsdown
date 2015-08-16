@@ -8,16 +8,10 @@ function RunTest(){
 
   	//SpawnUmbrella(_w/2,_h/2);
 
-  	to = Crafty.e("2D,DOM,Color,Tween").color("green").attr({x:50,y:50,h:50,w:50,z:4});
-
-  	to.bump = function(){
-  		to.tween({h:this.h-10},200);
-  		to.bind("TweenEnd",function(){
-  			to.tween({h:this.h+10},200);
-  			to.unbind("TweenEnd");
-
-  		});
-  	}
+  	for (var i  = 0; i < 10; i++) {
+  		
+  	GenFruit(_w/2+i*40,_h);
+  	};
 
   	
 }
