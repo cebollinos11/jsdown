@@ -18,9 +18,9 @@ function endGameClass()
 	this.showEndGameMessage = function(who){
 		console.log("winner",who.name,who.player_color);
 
-		Crafty.e('2D,  DOM, tupiwalk, spawnable,Color')
-		  .attr({x: 400, y: 125, w: _pw, h: _ph,z:4})
-		  .color(who.player_color);  
+		Crafty.e('2D,  DOM, tupiwalk'+who.index+', spawnable,Color')
+		  .attr({x: 400, y: 125, w: _pw, h: _ph,z:4});
+		  //.color(who.player_color);  
 		  
 		
 		//Crafty.e("2D, DOM, Text").text("<H1><br><br><br><br><br><br><br><br> </H1>").attr({ x: 50, y: 100 ,w:500,h:400,z:1 });

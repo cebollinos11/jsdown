@@ -1,8 +1,8 @@
 var _playerList = [
-  {name : "Player 1", controls:["LEFT_ARROW","RIGHT_ARROW"],color:"pink",generate_player: GenPlayer1},
-  {name : "Player 2", controls:["Q","W"],color:"blue",generate_player: GenPlayer1},
-  {name : "Player 3", controls:["O","P"],color:"green",generate_player: GenPlayer1},
-  {name : "Player 3", controls:["V","B"],color:"red",generate_player: GenPlayer1}
+  {index:0,name : "Player 1", controls:["LEFT_ARROW","RIGHT_ARROW"],color:"pink",generate_player: GenPlayer1},
+  {index:1,name : "Player 2", controls:["Q","W"],color:"blue",generate_player: GenPlayer1},
+  {index:2,name : "Player 3", controls:["O","P"],color:"green",generate_player: GenPlayer1},
+  {index:3,name : "Player 4", controls:["V","B"],color:"red",generate_player: GenPlayer1}
 ];
 
 function ControlsForDisplay(i){
@@ -18,7 +18,7 @@ function GenPlayer1(order){
   var original = this;
   var Player = Crafty.e('Player_element, 2D, Color, DOM, Twoway, Collision,Tween')
   .attr({x: _w/2+_pw*order, y: _h/4, w: _pw, h: _ph, name: original.name,burned:0,killed:0,player_color:original.color,speed:_ps,z:1})  
-  .attr({w:_pw*0.8,h:_ph*0.5})
+  .attr({w:_pw*0.8,h:_ph*0.5,index:original.index})
 
     //add hitbox
   // Player.hitbox = Crafty.e("2D,DOM,hitbox_style,player_hitbox,Collision")
@@ -57,8 +57,9 @@ function GenPlayer1(order){
       this.y = who[0].obj.y-this.h;
       //console.log("platform h",who[0].obj.h);
 
-      this.sprite.removeComponent("tupifly");
-      this.sprite.addComponent("tupiwalk");     
+      //this.sprite.removeComponent("tupifly");
+      //this.sprite.addComponent("tupiwalk");     
+      this.Animate(0);
 
     }
     else{//console.log("grinding");
@@ -120,8 +121,9 @@ function GenPlayer1(order){
         this.y+=_g;
         if(this.umbrella){this.umbrella.effect(this);}
         //console.log("applied gravity");
-        this.sprite.removeComponent("tupiwalk");
-        this.sprite.addComponent("tupifly");
+        // this.sprite.removeComponent("tupiwalk");
+        // this.sprite.addComponent("tupifly");
+        this.Animate(1);
       }
       this.inplatform =0;
 
@@ -142,17 +144,36 @@ function GenPlayer1(order){
   //add fatty
   Player.fat_component = new fat(Player);
 
+  //add animation handle
+  Player.Animate = function(n){
+    /*
+     0 = walk
+     1 = fly
+    */
+
+    
+
+    this.sprite.removeComponent("tupiwalk"+this.index);
+    this.sprite.removeComponent("tupifly"+this.index);
+
+    if(n === 0){ this.sprite.addComponent("tupiwalk"+this.index);    }
+    if(n === 1){ this.sprite.addComponent("tupifly"+this.index);    }
+
+    console.log("animation set to ",n,"for index: "+this.index);
+
+  }
+
 
 
   //add player sprite
-  Player.sprite = Crafty.e("2D,DOM,tupiwalk,spawnable,Color").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
+  Player.sprite = Crafty.e("2D,DOM,tupiwalk"+this.index+",spawnable,Color").attr({x:Player.x-Player.w*0.1,y:Player.y-Player.w*0.5,w:_pw,h:_ph,z:1,owner:Player});  
   Player.attach(Player.sprite);
   //alert(Player.sprite.x+","+Player.sprite.y+","+Player.sprite.w+","+Player.sprite.h);
 
   //alert(Player.fat_component.isfat());
 
   
-  if(_nplayers>1){Player.sprite.color(original.color);}
+  //if(_nplayers>1){Player.sprite.color(original.color);}
   //Player.fat_component.getFat();
 
 

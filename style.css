@@ -164,7 +164,7 @@ div{
   border-width: 4px;*/
 }
 
-.spawnable,.playerthumbnail{
+.spawnable{
   background-size: 100% 100%;
 
 
@@ -187,16 +187,50 @@ div{
 .fish{background-image: url('sprites/balloon.gif')}
 .ExplodingBalloon{background-image: url('sprites/balloon_explode.gif');background-size: 100% 100%;}
 
-.tupifly{background-image: url('sprites/tupifly1.png')}
-.playerthumbnail,.tupiwalk{background-image: url('sprites/tupiwalk.gif');}
 .tupiburned{background-image: url('sprites/tupiburned.png')!important;}
 
 
-.playerthumbnail{
+
+.tupiwalk{background-image: url('sprites/tupiwalk0.gif');}
+.playerthumbnail0{
+  background-size: 100% 100%;
   height: 50px;
   width: 50px;
   outline: 1px solid black;
+  background-image: url('sprites/tupiwalk0.gif');
 }
+.playerthumbnail1{
+  background-size: 100% 100%;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid black;
+  background-image: url('sprites/tupiwalk1.gif');
+}
+.playerthumbnail2{
+  background-size: 100% 100%;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid black;
+  background-image: url('sprites/tupiwalk2.gif');
+}
+.playerthumbnail3{
+  background-size: 100% 100%;
+  height: 50px;
+  width: 50px;
+  outline: 1px solid black;
+  background-image: url('sprites/tupiwalk3.gif');
+}
+
+
+.tupiwalk0{background-image: url('sprites/tupiwalk0.gif');}
+.tupiwalk1{background-image: url('sprites/tupiwalk1.gif');}
+.tupiwalk2{background-image: url('sprites/tupiwalk2.gif');}
+.tupiwalk3{background-image: url('sprites/tupiwalk3.gif');}
+
+.tupifly0{background-image: url('sprites/tupifly0.png')}
+.tupifly1{background-image: url('sprites/tupifly1.png')}
+.tupifly2{background-image: url('sprites/tupifly2.png')}
+.tupifly3{background-image: url('sprites/tupifly3.png')}
 
 #game{
 border: 8px #5d6e49 double;

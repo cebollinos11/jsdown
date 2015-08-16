@@ -59,12 +59,9 @@ Crafty.scene("title", function() {
    for(i=0;i<4;i++)
        {
          opacity = (!i)?1:0.2;
-         mainPanelText+="<div id='infoplayer"+i+"' class='playercontrols' style='opacity:"+opacity+"'><p>"+_playerList[i].name+"</p><div class='playerthumbnail' style='background-color: "+_playerList[i].color+";'></div><p>"+ControlsForDisplay(i)+"</p></div>";
+         mainPanelText+="<div id='infoplayer"+i+"' class='playercontrols' style='opacity:"+opacity+"'><p>"+_playerList[i].name+"</p><div class='playerthumbnail"+i+"'></div><p>"+ControlsForDisplay(i)+"</p></div>";
        }
-
-
-
-
+       
     mainPanelText+="</div></div>"
 
     title_elements.mainPanel.text(mainPanelText);
