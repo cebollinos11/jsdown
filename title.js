@@ -84,9 +84,11 @@ Crafty.scene("title", function() {
 
    
 
-   title_elements.main_logo_slug = Crafty.e("2D,Image,DOM,Tween")
-   .attr({x:100,y:100,z:20,alpha:0})
-   .image("sprites/ui/slug.png");
+   title_elements.main_logo_slug = Crafty.e("2D,Image,Text,DOM,Tween")
+   .text("SLUG")
+   //.image("sprites/ui/slug.png")
+   .textFont({size: '100px', weight: 'bold',family:"Header" })
+   .attr({x:100,y:100,z:20,alpha:0});
    
    title_elements.main_logo_down = Crafty.e("2D,DOM,Text,Tween").text("DOWN")
    .attr({x:100,y:-500,z:20})

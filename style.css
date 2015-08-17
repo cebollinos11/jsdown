@@ -67,6 +67,7 @@ div{
   font-size: 2em;  
   font-weight: bold;
   margin: 15px;
+  box-shadow: 4px 4px 4px black;
 }
 .jsButton:hover{
   background-color: blue;
@@ -254,6 +255,7 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
   text-align: center;
   overflow: auto;  
   background-color:rgba(255,255,255,0.8); 
+  box-shadow: 4px 4px 5px black;
 
 }
 .jsPanel span{
@@ -312,3 +314,9 @@ box-shadow: 0px 0px 37px 10px #f4e5dc;
     font-family: 'Paragraph'; /*a name to be used later*/
     src: url('fonts/qarmic.ttf'); /*URL to font*/
 }
+
+@font-face {
+    font-family: 'HardRock'; /*a name to be used later*/
+    src: url('fonts/comic_andy.ttf'); /*URL to font*/
+}
+
