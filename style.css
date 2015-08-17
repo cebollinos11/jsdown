@@ -95,6 +95,7 @@ div{
 
 .background_component1{
   background-image: url('sprites/bg/blue.jpg');
+  
 }
 .background_component2{
   background-image: url('sprites/bg/matrix.jpg');
@@ -117,6 +118,11 @@ div{
 .background_component8{
  
   background-image: url('sprites/bg/pink.jpg');
+}
+
+.background_component9{
+      background-image: url('sprites/bg/india.png');
+
 }
 
 

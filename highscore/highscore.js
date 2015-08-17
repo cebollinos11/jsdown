@@ -7,6 +7,21 @@ function getGetOrdinal(n) {
 function updateHS(){
     $(".HighScoresPanel").html("Loading...");
 
+    //weekly
+
+    // $.getJSON( "highscore/db.json?"+roll(9999), function( data ) {
+    //   var items = "";
+    //   $.each( data["entries"], function( key, val ) {
+    //     var n = key
+    //     items+=( "<tr><td>"+getGetOrdinal(parseInt(key+1))+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
+    //   });
+    // $(".HighScoresPanel").append("<div class='jsPanel'><h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table></div>");
+    
+    // });
+
+
+    //all time
+
     $.getJSON( "highscore/db.json?"+roll(9999), function( data ) {
       var items = "";
       $.each( data["entries"], function( key, val ) {
@@ -14,9 +29,7 @@ function updateHS(){
         items+=( "<tr><td>"+getGetOrdinal(parseInt(key+1))+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
       });
     $(".HighScoresPanel").html("<div class='jsPanel'><h1>Online Leaderboard</h1><table class='hstable'>"+items+"</table></div>");
-    //alert("hs refreshed");
     
-      //console.log(items);
     });
 
     }

@@ -5,7 +5,7 @@ Crafty.scene("title", function() {
   
   
 
-  playbackground("drop");
+  //playbackground("drop");
 
   
 
@@ -85,7 +85,7 @@ Crafty.scene("title", function() {
    
 
    title_elements.main_logo_slug = Crafty.e("2D,Image,DOM,Tween")
-   .attr({x:-100,y:100,z:20,alpha:0})
+   .attr({x:100,y:100,z:20,alpha:0})
    .image("sprites/ui/slug.png");
    
    title_elements.main_logo_down = Crafty.e("2D,DOM,Text,Tween").text("DOWN")

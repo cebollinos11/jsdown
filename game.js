@@ -100,7 +100,7 @@ function StartBackground(where){
 
 function RunSpikes(){
   var spikes_speed = 5000;
-  playsound("alarm",0);
+  playsound("alarm",0,0.2);
 
   //add red warning
   G.spikes.redwarning = Crafty.e("2D,DOM,Color")
