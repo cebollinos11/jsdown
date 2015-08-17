@@ -2,7 +2,7 @@ function RequestHighscore(){
 	console.log("Requesting highscore");
 
 
-	$.getJSON( "highscore/db.json", function( data ) {
+	$.getJSON( "highscore/dbweek.json", function( data ) {
       	
     }).always(function(data){//assign data into variable
     	console.log("success");

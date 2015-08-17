@@ -32,7 +32,7 @@ function endGameClass()
 		  Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 520, y: 50 , w:250  })
    			.text("<H1>Loading Leaderboard...</H1>").attr({z:2})
 
-	    updateHS(); 
+	    setTimeout(updateHS,1000);
 	   Crafty.e("2D, DOM, Text").attr({ x: 100, y: 450, w:600 })
 	    .text("").attr({z:2});  
 	    AudioControllerListener();

@@ -28,7 +28,7 @@ Crafty.scene("title", function() {
            }           
          });  
   
-  updateHS();  
+    
   title_elements.highscore = Crafty.e("2D, DOM, Text, HighScoresPanel").attr({ x: 520, y: 50 , w:250 })
    .text("<div class='menubutton'>Loading Leaderboard...</div>").attr({z:2})
   
@@ -146,6 +146,7 @@ Crafty.scene("title", function() {
       UI_move_down(title_elements.presentation_compilator);
       title_elements.playerselect_compilator.tween({x:0}, 500);
       updateButtons();
+      setTimeout(updateHS,1000);
       //bring_back(title_elements.mainPanel);
 
      });

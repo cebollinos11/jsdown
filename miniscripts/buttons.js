@@ -73,5 +73,16 @@ function RunjQueryInButtons(){
             $(".HighScoresPanel").html("<H1>Updating Leaderboard...</H1>");
             setTimeout(updateHS, 1000);
         });
+
+        $.post("highscore/hsweek.php",
+        {
+          data: JSON.stringify(ToSend)
+        },
+        function(data,status){
+            console.log(data,status)
+            
+            $(".HighScoresPanel").html("<H1>Updating Leaderboard...</H1>");
+            updateHS();
+        });
     });
 }
