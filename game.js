@@ -38,10 +38,10 @@ Crafty.scene("playgame", function() {
   }
 
    _pointsCounter = Crafty.e("2D, DOM, Text")
-    .attr({x: 0, y: _h*0.05, w: _w, h: 10})    
+    .attr({x: 20, y: _h*0.05, w: _w, h: 10})    
     .textFont({ size: '30px', weight: 'bold' })
     .bind("EnterFrame", function (){    
-    _pointsCounter.text("Score: "+G.score.score+"<br>"+G.levelmgr.currentLevel.name);      
+    _pointsCounter.text("Score: "+G.score.score+"<br>"+G.levelmgr.currentLevel.name).textFont({size:"25px", family:"Paragraph" });      
     });//.attr({ plat_frequency: _frequency });
   
     
