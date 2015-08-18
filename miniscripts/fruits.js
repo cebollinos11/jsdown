@@ -1,7 +1,7 @@
 
 Fr = {fruitsize:32,
 	db:["banana","cherry","pineapple","beer","burger","hotdog"],
-	Frequency:50//in percentage
+	Frequency:70//in percentage
 	};
 function GenFruit(x,y){
 
@@ -31,7 +31,6 @@ function GenFruit(x,y){
 		this.destroy();
 		if(this.has("hotdog") || this.has("burger")){
 			who[0].obj.fat_component.getFat();
-
 			G.score.add(this.points*5,who[0].obj);    
 
 		}

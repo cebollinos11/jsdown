@@ -196,12 +196,19 @@ function fat(who){
   fat_component.fat_frames = 0;
   fat_component.h_original = who.h;
   fat_component.w_original = who.w;
+  fat_component.maxfat = 2;
 
   fat_component.isfat=function(){return fat_component.fat;}
 
   fat_component.getFat = function(){
     //if(fat_component.isfat()){return;}
-    if(fat_component.fat>2){return;}
+    if(fat_component.fat==fat_component.maxfat){
+    Blink(fat_component.who.sprite);
+      
+    }
+    if(fat_component.fat>fat_component.maxfat){
+      return;
+    }
     console.log(fat_component.fat);
     fat_component.fat += 1;
     //fat_component.who.y-=fat_component.who.h/2;

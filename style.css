@@ -82,6 +82,21 @@ div{
   font-size:50%;
 }
 
+.eff_blink {
+      animation: blink 0.1s steps(2, start) infinite;
+      -webkit-animation: blink 0.1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+    @-webkit-keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
 
 
 

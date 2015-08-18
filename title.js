@@ -84,7 +84,7 @@ Crafty.scene("title", function() {
 
    
 
-   title_elements.main_logo_slug = Crafty.e("2D,Image,Text,DOM,Tween")
+   title_elements.main_logo_slug = Crafty.e("2D,Image,Text,DOM,Tween,eff_blinker")
    .text("SLUG")
    //.image("sprites/ui/slug.png")
    .textFont({size: '100px', weight: 'bold',family:"Header" })
@@ -147,6 +147,7 @@ Crafty.scene("title", function() {
       //title_elements.presentation_compilator.tween({y: 1000}, 500);
       UI_move_down(title_elements.presentation_compilator);
       title_elements.playerselect_compilator.tween({x:0}, 500);
+      
       updateButtons();
       setTimeout(updateHS,1000);
       //bring_back(title_elements.mainPanel);

@@ -57,3 +57,17 @@ function floate(){
 
 	
 }
+
+
+function Blink(who) {
+    
+    	console.log("guapo!!");
+    	console.log(who);
+    	console.log(who.alpha);
+    	who.addComponent("eff_blink");
+    	who.stopblink = function(){
+    		who.removeComponent("eff_blink");
+    	};
+    	setTimeout(who.stopblink,400);
+       	}
+
