@@ -4,6 +4,9 @@ function getGetOrdinal(n) {
    return n+(s[(v-20)%10]||s[v]||s[0]);
 }
 
+
+_minimumHS = 99999;
+
 function updateHS(){
     console.log("HYIT ME");
     $(".HighScoresPanel").html("Loading...");
@@ -17,6 +20,9 @@ function updateHS(){
         items+=( "<tr><td>"+getGetOrdinal(parseInt(key+1))+"</td><td> " + val["name"] + "</td> <td>"+ val["score"]+"</td></tr>" );
       });
     $("#tab1").html("<table class='hstable'>"+items+"</table>");
+    var minimumHS = data["entries"];
+    _minimumHS = parseInt(minimumHS[minimumHS.length-1]["score"]);
+    
     
     });
 

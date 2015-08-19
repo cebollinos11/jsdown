@@ -21,6 +21,7 @@ function RunjQueryInButtons(){
     });
 
         $("#submitName").keyup(function(){
+            console.log("GO",$("#submitName").val());
             if($("#submitName").val()!=""){
                 $('#Send').removeAttr('disabled');
             }
@@ -68,10 +69,12 @@ function RunjQueryInButtons(){
           data: JSON.stringify(ToSend)
         },
         function(data,status){
-        	console.log(data,status)
+        	
             $("#Response").html("Data: " + data);
             $(".HighScoresPanel").html("<H1>Updating Leaderboard...</H1>");
             setTimeout(updateHS, 1000);
+            Blink(Crafty("HighScoresPanel"));
+            _sendhighscore.destroy();
         });
 
         $.post("highscore/hsweek.php",
