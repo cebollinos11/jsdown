@@ -40,7 +40,7 @@ function endGameClass()
 	    AudioControllerListener();
 	    updateButtons();	
 
-	    if(G.score.score>_minimumHS ){AllowSubmitHighScore();}    
+	    if(G.score.score>_minimumHS  ){AllowSubmitHighScore();}    
 	}
 }
 

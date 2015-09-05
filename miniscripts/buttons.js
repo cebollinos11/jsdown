@@ -1,3 +1,5 @@
+_alreadySent = 0;
+
 function updateButtons()
 {
     setTimeout(RunjQueryInButtons, 1000);
@@ -60,10 +62,14 @@ function RunjQueryInButtons(){
 
         $(this).hide();
 
+        if(_alreadySent)
+            return;
+        _alreadySent = 1;
+
         var ToSend = {};
         ToSend.name = $("#submitName").val();
         ToSend.score = G.score.score.toString();
-        console.log("Sending")
+        console.log("AAA Sending");
         $.post("highscore/hs.php",
         {
           data: JSON.stringify(ToSend)

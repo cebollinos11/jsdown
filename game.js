@@ -11,6 +11,9 @@ function roll(max) //dice roll to simplify randomized calculations
 
 
 Crafty.scene("playgame", function() {  
+
+  //reset highscore
+  _alreadySent = 0;
   
   //reset alive players;
   _AlivePlayers = _nplayers;
