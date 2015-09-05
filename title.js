@@ -186,6 +186,7 @@ Crafty.scene("title", function() {
 
     title_elements.presentation_compilator.attach(
       title_elements.newgamebutton,
+      title_elements.credits,
       // title_elements.creditsbutton,
       title_elements.main_logo_down,
       title_elements.main_logo_slug
