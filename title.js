@@ -154,6 +154,19 @@ Crafty.scene("title", function() {
 
      });
 
+    title_elements.credits = Crafty.e("2D, DOM, Color, Mouse,Text")
+    //.color("red")
+    .text("<div class='jsButton'>Author: Pablo Sarmiento Merino</div>").attr({z:3})
+    //.textFont({size: '100px', weight: 'bold' })
+    .attr({ x: 100, y: 450, w:600, h: 100 })
+    .bind('Click', function() {
+      playsound("glass");
+      //title_elements.presentation_compilator.tween({y: 1000}, 500);
+      window.open("http://pablosan.com");
+      //bring_back(title_elements.mainPanel);
+
+     });
+
 
 
 
