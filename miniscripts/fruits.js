@@ -28,11 +28,11 @@ function GenFruit(x, y) {
     });
 
     Fruit.onHit('Player_element', function (who) {
-        playsound("bite");
-
-        // Prevent multiple hits triggering multiple animations
+		
+		// Prevent multiple hits triggering multiple animations
         if (this._eaten) return;
         this._eaten = true;
+        playsound("bite");
 
         // Score & fat logic
         if (this.has("hotdog") || this.has("burger") || this.has("lollipop") || this.has("icecream")) {
@@ -46,7 +46,7 @@ function GenFruit(x, y) {
         }
 
         // Animate shrink to 0 over 0.5 sec (500ms)
-        this.tween({ w: 0, h: 0, x: this.x + this.w / 2, y: this.y + this.h / 2 }, 300) // 30 frames ≈ 0.5 sec
+        this.tween({ w: 0, h: 0, x: this.x + this.w / 2, y: this.y - this.h }, 500) // 30 frames ≈ 0.5 sec
             .bind("TweenEnd", function () {
                 this.destroy();
             });
